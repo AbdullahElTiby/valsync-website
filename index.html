@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VALSYNC — A privacy-first Valorant companion. Track stats, check your store, coordinate your party, and review matches. No ads. No tracking.">
+<meta name="color-scheme" content="dark">
+<title>VALSYNC — Tactical Companion for Valorant</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A141E'/><text x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='%23FF525D'>V</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@75..125,100..900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           oklch(0.127 0.033 254);
+  --surface:      oklch(0.162 0.031 253);
+  --surface-hi:   oklch(0.208 0.028 253);
+  --primary:      oklch(0.628 0.223 22);
+  --primary-glow: oklch(0.78 0.10 22);
+  --cyan:         oklch(0.779 0.187 171);
+  --gold:         oklch(0.804 0.143 85);
+  --green:        oklch(0.65 0.17 145);
+  --ink:          oklch(0.919 0.012 255);
+  --ink-muted:    oklch(0.65 0.01 255);
+  --border:       oklch(0.30 0.02 255);
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --font:         'Saira', system-ui, sans-serif;
+  --z-sticky:     10;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: clamp(16px, 1.1vw, 18px);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* ponytail: global scanline overlay — consistent with app, 2.5% opacity */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.025) 2px,
+    rgba(0,0,0,0.025) 4px
+  );
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- layout ---------- */
+.container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+/* ---------- nav ---------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: oklch(0.127 0.033 254 / 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.75rem;
+}
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.02em;
+}
+.logo-mark {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.nav-cta {
+  background: var(--primary);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: filter 0.2s;
+}
+.nav-cta:hover { filter: brightness(1.15); }
+.nav-cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+/* ---------- hero ---------- */
+.hero {
+  padding-block: clamp(4rem, 10vh, 8rem) clamp(3rem, 8vh, 6rem);
+  text-align: center;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0.3rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin-bottom: 1rem;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--primary);
+}
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--ink-muted);
+  max-width: 42ch;
+  margin-inline: auto;
+  text-wrap: pretty;
+  margin-bottom: 2rem;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.7rem 1.75rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: filter 0.2s;
+}
+.btn-primary:hover { filter: brightness(1.15); }
+.btn-primary:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+.play-badge { display: block; height: 54px; transition: filter 0.2s; }
+.play-badge:hover { filter: brightness(1.1); }
+
+.trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.trust-row span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.trust-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.trust-dot--cyan  { background: var(--cyan); }
+.trust-dot--gold  { background: var(--gold); }
+.trust-dot--green { background: var(--green); }
+
+/* ---------- hero tactical (overdrive accepted) ---------- */
+.hero.v3-tactical {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  padding: clamp(3rem, 10vh, 5rem) 0 clamp(2.5rem, 8vh, 4.5rem);
+  text-align: left;
+}
+.v3-left { display: flex; flex-direction: column; align-items: flex-start; }
+.v3-badge {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem; background: none; border: none; border-radius: 0; padding: 0;
+}
+.v3-badge::before { content: ""; width: 20px; height: 1px; background: var(--cyan); opacity: 0.5; }
+.v3-heading {
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem); font-weight: 800; line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 0.9rem; color: var(--ink); text-wrap: balance;
+}
+.v3-heading em { font-style: normal; color: var(--primary); }
+.v3-heading em::after {
+  content: ""; display: block; width: 100%; height: 2px; background: var(--primary); opacity: 0.4; margin-top: 2px;
+}
+.v3-desc {
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem); color: var(--ink-muted); max-width: 44ch; margin: 0.9rem 0 2rem; line-height: 1.6; margin-inline: 0;
+}
+.v3-panel {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.75rem 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; position: relative; overflow: hidden;
+}
+.v3-panel::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, var(--cyan), transparent 70%);
+}
+.v3-panel-label {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); display: flex; align-items: center; gap: 0.5rem;
+}
+.v3-panel-label::after { content: ""; flex: 1; height: 1px; background: oklch(0.779 0.187 171 / 0.15); }
+.v3-signal {
+  display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0.9rem; border-radius: 6px; background: oklch(0.162 0.031 253 / 0.4); border: 1px solid oklch(0.30 0.02 255 / 0.4); transition: background 0.25s ease;
+}
+.v3-signal:hover { background: var(--surface-hi); }
+.v3-signal-name { font-size: 0.8rem; font-weight: 600; color: var(--ink); }
+.v3-signal-val { font-size: 0.75rem; font-weight: 700; color: var(--cyan); font-variant-numeric: tabular-nums; }
+.v3-gold { color: var(--gold); }
+.v3-green { color: var(--green); }
+.v3-trust {
+  display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.72rem; color: var(--ink-muted); margin-top: auto; padding-top: 0.5rem;
+}
+.v3-trust span { display: flex; align-items: center; gap: 0.35rem; opacity: 0.7; }
+.v3-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.v3-dot--c { background: var(--cyan); }
+.v3-dot--g { background: var(--gold); }
+.v3-dot--gr { background: var(--green); }
+.v3-corners {
+  position: absolute; inset: 0; pointer-events: none; border-radius: var(--radius-md); transition: border-color 0.4s ease;
+}
+.v3-panel:hover .v3-corners { border: 1px solid oklch(0.779 0.187 171 / 0.2); }
+
+/* ---------- hero clip-wipe animation ---------- */
+@keyframes v2-clip-badge {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@keyframes v2-clip-heading {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@keyframes v2-clip-desc {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@keyframes v2-btn-reveal {
+  from { clip-path: inset(0 52% 0 52%); filter: brightness(0.8); }
+  to   { clip-path: inset(0 0 0 0); filter: brightness(1); }
+}
+@keyframes v2-panel-reveal {
+  from { clip-path: inset(0 0 100% 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@keyframes v2-signal-reveal {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@keyframes v2-corners-pulse {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+.v2-clip-hero .v2-badge   { animation: v2-clip-badge   520ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.v2-clip-hero .v2-heading { animation: v2-clip-heading 580ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
+.v2-clip-hero .v2-desc    { animation: v2-clip-desc    520ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both; }
+.v2-clip-hero .v2-actions { animation: v2-btn-reveal   480ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both; }
+.v2-clip-hero .v2-panel   { animation: v2-panel-reveal 640ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both; }
+.v2-clip-hero .v2-signal:nth-child(3) { animation: v2-signal-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) 360ms both; }
+.v2-clip-hero .v2-signal:nth-child(4) { animation: v2-signal-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) 420ms both; }
+.v2-clip-hero .v2-signal:nth-child(5) { animation: v2-signal-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) 480ms both; }
+.v2-clip-hero .v2-trust   { animation: v2-signal-reveal 500ms cubic-bezier(0.16, 1, 0.3, 1) 540ms both; }
+.v2-clip-hero .v2-corners { animation: v2-corners-pulse 2s cubic-bezier(0.16, 1, 0.3, 1) 800ms both; }
+.v2-clip-hero .v2-btn     { transition: filter 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.v2-clip-hero .v2-btn:hover { filter: brightness(1.2) saturate(1.1); }
+
+/* ---------- site-wide clip-wipe ---------- */
+.section-header h2        { animation: v2-clip-heading 580ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.section-header p         { animation: v2-clip-desc    520ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
+.feature                  { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.feature:nth-child(1)     { animation-delay: 140ms; }
+.feature:nth-child(2)     { animation-delay: 200ms; }
+.feature:nth-child(3)     { animation-delay: 260ms; }
+.feature:nth-child(4)     { animation-delay: 320ms; }
+.feature:nth-child(5)     { animation-delay: 380ms; }
+.feature:nth-child(6)     { animation-delay: 440ms; }
+.privacy h2               { animation: v2-clip-heading 580ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.privacy-lede              { animation: v2-clip-desc    520ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
+.privacy-item              { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.privacy-item:nth-child(1) { animation-delay: 140ms; }
+.privacy-item:nth-child(2) { animation-delay: 200ms; }
+.privacy-item:nth-child(3) { animation-delay: 260ms; }
+.privacy-item:nth-child(4) { animation-delay: 320ms; }
+.privacy .btn-primary      { animation: v2-btn-reveal   480ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both; }
+.site-footer               { animation: v2-panel-reveal 500ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+/* ---------- end site-wide clip-wipe ---------- */
+
+/* ---------- section ---------- */
+.section {
+  padding-block: clamp(3rem, 7vh, 6rem);
+}
+.section-header {
+  margin-bottom: 2.5rem;
+}
+.section-header h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin-bottom: 0.75rem;
+}
+.section-header p {
+  color: var(--ink-muted);
+  max-width: 48ch;
+  text-wrap: pretty;
+}
+
+/* ---------- features ---------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: background 0.25s, border-color 0.25s;
+}
+.feature:hover { background: var(--surface-hi); border-color: var(--ink-muted); }
+.feature-icon {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  background: oklch(0.628 0.223 22 / 0.12);
+}
+.feature h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.feature p {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* accent per feature — one deliberate local variable */
+.feature--cyan  .feature-icon { background: oklch(0.779 0.187 171 / 0.12); color: var(--cyan); }
+.feature--gold  .feature-icon { background: oklch(0.804 0.143 85 / 0.12); color: var(--gold); }
+.feature--green .feature-icon { background: oklch(0.65 0.17 145 / 0.12); color: var(--green); }
+
+/* ---------- privacy ---------- */
+.privacy {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 4vw, 3rem);
+}
+.privacy h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.privacy-lede {
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+  max-width: 48ch;
+}
+.privacy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.privacy-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--primary-glow);
+}
+.privacy-item p {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+.privacy-link {
+  color: var(--cyan);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-block: 2.5rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer-links a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--cyan); }
+.footer-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.disclaimer {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  opacity: 0.65;
+  max-width: 56ch;
+}
+
+/* ---------- utility ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- focus ---------- */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="container">
+    <a href="/" class="logo" aria-label="VALSYNC home">
+      <span class="logo-mark" aria-hidden="true">V</span>
+      VALSYNC
+    </a>
+    <a href="#download" class="nav-cta">Download</a>
+  </div>
+</nav>
+
+<main>
+
+    <header class="hero container v3-tactical v2-clip-hero">
+      <div class="v3-left">
+        <div class="v3-badge v2-badge">VALORANT COMPANION</div>
+        <h1 class="v3-heading v2-heading">Tactical Companion<br>for <em>Valorant</em></h1>
+        <p class="v3-desc v2-desc">Track stats, check your store, coordinate your party, and review matches — all in one privacy-first app.</p>
+        <div class="v2-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.valsync.app" class="btn-primary v2-btn" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download on Play Store
+          </a>
+        </div>
+      </div>
+      <div class="v3-panel v2-panel">
+        <div class="v3-corners v2-corners" aria-hidden="true"></div>
+        <div class="v3-panel-label">Live Signals</div>
+        <div class="v3-signal v2-signal"><span class="v3-signal-name">RR Change</span><span class="v3-signal-val">+24</span></div>
+        <div class="v3-signal v2-signal"><span class="v3-signal-name">Win Streak</span><span class="v3-signal-val v3-green">5</span></div>
+        <div class="v3-signal v2-signal"><span class="v3-signal-name">Party</span><span class="v3-signal-val v3-gold">3 online</span></div>
+        <div class="v3-trust v2-trust">
+          <span><span class="v3-dot v3-dot--c" aria-hidden="true"></span> No ads</span>
+          <span><span class="v3-dot v3-dot--g" aria-hidden="true"></span> No tracking</span>
+          <span><span class="v3-dot v3-dot--gr" aria-hidden="true"></span> Data stays on your device</span>
+        </div>
+      </div>
+    </header>
+
+  <section class="section container" aria-labelledby="features-heading">
+    <div class="section-header">
+      <h2 id="features-heading">Everything you need in one place</h2>
+      <p>No alt-tabbing. No ad-laden websites. Every tool, one app.</p>
+    </div>
+    <div class="features">
+      <article class="feature">
+        <span class="feature-icon" aria-hidden="true" style="background:oklch(0.628 0.223 22/0.12); color:var(--primary)">&#9889;</span>
+        <h3>Live Stats & Rank</h3>
+        <p>RR, MMR, ACS, K/D, headshot %. Your competitive career on one screen.</p>
+      </article>
+      <article class="feature feature--cyan">
+        <span class="feature-icon" aria-hidden="true">&#9733;</span>
+        <h3>Daily Store & Night Market</h3>
+        <p>Check your offers without launching the game. Wishlist alerts when skins appear.</p>
+      </article>
+      <article class="feature feature--gold">
+        <span class="feature-icon" aria-hidden="true">&#9876;</span>
+        <h3>Party & Draft Companion</h3>
+        <p>Coordinate agents with your team. Manage party visibility and matchmaking.</p>
+      </article>
+      <article class="feature feature--green">
+        <span class="feature-icon" aria-hidden="true">&#9993;</span>
+        <h3>Social & Chat</h3>
+        <p>Riot friends with presence. Direct 1:1 chat via XMPP. No third-party service.</p>
+      </article>
+      <article class="feature">
+        <span class="feature-icon" aria-hidden="true" style="background:oklch(0.779 0.187 171/0.12); color:var(--cyan)">&#128214;</span>
+        <h3>Tactical Wiki</h3>
+        <p>Agents, weapons, maps, lineups, and patch notes — indexed and searchable.</p>
+      </article>
+      <article class="feature">
+        <span class="feature-icon" aria-hidden="true" style="background:oklch(0.65 0.17 145/0.12); color:var(--green)">&#9654;</span>
+        <h3>Match Replay</h3>
+        <p>Round-by-round kill timeline. Optional local telemetry capture for deep review.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="privacy-heading">
+    <div class="privacy">
+      <h2 id="privacy-heading">No ads. No tracking. No monetization.</h2>
+      <p class="privacy-lede">The single strongest signal VALSYNC sends: nothing is for sale. Your data, your stats, your matches — they stay on your device.</p>
+      <div class="privacy-grid">
+        <div class="privacy-item">
+          <h3>Zero advertising SDKs</h3>
+          <p>No banners, no interstitials, no video ads, no ad identifiers. Not now, not ever.</p>
+        </div>
+        <div class="privacy-item">
+          <h3>No analytics or tracking</h3>
+          <p>No crash reporters, no usage analytics, no telemetry phoning home. We don't know how you use the app, and we don't want to.</p>
+        </div>
+        <div class="privacy-item">
+          <h3>Encrypted on-device storage</h3>
+          <p>Your Riot tokens are stored in Android Keystore-backed AES encryption. Replay files stay in app-private local storage.</p>
+        </div>
+        <div class="privacy-item">
+          <h3>Open source</h3>
+          <p>Every line is visible. The codebase is organized, tested, and documented — built by people who ship professionally.</p>
+        </div>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.valsync.app" class="btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download VALSYNC
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" aria-label="Footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="#download">Download</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/your-org/valsync" rel="noopener">GitHub</a>
+    </div>
+    <span>VALSYNC &mdash; v1.0.3</span>
+  </div>
+  <p class="disclaimer container">VALSYNC is an independent, unofficial companion app and is not affiliated with, endorsed by, or sponsored by Riot Games. Valorant and all related marks and assets are trademarks of Riot Games, Inc.</p>
+</footer>
+
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

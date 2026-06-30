@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VALSYNC Privacy Policy — how we handle your data. No ads, no tracking, no monetization.">
+<meta name="color-scheme" content="dark">
+<title>Privacy Policy — VALSYNC</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A141E'/><text x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='%23FF525D'>V</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@75..125,100..900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           oklch(0.127 0.033 254);
+  --surface:      oklch(0.162 0.031 253);
+  --surface-hi:   oklch(0.208 0.028 253);
+  --primary:      oklch(0.628 0.223 22);
+  --primary-glow: oklch(0.78 0.10 22);
+  --cyan:         oklch(0.779 0.187 171);
+  --gold:         oklch(0.804 0.143 85);
+  --green:        oklch(0.65 0.17 145);
+  --ink:          oklch(0.919 0.012 255);
+  --ink-muted:    oklch(0.65 0.01 255);
+  --border:       oklch(0.30 0.02 255);
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --font:         'Saira', system-ui, sans-serif;
+  --z-sticky:     10;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: clamp(16px, 1.1vw, 18px);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.025) 2px,
+    rgba(0,0,0,0.025) 4px
+  );
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+/* nav */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: oklch(0.127 0.033 254 / 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.75rem;
+}
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.02em;
+}
+.logo-mark {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.nav-cta {
+  background: var(--primary);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: filter 0.2s;
+}
+.nav-cta:hover { filter: brightness(1.15); }
+.nav-cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+/* legal content */
+.legal {
+  padding-block: clamp(2.5rem, 6vh, 5rem);
+}
+.legal h1 {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.legal .last-updated {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin-bottom: 2.5rem;
+}
+.legal h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-glow);
+  margin: 2.5rem 0 0.75rem;
+}
+.legal p, .legal li {
+  max-width: 58ch;
+  color: var(--ink-muted);
+  margin-bottom: 0.75rem;
+}
+.legal ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.legal li { margin-bottom: 0.35rem; }
+.legal a {
+  color: var(--cyan);
+  font-weight: 500;
+}
+
+/* footer */
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-block: 2.5rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer-links a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--cyan); }
+.footer-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.disclaimer {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  opacity: 0.65;
+  max-width: 56ch;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="container">
+    <a href="/" class="logo" aria-label="VALSYNC home">
+      <span class="logo-mark" aria-hidden="true">V</span>
+      VALSYNC
+    </a>
+    <a href="#download" class="nav-cta">Download</a>
+  </div>
+</nav>
+
+<main>
+  <section class="legal container">
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: June 2026</p>
+
+    <h2>1. Our Commitment</h2>
+    <p>VALSYNC is built on a single principle: your data is yours. We do not collect it, we do not want it, and we have designed the App so that nothing leaves your device unless you explicitly initiate it (e.g., sending a chat message to a friend).</p>
+
+    <h2>2. Information We Do Not Collect</h2>
+    <p>VALSYNC does not collect, store, or transmit any of the following:</p>
+    <ul>
+      <li><strong>Personal identifiers:</strong> No email addresses, phone numbers, or real names are collected.</li>
+      <li><strong>Usage analytics:</strong> No crash reporters, no session tracking, no feature-usage telemetry. We have no idea how you use the App, and we do not want to.</li>
+      <li><strong>Device information:</strong> No device fingerprints, advertising IDs (AAID/GAID), or hardware identifiers.</li>
+      <li><strong>Location data:</strong> No GPS, coarse location, or IP-based geolocation.</li>
+      <li><strong>Advertising data:</strong> No ad SDKs, no tracking pixels, no retargeting identifiers. There are no ads in VALSYNC and there never will be.</li>
+    </ul>
+
+    <h2>3. Riot Games Authentication</h2>
+    <p>To function, VALSYNC requires you to sign in with your Riot Games account. Your Riot credentials are handled directly by Riot's official OAuth flow — we never see your password. The resulting authentication tokens are stored exclusively on your device using Android Keystore-backed AES-256 encryption. These tokens never leave your device and are never transmitted to VALSYNC servers (we do not have any).</p>
+
+    <h2>4. Game Data</h2>
+    <p>All game data displayed in the App (stats, store contents, match history, friend lists) is fetched in real time from Riot Games' official API. This data passes directly from Riot's servers to your device. VALSYNC does not cache, store, or process this data on any intermediate server.</p>
+
+    <h2>5. Optional Features</h2>
+    <p>Some features require data sharing you explicitly control:</p>
+    <ul>
+      <li><strong>Party Chat & Direct Messages:</strong> When you send a chat message, it is transmitted to the recipient through Riot's XMPP infrastructure. VALSYNC does not store or log these messages.</li>
+      <li><strong>Match Replay Telemetry:</strong> If you choose to enable local telemetry capture for match review, replay data is stored in app-private local storage on your device. It is never uploaded anywhere.</li>
+    </ul>
+
+    <h2>6. Open Source</h2>
+    <p>Every line of VALSYNC's code is publicly visible. You can verify our privacy claims by inspecting the source code. There are no hidden data collection routines, no third-party analytics libraries, and no obfuscated tracking code. The codebase is available on <a href="https://github.com/your-org/valsync">GitHub</a>.</p>
+
+    <h2>7. Third-Party Services</h2>
+    <p>VALSYNC integrates with the following services:</p>
+    <ul>
+      <li><strong>Riot Games API:</strong> Required for core functionality. Governed by <a href="https://www.riotgames.com/en/privacy-notice">Riot Games' Privacy Notice</a>.</li>
+    </ul>
+    <p>We use no other third-party services. No analytics, no crash reporting, no ad networks, no CDN with logging, no payment processors.</p>
+
+    <h2>8. Children's Privacy</h2>
+    <p>VALSYNC is not directed at children under 13. As we collect no personal data from anyone, we have no mechanism to knowingly collect information from children. The App's functionality requires a Riot Games account, which itself requires compliance with Riot's age requirements.</p>
+
+    <h2>9. Data Security</h2>
+    <p>Since VALSYNC stores almost no data (only your encrypted Riot tokens locally), the attack surface is minimal. The Riot authentication tokens in local storage are encrypted using Android Keystore. The App communicates exclusively over HTTPS to Riot's official API endpoints.</p>
+
+    <h2>10. Your Rights</h2>
+    <p>Because we collect no personal data, there is nothing to access, correct, delete, or export. If you uninstall the App, all locally stored data (encrypted tokens, any saved replays, cached game data) is removed with it. You can revoke VALSYNC's access to your Riot account at any time through <a href="https://account.riotgames.com/">Riot's account management</a>.</p>
+
+    <h2>11. Policy Changes</h2>
+    <p>If this policy ever changes, we will publish the updated version here and note the change in the App. Given our zero-collection architecture, changes are expected to be minimal and rare.</p>
+
+    <h2>12. Contact</h2>
+    <p>For privacy questions, open an issue on the <a href="https://github.com/your-org/valsync">VALSYNC GitHub repository</a>.</p>
+  </section>
+</main>
+
+<footer class="site-footer" aria-label="Footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/your-org/valsync" rel="noopener">GitHub</a>
+    </div>
+    <span>VALSYNC &mdash; v1.0.3</span>
+  </div>
+  <p class="disclaimer container">VALSYNC is an independent, unofficial companion app and is not affiliated with, endorsed by, or sponsored by Riot Games. Valorant and all related marks and assets are trademarks of Riot Games, Inc.</p>
+</footer>
+
+</body>
+</html>
