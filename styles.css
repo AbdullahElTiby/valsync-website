@@ -27,6 +27,13 @@ html {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
 }
 
 body::before {
@@ -183,7 +190,9 @@ a:focus-visible, button:focus-visible {
   font-size: 0.7rem;
   font-weight: 600;
   font-family: var(--font);
-  padding: 0.3rem 0.5rem;
+  padding: 0.4rem 0.55rem;
+  min-width: 36px;
+  min-height: 36px;
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
@@ -199,9 +208,90 @@ a:focus-visible, button:focus-visible {
 [dir="rtl"] .nav-right { flex-direction: row-reverse; }
 [dir="rtl"] .hero.v3-tactical { direction: rtl; }
 [dir="rtl"] .v3-left { align-items: flex-end; text-align: right; }
+@media (max-width: 768px) {
+  [dir="rtl"] .v3-left {
+    align-items: center;
+    text-align: center;
+  }
+}
 [dir="rtl"] .v3-panel { direction: ltr; text-align: left; }
 [dir="rtl"] .section-header { text-align: right; }
 [dir="rtl"] .privacy { text-align: right; }
 [dir="rtl"] .phone-demo { direction: ltr; }
 [dir="rtl"] .compare-table { direction: rtl; }
 [dir="rtl"] .footer-links { flex-direction: row-reverse; }
+[dir="rtl"] .faq summary::after { float: left; }
+[dir="rtl"] .hero-actions { direction: ltr; }
+
+/* responsive: nav wraps at small screens */
+@media (max-width: 520px) {
+  .site-nav .container {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .nav-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .nav-cta {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* responsive: hero stacks on mobile */
+@media (max-width: 768px) {
+  .hero.v3-tactical {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .v3-left {
+    align-items: center;
+  }
+  .v3-panel {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* responsive: compare table scrolls on narrow screens */
+@media (max-width: 600px) {
+  .compare-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .compare-row {
+    grid-template-columns: 1fr 100px 100px;
+    font-size: 0.78rem;
+    padding: 0.65rem 0.75rem;
+  }
+  .compare-row:first-child {
+    font-size: 0.7rem;
+  }
+}
+
+/* responsive: footer stacks at narrow widths */
+@media (max-width: 480px) {
+  .site-footer .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* touch targets: ensure interactive elements are at least 44px */
+@media (max-width: 768px) {
+  a[href], button, .btn-primary, .nav-cta, .lang-btn, .ctrl, .thumb, .dot {
+    min-height: 44px;
+  }
+  .btn-primary, .nav-cta {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}

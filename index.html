@@ -438,8 +438,10 @@
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-user-drag: none;
   user-select: none;
+  -webkit-touch-callout: none;
   touch-action: none;
-  pointer-events: none;
+  /* fallback when image fails to load */
+  background: var(--surface);
 }
 .slide-media.is-zoomed { cursor: grab; }
 .slide-media.is-zoomed:active { cursor: grabbing; }
@@ -708,6 +710,41 @@
   color: var(--ink-muted);
   line-height: 1.5;
 }
+
+/* responsive: hero, section-spacing, and compact grid refinements for phones (US1) */
+@media (max-width: 480px) {
+  .hero { padding-block: 2.5rem 2rem; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions .btn-primary { width: 100%; justify-content: center; }
+  .v3-panel { padding: 1.25rem 1rem; }
+  .section { padding-block: 2.5rem; }
+  .section-header { margin-bottom: 1.5rem; }
+  .compare-val { font-size: 0.75rem; }
+  .compare-row { padding: 0.55rem 0.6rem; }
+}
+@media (max-width: 360px) {
+  .hero h1 { font-size: 1.75rem; }
+  .v3-heading { font-size: 1.6rem; }
+  .trust-row { gap: 0.75rem 1rem; font-size: 0.78rem; }
+  .v3-desc { font-size: 0.9rem; }
+  .features { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .privacy-grid { grid-template-columns: 1fr; }
+}
+
+/* phone demo: responsive control/thumbnail sizing (US2) */
+@media (max-width: 430px) {
+  .phone-demo { gap: 0.75rem; }
+  .ctrl { width: 38px; height: 38px; }
+  .ctrl svg { width: 16px; height: 16px; }
+  .zoom-toggle { width: 34px; height: 34px; top: 10px; right: 8px; }
+  .zoom-toggle svg { width: 16px; height: 16px; }
+  .thumb { width: 42px; height: 42px; }
+  .slide-caption { padding: 0.65rem 0.75rem 0.85rem; font-size: 0.75rem; }
+  .hint { font-size: 0.7rem; }
+  .ctrl--prev { right: auto; left: 0; }
+  .ctrl--next { left: auto; right: 0; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -750,7 +787,7 @@
     <header class="hero container v3-tactical v2-clip-hero">
       <div class="v3-left">
         <div class="v3-badge v2-badge" data-i18n="hero.badge">VALORANT COMPANION</div>
-        <h1 class="v3-heading v2-heading"><span data-i18n="hero.heading">Tactical Companion</span><br>for <em>Valorant</em></h1>
+        <h1 class="v3-heading v2-heading"><span data-i18n="hero.heading">Tactical Companion</span> <span data-i18n="hero.heading_for">for </span><em>Valorant</em></h1>
         <p class="v3-desc v2-desc" data-i18n="hero.desc">Track stats, check your store, coordinate your party, and review matches — all in one privacy-first app.</p>
         <div class="v2-actions">
             <a href="https://play.google.com/store/apps/details?id=com.valsync.app" class="btn-primary v2-btn" rel="noopener">
@@ -1057,6 +1094,7 @@
   var count = slides.length;
   var current = 0;
   var startX = 0;
+  var startY = 0;
   var dragging = false;
   var zoomStates = mediaEls.map(function() { return { scale: 1, x: 0, y: 0 }; });
   var panning = false;
@@ -1101,8 +1139,8 @@
     var el = mediaEls[i];
     var w = el.offsetWidth;
     var h = el.offsetHeight;
-    st.x = clampV(st.x, h * (1 - st.scale), 0);
-    st.y = clampV(st.y, w * (1 - st.scale), 0);
+    st.x = clampV(st.x, w * (1 - st.scale), 0);
+    st.y = clampV(st.y, h * (1 - st.scale), 0);
   }
   function updateZoomButton() {
     var st = zoomStates[current];
@@ -1138,7 +1176,7 @@
     applyZoom(i);
   }
   function paint() {
-    track.style.transform = 'translateX(' + (-current * 100 / count) + '%)';
+    track.style.transform = 'translateX(' + (-current * 100) + '%)';
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === count - 1;
     prevBtn.setAttribute('aria-disabled', String(current === 0));
@@ -1181,7 +1219,46 @@
     zoomAt(current, e.clientX, e.clientY, st.scale * factor);
   }, { passive: false });
   var lastTap = { time: 0, x: 0, y: 0 };
+  function moveTrack(dx) {
+    var base = -(current * 100);
+    track.style.transform = 'translateX(' + (base + (dx / screen.offsetWidth) * 100) + '%)';
+  }
+  function finishSwipe(clientX, clientY) {
+    dragging = false;
+    track.classList.remove('dragging');
+    var now = Date.now();
+    var dx = clientX - startX;
+    var dy = clientY - startY;
+    var dist = Math.hypot(dx, dy);
+    var isDouble = now - lastTap.time < 300 && Math.hypot(clientX - lastTap.x, clientY - lastTap.y) < 30 && dist < 10;
+    if (isDouble) { lastTap.time = 0; toggleZoomAt(current, clientX, clientY); return; }
+    if (dist < 10) {
+      lastTap = { time: now, x: clientX, y: clientY };
+      var rect = screen.getBoundingClientRect();
+      if (clientX > rect.left + rect.width / 2) next();
+      else prev();
+      return;
+    }
+    if (Math.abs(dx) > Math.abs(dy) && dx < -40) next();
+    else if (Math.abs(dx) > Math.abs(dy) && dx > 40) prev();
+    else paint();
+  }
+  function finishPan(clientX, clientY) {
+    panning = false;
+    mediaEls[current].classList.remove('is-dragging');
+    clampState(current);
+    applyZoom(current);
+    var now = Date.now();
+    var d = Math.hypot(clientX - lastTap.x, clientY - lastTap.y);
+    if (now - lastTap.time < 300 && d < 30) {
+      lastTap.time = 0;
+      toggleZoomAt(current, clientX, clientY);
+    } else {
+      lastTap = { time: now, x: clientX, y: clientY };
+    }
+  }
   screen.addEventListener('pointerdown', function(e) {
+    if (e.pointerType === 'touch') return;
     if (e.target.closest('#zoom-toggle')) return;
     var st = zoomStates[current];
     screen.setPointerCapture(e.pointerId);
@@ -1196,6 +1273,7 @@
     }
     dragging = true;
     startX = e.clientX;
+    startY = e.clientY;
     track.classList.add('dragging');
   });
   screen.addEventListener('pointermove', function(e) {
@@ -1208,36 +1286,15 @@
       return;
     }
     if (!dragging) return;
-    var dx = e.clientX - startX;
-    var base = -(current * 100 / count);
-    track.style.transform = 'translateX(' + (base + (dx / screen.offsetWidth) * (100 / count)) + '%)';
+    moveTrack(e.clientX - startX);
   });
   function endPointer(e) {
-    var now = Date.now();
     if (panning) {
-      panning = false;
-      mediaEls[current].classList.remove('is-dragging');
-      clampState(current);
-      applyZoom(current);
-      var d = Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y);
-      if (now - lastTap.time < 300 && d < 30) {
-        lastTap.time = 0;
-        toggleZoomAt(current, e.clientX, e.clientY);
-      } else { lastTap = { time: now, x: e.clientX, y: e.clientY }; }
+      finishPan(e.clientX, e.clientY);
       return;
     }
     if (!dragging) return;
-    dragging = false;
-    track.classList.remove('dragging');
-    var dx = e.clientX - startX;
-    var dy = e.clientY - startY;
-    var dist = Math.hypot(dx, dy);
-    var isDouble = now - lastTap.time < 300 && Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y) < 30 && dist < 10;
-    if (isDouble) { lastTap.time = 0; toggleZoomAt(current, e.clientX, e.clientY); return; }
-    if (dist < 10) { lastTap = { time: now, x: e.clientX, y: e.clientY }; }
-    if (dx < -40) next();
-    else if (dx > 40) prev();
-    else paint();
+    finishSwipe(e.clientX, e.clientY);
   }
   screen.addEventListener('pointerup', endPointer);
   screen.addEventListener('pointercancel', function() {
@@ -1248,6 +1305,58 @@
     paint();
     applyZoom(current);
   });
+  screen.addEventListener('touchstart', function(e) {
+    if (e.target.closest('#zoom-toggle') || e.touches.length !== 1) return;
+    var t = e.touches[0];
+    var st = zoomStates[current];
+    if (st.scale > 1) {
+      panning = true;
+      panStart.x = t.clientX;
+      panStart.y = t.clientY;
+      panStart.tx = st.x;
+      panStart.ty = st.y;
+      mediaEls[current].classList.add('is-dragging');
+      return;
+    }
+    dragging = true;
+    startX = t.clientX;
+    startY = t.clientY;
+    track.classList.add('dragging');
+  }, { passive: true });
+  screen.addEventListener('touchmove', function(e) {
+    if (e.touches.length !== 1) return;
+    var t = e.touches[0];
+    if (panning) {
+      e.preventDefault();
+      var st = zoomStates[current];
+      st.x = panStart.tx + (t.clientX - panStart.x);
+      st.y = panStart.ty + (t.clientY - panStart.y);
+      clampState(current);
+      applyZoom(current);
+      return;
+    }
+    if (!dragging) return;
+    e.preventDefault();
+    moveTrack(t.clientX - startX);
+  }, { passive: false });
+  screen.addEventListener('touchend', function(e) {
+    var t = e.changedTouches[0];
+    if (!t) return;
+    if (panning) {
+      finishPan(t.clientX, t.clientY);
+      return;
+    }
+    if (!dragging) return;
+    finishSwipe(t.clientX, t.clientY);
+  }, { passive: true });
+  screen.addEventListener('touchcancel', function() {
+    panning = false;
+    dragging = false;
+    track.classList.remove('dragging');
+    if (mediaEls[current]) mediaEls[current].classList.remove('is-dragging');
+    paint();
+    applyZoom(current);
+  }, { passive: true });
   buildControls();
   paint();
 })();
