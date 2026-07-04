@@ -17,6 +17,11 @@
 <meta name="theme-color" content="#0A141E">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://valsync.app/">
+<link rel="alternate" hreflang="en" href="https://valsync.app/?lang=en">
+<link rel="alternate" hreflang="ar" href="https://valsync.app/?lang=ar">
+<link rel="alternate" hreflang="de" href="https://valsync.app/?lang=de">
+<link rel="alternate" hreflang="tr" href="https://valsync.app/?lang=tr">
+<link rel="alternate" hreflang="x-default" href="https://valsync.app/">
 <meta name="color-scheme" content="dark">
 <title>VALSYNC — Tactical Companion for Valorant</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A141E'/><text x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='%23FF525D'>V</text></svg>">
@@ -218,7 +223,7 @@
 .scroll-reveal .privacy-lede,
 .scroll-reveal .privacy-item,
 .scroll-reveal .privacy .btn-primary,
-.scroll-reveal .screenshot-frame,
+.scroll-reveal .phone-demo,
 .scroll-reveal .step,
 .scroll-reveal .compare-table,
 .scroll-reveal .changelog-entry,
@@ -243,13 +248,7 @@
 .scroll-reveal.in-view .privacy-item:nth-child(3) { animation-delay: 260ms; }
 .scroll-reveal.in-view .privacy-item:nth-child(4) { animation-delay: 320ms; }
 .scroll-reveal.in-view .privacy .btn-primary      { animation: v2-btn-reveal   480ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both; }
-.scroll-reveal.in-view .screenshot-frame          { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-.scroll-reveal.in-view .screenshot-frame:nth-child(1) { animation-delay: 100ms; }
-.scroll-reveal.in-view .screenshot-frame:nth-child(2) { animation-delay: 160ms; }
-.scroll-reveal.in-view .screenshot-frame:nth-child(3) { animation-delay: 220ms; }
-.scroll-reveal.in-view .screenshot-frame:nth-child(4) { animation-delay: 280ms; }
-.scroll-reveal.in-view .screenshot-frame:nth-child(5) { animation-delay: 340ms; }
-.scroll-reveal.in-view .screenshot-frame:nth-child(6) { animation-delay: 400ms; }
+.scroll-reveal.in-view .phone-demo                { animation: v2-panel-reveal 500ms cubic-bezier(0.16, 1, 0.3, 1) both; }
 .scroll-reveal.in-view .step                      { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
 .scroll-reveal.in-view .step:nth-child(1)         { animation-delay: 100ms; }
 .scroll-reveal.in-view .step:nth-child(2)         { animation-delay: 180ms; }
@@ -369,33 +368,221 @@
   font-size: 0.875rem;
 }
 
-/* ---------- screenshots ---------- */
-.screenshots {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+/* ---------- phone demo ---------- */
+.phone-demo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1.25rem;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
 }
-.screenshot-frame {
+.phone {
+  position: relative;
+  padding: 12px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: 48px;
+  width: min(360px, 86vw);
+  aspect-ratio: 9 / 19.5;
+}
+.phone-notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 24px;
+  background: #000;
+  border-radius: 999px;
+  z-index: 10;
+}
+.screen {
+  flex: 1;
+  background: #000;
+  border-radius: 36px;
   overflow: hidden;
-  transition: background 0.25s, border-color 0.25s;
+  position: relative;
+  touch-action: none;
 }
-.screenshot-frame:hover { background: var(--surface-hi); border-color: var(--ink-muted); }
-.screenshot-frame img {
-  display: block;
+.screen-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.screen-track.dragging { transition: none; }
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.slide-media {
   width: 100%;
-  height: auto;
-  transition: transform 0.35s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transform-origin: 0 0;
+  cursor: zoom-in;
+  touch-action: none;
 }
-.screenshot-frame:hover img { transform: scale(1.03); }
-.screenshot-label {
-  padding: 0.6rem 0.9rem;
-  font-size: 0.75rem;
+.slide-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform-origin: 0 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-user-drag: none;
+  user-select: none;
+  touch-action: none;
+  pointer-events: none;
+}
+.slide-media.is-zoomed { cursor: grab; }
+.slide-media.is-zoomed:active { cursor: grabbing; }
+.slide-media.is-dragging img { transition: none; }
+.slide-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.9rem 1rem 1.1rem;
+  background: oklch(0.127 0.033 254 / 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid var(--border);
+  color: var(--ink);
+  font-size: 0.85rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+  z-index: 2;
+}
+.home-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36%;
+  height: 4px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 999px;
+  z-index: 10;
+}
+.zoom-toggle {
+  position: absolute;
+  top: 18px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: oklch(0.127 0.033 254 / 0.88);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.zoom-toggle:hover { background: var(--surface-hi); border-color: var(--ink-muted); }
+.zoom-toggle:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.zoom-toggle:active { transform: scale(0.94); }
+.zoom-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.ctrl {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 20;
+}
+.ctrl:hover { background: var(--surface-hi); border-color: var(--ink-muted); }
+.ctrl:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.ctrl:active { transform: translateY(-50%) scale(0.96); }
+.ctrl--prev { right: calc(100% + 14px); }
+.ctrl--next { left: calc(100% + 14px); }
+@media (max-width: 520px) {
+  .ctrl--prev { right: auto; left: -6px; }
+  .ctrl--next { left: auto; right: -6px; }
+}
+.thumbs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.thumb[aria-current="true"] {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+.thumb:hover { border-color: var(--ink-muted); }
+.thumb:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.dots {
+  display: flex;
+  gap: 0.45rem;
+  justify-content: center;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.dot[aria-current="true"] {
+  background: var(--cyan);
+  transform: scale(1.25);
+}
+.dot:hover { background: var(--ink-muted); }
+.dot:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.hint {
   color: var(--ink-muted);
-  letter-spacing: 0.03em;
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: -0.25rem;
 }
 
 /* ---------- steps ---------- */
@@ -536,6 +723,7 @@
   }
 }
 </script>
+<script src="js/i18n.js" defer></script>
 </head>
 <body>
 
@@ -545,7 +733,15 @@
       <span class="logo-mark" aria-hidden="true">V</span>
       VALSYNC
     </a>
-    <a href="#download" class="nav-cta">Download</a>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" class="lang-btn" data-lang="en" title="English">EN</button>
+        <button type="button" class="lang-btn" data-lang="ar" title="العربية">AR</button>
+        <button type="button" class="lang-btn" data-lang="de" title="Deutsch">DE</button>
+        <button type="button" class="lang-btn" data-lang="tr" title="Türkçe">TR</button>
+      </div>
+      <a href="#download" class="nav-cta" data-i18n="nav.download">Download</a>
+    </div>
   </div>
 </nav>
 
@@ -553,239 +749,276 @@
 
     <header class="hero container v3-tactical v2-clip-hero">
       <div class="v3-left">
-        <div class="v3-badge v2-badge">VALORANT COMPANION</div>
-        <h1 class="v3-heading v2-heading">Tactical Companion<br>for <em>Valorant</em></h1>
-        <p class="v3-desc v2-desc">Track stats, check your store, coordinate your party, and review matches — all in one privacy-first app.</p>
+        <div class="v3-badge v2-badge" data-i18n="hero.badge">VALORANT COMPANION</div>
+        <h1 class="v3-heading v2-heading"><span data-i18n="hero.heading">Tactical Companion</span><br>for <em>Valorant</em></h1>
+        <p class="v3-desc v2-desc" data-i18n="hero.desc">Track stats, check your store, coordinate your party, and review matches — all in one privacy-first app.</p>
         <div class="v2-actions">
-          <a href="https://play.google.com/store/apps/details?id=com.valsync.app" class="btn-primary v2-btn" rel="noopener">
+            <a href="https://play.google.com/store/apps/details?id=com.valsync.app" class="btn-primary v2-btn" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download on Play Store
+            <span data-i18n="hero.cta">Download on Play Store</span>
           </a>
         </div>
       </div>
       <div class="v3-panel v2-panel">
         <div class="v3-corners v2-corners" aria-hidden="true"></div>
-        <div class="v3-panel-label">Live Signals</div>
-        <div class="v3-signal v2-signal"><span class="v3-signal-name">RR Change</span><span class="v3-signal-val">+24</span></div>
-        <div class="v3-signal v2-signal"><span class="v3-signal-name">Win Streak</span><span class="v3-signal-val v3-green">5</span></div>
-        <div class="v3-signal v2-signal"><span class="v3-signal-name">Party</span><span class="v3-signal-val v3-gold">3 online</span></div>
+        <div class="v3-panel-label" data-i18n="hero.panel">Live Signals</div>
+        <div class="v3-signal v2-signal"><span class="v3-signal-name" data-i18n="hero.signal_rr">RR Change</span><span class="v3-signal-val">+24</span></div>
+        <div class="v3-signal v2-signal"><span class="v3-signal-name" data-i18n="hero.signal_streak">Win Streak</span><span class="v3-signal-val v3-green">5</span></div>
+        <div class="v3-signal v2-signal"><span class="v3-signal-name" data-i18n="hero.signal_party">Party</span><span class="v3-signal-val v3-gold" data-i18n="hero.signal_party_val">3 online</span></div>
         <div class="v3-trust v2-trust">
-          <span><span class="v3-dot v3-dot--c" aria-hidden="true"></span> No ads</span>
-          <span><span class="v3-dot v3-dot--g" aria-hidden="true"></span> No tracking</span>
-          <span><span class="v3-dot v3-dot--gr" aria-hidden="true"></span> Data stays on your device</span>
+          <span><span class="v3-dot v3-dot--c" aria-hidden="true"></span> <span data-i18n="hero.trust_ads">No ads</span></span>
+          <span><span class="v3-dot v3-dot--g" aria-hidden="true"></span> <span data-i18n="hero.trust_track">No tracking</span></span>
+          <span><span class="v3-dot v3-dot--gr" aria-hidden="true"></span> <span data-i18n="hero.trust_data">Data stays on your device</span></span>
         </div>
       </div>
     </header>
 
   <section class="section container scroll-reveal" aria-labelledby="features-heading">
     <div class="section-header">
-      <h2 id="features-heading">Everything you need in one place</h2>
-      <p>No alt-tabbing. No ad-laden websites. Every tool, one app.</p>
+      <h2 id="features-heading" data-i18n="features.heading">Everything you need in one place</h2>
+      <p data-i18n="features.desc">No alt-tabbing. No ad-laden websites. Every tool, one app.</p>
     </div>
     <div class="features">
       <article class="feature">
         <span class="feature-icon" aria-hidden="true" style="background:oklch(0.628 0.223 22/0.12); color:var(--primary)">&#9889;</span>
-        <h3>Live Stats & Rank</h3>
-        <p>RR, MMR, ACS, K/D, headshot %. Your competitive career on one screen.</p>
+        <h3 data-i18n="features.i1_title">Live Stats & Rank</h3>
+        <p data-i18n="features.i1_desc">RR, MMR, ACS, K/D, headshot %. Your competitive career on one screen.</p>
       </article>
       <article class="feature feature--cyan">
         <span class="feature-icon" aria-hidden="true">&#9733;</span>
-        <h3>Daily Store & Night Market</h3>
-        <p>Check your offers without launching the game. Wishlist alerts when skins appear.</p>
+        <h3 data-i18n="features.i2_title">Daily Store & Night Market</h3>
+        <p data-i18n="features.i2_desc">Check your offers without launching the game. Wishlist alerts when skins appear.</p>
       </article>
       <article class="feature feature--gold">
         <span class="feature-icon" aria-hidden="true">&#9876;</span>
-        <h3>Party & Draft Companion</h3>
-        <p>Coordinate agents with your team. Manage party visibility and matchmaking.</p>
+        <h3 data-i18n="features.i3_title">Party & Draft Companion</h3>
+        <p data-i18n="features.i3_desc">Coordinate agents with your team. Manage party visibility and matchmaking.</p>
       </article>
       <article class="feature feature--green">
         <span class="feature-icon" aria-hidden="true">&#9993;</span>
-        <h3>Social & Chat</h3>
-        <p>Riot friends with presence. Direct 1:1 chat via XMPP. No third-party service.</p>
+        <h3 data-i18n="features.i4_title">Social & Chat</h3>
+        <p data-i18n="features.i4_desc">Riot friends with presence. Direct 1:1 chat via XMPP. No third-party service.</p>
       </article>
       <article class="feature">
         <span class="feature-icon" aria-hidden="true" style="background:oklch(0.779 0.187 171/0.12); color:var(--cyan)">&#128214;</span>
-        <h3>Tactical Wiki</h3>
-        <p>Agents, weapons, maps, lineups, and patch notes — indexed and searchable.</p>
+        <h3 data-i18n="features.i5_title">Tactical Wiki</h3>
+        <p data-i18n="features.i5_desc">Agents, weapons, maps, lineups, and patch notes — indexed and searchable.</p>
       </article>
       <article class="feature">
         <span class="feature-icon" aria-hidden="true" style="background:oklch(0.65 0.17 145/0.12); color:var(--green)">&#9654;</span>
-        <h3>Match Replay</h3>
-        <p>Round-by-round kill timeline. Optional local telemetry capture for deep review.</p>
+        <h3 data-i18n="features.i6_title">Match Replay</h3>
+        <p data-i18n="features.i6_desc">Round-by-round kill timeline. Optional local telemetry capture for deep review.</p>
       </article>
     </div>
   </section>
 
   <section class="section container scroll-reveal" aria-labelledby="screenshots-heading">
     <div class="section-header">
-      <h2 id="screenshots-heading">See it in action</h2>
-      <p>Screenshots from the current release. No mockups — real app.</p>
+      <h2 id="screenshots-heading" data-i18n="screenshots.heading">See it in action</h2>
+      <p data-i18n="screenshots.desc">Screenshots from the current release. No mockups — real app.</p>
     </div>
-    <div class="screenshots">
-      <figure class="screenshot-frame">
-        <img src="img/screenshot-home.jpg" alt="VALSYNC home dashboard showing Platinum rank, RR, and recent match history" loading="lazy">
-        <figcaption class="screenshot-label">Dashboard — live stats, rank, RR tracker</figcaption>
-      </figure>
-      <figure class="screenshot-frame">
-        <img src="img/screenshot-matches.jpg" alt="Match history list with K/D, ACS, map, and RR changes" loading="lazy">
-        <figcaption class="screenshot-label">Match history — round-by-round detail</figcaption>
-      </figure>
-      <figure class="screenshot-frame">
-        <img src="img/screenshot-store.jpg" alt="Daily store with weapon skin offers and countdown timer" loading="lazy">
-        <figcaption class="screenshot-label">Daily store — offers + countdown</figcaption>
-      </figure>
-      <figure class="screenshot-frame">
-        <img src="img/screenshot-loadout.jpg" alt="Weapon armory showing owned and available skins" loading="lazy">
-        <figcaption class="screenshot-label">Loadout — weapon skin collection</figcaption>
-      </figure>
-      <figure class="screenshot-frame">
-        <img src="img/screenshot-party.jpg" alt="Party screen with agent plan and access controls" loading="lazy">
-        <figcaption class="screenshot-label">Party — agent plan, join codes</figcaption>
-      </figure>
-      <figure class="screenshot-frame">
-        <img src="img/screenshot-social.jpg" alt="Friends list showing online status and current match maps" loading="lazy">
-        <figcaption class="screenshot-label">Social — friends, presence, chat</figcaption>
-      </figure>
+    <div class="phone-demo" role="region" aria-roledescription="carousel" aria-label="VALSYNC app screenshots">
+      <button type="button" class="ctrl ctrl--prev" aria-label="Previous screenshot" id="prev">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="phone" id="phone">
+        <div class="phone-notch" aria-hidden="true"></div>
+        <div class="screen" id="screen">
+          <div class="screen-track" id="track" role="list">
+            <div class="slide" role="listitem">
+              <div class="slide-media">
+                <img src="img/screenshot-home.jpg" alt="Dashboard with live stats, rank, and RR tracker" loading="eager">
+              </div>
+              <div class="slide-caption" data-i18n="screenshots.c1">Dashboard — live stats, rank, RR tracker</div>
+            </div>
+            <div class="slide" role="listitem">
+              <div class="slide-media">
+                <img src="img/screenshot-matches.jpg" alt="Match history list with K/D, ACS, map, and RR changes" loading="lazy">
+              </div>
+              <div class="slide-caption" data-i18n="screenshots.c2">Match history — round-by-round detail</div>
+            </div>
+            <div class="slide" role="listitem">
+              <div class="slide-media">
+                <img src="img/screenshot-store.jpg" alt="Daily store with weapon skin offers and countdown timer" loading="lazy">
+              </div>
+              <div class="slide-caption" data-i18n="screenshots.c3">Daily store — offers + countdown</div>
+            </div>
+            <div class="slide" role="listitem">
+              <div class="slide-media">
+                <img src="img/screenshot-loadout.jpg" alt="Weapon armory showing owned and available skins" loading="lazy">
+              </div>
+              <div class="slide-caption" data-i18n="screenshots.c4">Loadout — weapon skin collection</div>
+            </div>
+            <div class="slide" role="listitem">
+              <div class="slide-media">
+                <img src="img/screenshot-party.jpg" alt="Party screen with agent plan and access controls" loading="lazy">
+              </div>
+              <div class="slide-caption" data-i18n="screenshots.c5">Party — agent plan, join codes</div>
+            </div>
+            <div class="slide" role="listitem">
+              <div class="slide-media">
+                <img src="img/screenshot-social.jpg" alt="Friends list showing online status and current match maps" loading="lazy">
+              </div>
+              <div class="slide-caption" data-i18n="screenshots.c6">Social — friends, presence, chat</div>
+            </div>
+          </div>
+          <button type="button" class="zoom-toggle" id="zoom-toggle" aria-label="Zoom in on screenshot" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true" id="zoom-icon">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </button>
+          <div class="home-bar" aria-hidden="true"></div>
+        </div>
+      </div>
+      <button type="button" class="ctrl ctrl--next" aria-label="Next screenshot" id="next">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+      <div class="dots" id="dots" role="tablist" aria-label="Screenshot pages"></div>
+      <div class="thumbs" id="thumbs" role="tablist" aria-label="Screenshot thumbnails"></div>
+      <p class="hint" data-i18n="hints.phone">← → · swipe · double-tap to zoom · Ctrl+scroll to zoom</p>
     </div>
   </section>
 
   <section class="section container scroll-reveal" aria-labelledby="steps-heading">
     <div class="section-header">
-      <h2 id="steps-heading">Three steps to your readout</h2>
-      <p>No account creation. No email. Just your Riot login.</p>
+      <h2 id="steps-heading" data-i18n="steps.heading">Three steps to your readout</h2>
+      <p data-i18n="steps.desc">No account creation. No email. Just your Riot login.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Download &amp; sign in</h3>
-        <p>Install from the Play Store. Log in with your Riot Games account via official OAuth — we never see your password.</p>
+        <h3 data-i18n="steps.s1_title">Download &amp; sign in</h3>
+        <p data-i18n="steps.s1_desc">Install from the Play Store. Log in with your Riot Games account via official OAuth — we never see your password.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Grant API access</h3>
-        <p>Tap once to authorize. Your tokens are stored on-device with Android Keystore AES encryption and never leave your phone.</p>
+        <h3 data-i18n="steps.s2_title">Grant API access</h3>
+        <p data-i18n="steps.s2_desc">Tap once to authorize. Your tokens are stored on-device with Android Keystore AES encryption and never leave your phone.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Everything, one tap</h3>
-        <p>Stats, store, party, social, wiki, replays. No alt-tabbing. No ads. No one watching.</p>
+        <h3 data-i18n="steps.s3_title">Everything, one tap</h3>
+        <p data-i18n="steps.s3_desc">Stats, store, party, social, wiki, replays. No alt-tabbing. No ads. No one watching.</p>
       </div>
     </div>
   </section>
 
   <section class="section container scroll-reveal" aria-labelledby="compare-heading">
     <div class="section-header">
-      <h2 id="compare-heading">Why VALSYNC</h2>
-      <p>What you get vs what the ad-supported alternatives quietly trade away.</p>
+      <h2 id="compare-heading" data-i18n="compare.heading">Why VALSYNC</h2>
+      <p data-i18n="compare.desc">What you get vs what the ad-supported alternatives quietly trade away.</p>
     </div>
     <div class="compare-table">
       <div class="compare-row">
         <span></span>
-        <span class="compare-val" style="color:var(--primary)">VALSYNC</span>
-        <span class="compare-val">Alternatives</span>
+        <span class="compare-val" style="color:var(--primary)" data-i18n="compare.col_valsync">VALSYNC</span>
+        <span class="compare-val" data-i18n="compare.col_alt">Alternatives</span>
       </div>
       <div class="compare-row">
-        <span class="compare-label">Advertising</span>
-        <span class="compare-val compare-val--good">None</span>
-        <span class="compare-val compare-val--bad">Banners, interstitials, video</span>
+        <span class="compare-label" data-i18n="compare.r1_label">Advertising</span>
+        <span class="compare-val compare-val--good" data-i18n="compare.r1_good">None</span>
+        <span class="compare-val compare-val--bad" data-i18n="compare.r1_bad">Banners, interstitials, video</span>
       </div>
       <div class="compare-row">
-        <span class="compare-label">Tracking &amp; analytics</span>
-        <span class="compare-val compare-val--good">Zero SDKs</span>
-        <span class="compare-val compare-val--bad">Crash reporters, usage telemetry</span>
+        <span class="compare-label" data-i18n="compare.r2_label">Tracking &amp; analytics</span>
+        <span class="compare-val compare-val--good" data-i18n="compare.r2_good">Zero SDKs</span>
+        <span class="compare-val compare-val--bad" data-i18n="compare.r2_bad">Crash reporters, usage telemetry</span>
       </div>
       <div class="compare-row">
-        <span class="compare-label">Open source</span>
-        <span class="compare-val compare-val--good">Every line visible</span>
-        <span class="compare-val compare-val--bad">Closed, obfuscated</span>
+        <span class="compare-label" data-i18n="compare.r3_label">Open source</span>
+        <span class="compare-val compare-val--good" data-i18n="compare.r3_good">Every line visible</span>
+        <span class="compare-val compare-val--bad" data-i18n="compare.r3_bad">Closed, obfuscated</span>
       </div>
       <div class="compare-row">
-        <span class="compare-label">Data storage</span>
-        <span class="compare-val compare-val--good">On-device Keystore AES</span>
-        <span class="compare-val compare-val--bad">Server-side, cloud, third-party</span>
+        <span class="compare-label" data-i18n="compare.r4_label">Data storage</span>
+        <span class="compare-val compare-val--good" data-i18n="compare.r4_good">On-device Keystore AES</span>
+        <span class="compare-val compare-val--bad" data-i18n="compare.r4_bad">Server-side, cloud, third-party</span>
       </div>
       <div class="compare-row">
-        <span class="compare-label">Monetization</span>
-        <span class="compare-val compare-val--good">None — not for sale</span>
-        <span class="compare-val compare-val--bad">Your data is the product</span>
+        <span class="compare-label" data-i18n="compare.r5_label">Monetization</span>
+        <span class="compare-val compare-val--good" data-i18n="compare.r5_good">None — not for sale</span>
+        <span class="compare-val compare-val--bad" data-i18n="compare.r5_bad">Your data is the product</span>
       </div>
     </div>
   </section>
 
   <section class="section container scroll-reveal" aria-labelledby="faq-heading">
     <div class="section-header">
-      <h2 id="faq-heading">Questions you're probably asking</h2>
+      <h2 id="faq-heading" data-i18n="faq.heading">Questions you're probably asking</h2>
     </div>
     <div class="faq">
       <details>
-        <summary>Is VALSYNC really free? How do you make money?</summary>
-        <div class="faq-answer">We don't. VALSYNC has no revenue model. No ads, no subscriptions, no data sales, no "premium" tier. It exists because its contributors want a companion app that respects players. If that ever changes, it'll be open-source and transparent — not a dark-pattern pivot.</div>
+        <summary data-i18n="faq.q1">Is VALSYNC really free? How do you make money?</summary>
+        <div class="faq-answer" data-i18n="faq.a1">We don't. VALSYNC has no revenue model. No ads, no subscriptions, no data sales, no "premium" tier. It exists because its contributors want a companion app that respects players. If that ever changes, it'll be open-source and transparent — not a dark-pattern pivot.</div>
       </details>
       <details>
-        <summary>Will using this get my Riot account banned?</summary>
-        <div class="faq-answer">No. VALSYNC uses Riot Games' official API and operates within their developer terms. It does not inject, modify, or interact with the game client in any way. You're reading data you're authorized to access, through the approved API channel.</div>
+        <summary data-i18n="faq.q2">Will using this get my Riot account banned?</summary>
+        <div class="faq-answer" data-i18n="faq.a2">No. VALSYNC uses Riot Games' official API and operates within their developer terms. It does not inject, modify, or interact with the game client in any way. You're reading data you're authorized to access, through the approved API channel.</div>
       </details>
       <details>
-        <summary>Does Riot or anyone else see my data?</summary>
-        <div class="faq-answer">Your data travels directly between your device and Riot's servers. VALSYNC has no intermediate server, no data pipeline, no backend. The only exception is XMPP chat messages, which pass through Riot's chat infrastructure (the same one the game client uses).</div>
+        <summary data-i18n="faq.q3">Does Riot or anyone else see my data?</summary>
+        <div class="faq-answer" data-i18n="faq.a3">Your data travels directly between your device and Riot's servers. VALSYNC has no intermediate server, no data pipeline, no backend. The only exception is XMPP chat messages, which pass through Riot's chat infrastructure (the same one the game client uses).</div>
       </details>
       <details>
-        <summary>What happens if I uninstall?</summary>
-        <div class="faq-answer">Everything VALSYNC stores — encrypted tokens, local replays, cached game data — is removed when you uninstall. There's nothing left behind on any server because there is no server. You can also revoke access from your Riot account management page at any time.</div>
+        <summary data-i18n="faq.q4">What happens if I uninstall?</summary>
+        <div class="faq-answer" data-i18n="faq.a4">Everything VALSYNC stores — encrypted tokens, local replays, cached game data — is removed when you uninstall. There's nothing left behind on any server because there is no server. You can also revoke access from your Riot account management page at any time.</div>
       </details>
       <details>
-        <summary>Which regions and devices are supported?</summary>
-        <div class="faq-answer">All Valorant regions are supported. VALSYNC currently runs on Android 8.0 and above. An iOS version is not currently available — the app is built natively for Android using Kotlin and Jetpack Compose.</div>
+        <summary data-i18n="faq.q5">Which regions and devices are supported?</summary>
+        <div class="faq-answer" data-i18n="faq.a5">All Valorant regions are supported. VALSYNC currently runs on Android 8.0 and above. An iOS version is not currently available — the app is built natively for Android using Kotlin and Jetpack Compose.</div>
       </details>
     </div>
   </section>
 
   <section class="section container scroll-reveal" aria-labelledby="changelog-heading">
     <div class="section-header">
-      <h2 id="changelog-heading">What's new</h2>
-      <p>Latest changes in v1.0.3.</p>
+      <h2 id="changelog-heading" data-i18n="changelog.heading">What's new</h2>
+      <p data-i18n="changelog.desc">Latest changes in v1.0.3.</p>
     </div>
     <div class="changelog">
       <div class="changelog-entry">
         <div class="changelog-version">v1.0.3 — June 2026</div>
-        <p>Agent plan in party screen. Match replay round timeline. Night Market wishlist alerts. Wiki search index for agents, weapons, and maps.</p>
+        <p data-i18n="changelog.v103">Agent plan in party screen. Match replay round timeline. Night Market wishlist alerts. Wiki search index for agents, weapons, and maps.</p>
       </div>
       <div class="changelog-entry">
         <div class="changelog-version">v1.0.2 — May 2026</div>
-        <p>Daily Store integration with countdown timers. Friends list with in-game status and map tracking. XMPP direct chat.</p>
+        <p data-i18n="changelog.v102">Daily Store integration with countdown timers. Friends list with in-game status and map tracking. XMPP direct chat.</p>
       </div>
       <div class="changelog-entry">
         <div class="changelog-version">v1.0.0 — April 2026</div>
-        <p>Initial release. Live stats, rank tracker, match history. On-device token encryption. Zero telemetry, zero ads.</p>
+        <p data-i18n="changelog.v100">Initial release. Live stats, rank tracker, match history. On-device token encryption. Zero telemetry, zero ads.</p>
       </div>
     </div>
   </section>
 
   <section class="section container scroll-reveal" aria-labelledby="privacy-heading" id="download">
     <div class="privacy">
-      <h2 id="privacy-heading">No ads. No tracking. No monetization.</h2>
-      <p class="privacy-lede">The single strongest signal VALSYNC sends: nothing is for sale. Your data, your stats, your matches — they stay on your device.</p>
+       <h2 id="privacy-heading" data-i18n="privacy.heading">No ads. No tracking. No monetization.</h2>
+      <p class="privacy-lede" data-i18n="privacy.desc">The single strongest signal VALSYNC sends: nothing is for sale. Your data, your stats, your matches — they stay on your device.</p>
       <div class="privacy-grid">
         <div class="privacy-item">
-          <h3>Zero advertising SDKs</h3>
-          <p>No banners, no interstitials, no video ads, no ad identifiers. Not now, not ever.</p>
+          <h3 data-i18n="privacy.i1_title">Zero advertising SDKs</h3>
+          <p data-i18n="privacy.i1_desc">No banners, no interstitials, no video ads, no ad identifiers. Not now, not ever.</p>
         </div>
         <div class="privacy-item">
-          <h3>No analytics or tracking</h3>
-          <p>No crash reporters, no usage analytics, no telemetry phoning home. We don't know how you use the app, and we don't want to.</p>
+          <h3 data-i18n="privacy.i2_title">No analytics or tracking</h3>
+          <p data-i18n="privacy.i2_desc">No crash reporters, no usage analytics, no telemetry phoning home. We don't know how you use the app, and we don't want to.</p>
         </div>
         <div class="privacy-item">
-          <h3>Encrypted on-device storage</h3>
-          <p>Your Riot tokens are stored in Android Keystore-backed AES encryption. Replay files stay in app-private local storage.</p>
+          <h3 data-i18n="privacy.i3_title">Encrypted on-device storage</h3>
+          <p data-i18n="privacy.i3_desc">Your Riot tokens are stored in Android Keystore-backed AES encryption. Replay files stay in app-private local storage.</p>
         </div>
         <div class="privacy-item">
-          <h3>Open source</h3>
-          <p>Every line is visible. The codebase is organized, tested, and documented — built by people who ship professionally.</p>
+          <h3 data-i18n="privacy.i4_title">Open source</h3>
+          <p data-i18n="privacy.i4_desc">Every line is visible. The codebase is organized, tested, and documented — built by people who ship professionally.</p>
         </div>
       </div>
       <a href="https://play.google.com/store/apps/details?id=com.valsync.app" class="btn-primary">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download VALSYNC
+        <span data-i18n="nav.download">Download VALSYNC</span>
       </a>
     </div>
   </section>
@@ -803,12 +1036,222 @@
     </div>
     <span>VALSYNC &mdash; v1.0.3</span>
   </div>
-  <p class="disclaimer container">VALSYNC is an independent, unofficial companion app and is not affiliated with, endorsed by, or sponsored by Riot Games. Valorant and all related marks and assets are trademarks of Riot Games, Inc.</p>
+  <p class="disclaimer container" data-i18n="footer.disclaimer">VALSYNC is an independent, unofficial companion app and is not affiliated with, endorsed by, or sponsored by Riot Games. Valorant and all related marks and assets are trademarks of Riot Games, Inc.</p>
 </footer>
 
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->
+<script>
+(function() {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var mediaEls = Array.prototype.slice.call(document.querySelectorAll('.slide-media'));
+  var track = document.getElementById('track');
+  var screen = document.getElementById('screen');
+  var prevBtn = document.getElementById('prev');
+  var nextBtn = document.getElementById('next');
+  var dotsWrap = document.getElementById('dots');
+  var thumbsWrap = document.getElementById('thumbs');
+  var zoomBtn = document.getElementById('zoom-toggle');
+  var zoomIcon = document.getElementById('zoom-icon');
+  var count = slides.length;
+  var current = 0;
+  var startX = 0;
+  var dragging = false;
+  var zoomStates = mediaEls.map(function() { return { scale: 1, x: 0, y: 0 }; });
+  var panning = false;
+  var panStart = { x: 0, y: 0, tx: 0, ty: 0 };
+  var MAX_ZOOM = 3;
+  var MIN_ZOOM = 1;
+
+  function buildControls() {
+    for (var i = 0; i < count; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'dot';
+      dot.type = 'button';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Go to screenshot ' + (i + 1));
+      dot.setAttribute('aria-controls', 'track');
+      dot.addEventListener('click', go.bind(null, i));
+      dotsWrap.appendChild(dot);
+      var thumb = document.createElement('button');
+      thumb.className = 'thumb';
+      thumb.type = 'button';
+      thumb.setAttribute('role', 'tab');
+      thumb.setAttribute('aria-label', 'Go to screenshot ' + (i + 1));
+      var img = slides[i].querySelector('img').cloneNode();
+      img.setAttribute('alt', '');
+      img.removeAttribute('loading');
+      thumb.appendChild(img);
+      thumb.addEventListener('click', go.bind(null, i));
+      thumbsWrap.appendChild(thumb);
+    }
+  }
+
+  function applyZoom(i) {
+    var st = zoomStates[i];
+    var el = mediaEls[i];
+    el.style.transform = 'translate(' + st.x + 'px,' + st.y + 'px) scale(' + st.scale + ')';
+    el.classList.toggle('is-zoomed', st.scale > 1);
+    if (i === current) updateZoomButton();
+  }
+  function clampV(v, min, max) { return Math.max(min, Math.min(max, v)); }
+  function clampState(i) {
+    var st = zoomStates[i];
+    var el = mediaEls[i];
+    var w = el.offsetWidth;
+    var h = el.offsetHeight;
+    st.x = clampV(st.x, h * (1 - st.scale), 0);
+    st.y = clampV(st.y, w * (1 - st.scale), 0);
+  }
+  function updateZoomButton() {
+    var st = zoomStates[current];
+    var zoomed = st.scale > 1;
+    zoomBtn.setAttribute('aria-pressed', String(zoomed));
+    zoomBtn.setAttribute('aria-label', zoomed ? 'Zoom out of screenshot' : 'Zoom in on screenshot');
+    zoomIcon.innerHTML = zoomed
+      ? '<circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line>'
+      : '<circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line>';
+  }
+  function zoomAt(i, cx, cy, newScale) {
+    var st = zoomStates[i];
+    var rect = slides[i].getBoundingClientRect();
+    var px = cx - rect.left;
+    var py = cy - rect.top;
+    var old = st.scale;
+    if (newScale <= MIN_ZOOM) { st.scale = 1; st.x = 0; st.y = 0; }
+    else {
+      st.scale = clampV(newScale, MIN_ZOOM, MAX_ZOOM);
+      st.x = st.x + px * (old - st.scale);
+      st.y = st.y + py * (old - st.scale);
+      clampState(i);
+    }
+    applyZoom(i);
+  }
+  function toggleZoomAt(i, cx, cy) {
+    var st = zoomStates[i];
+    if (st.scale > 1) zoomAt(i, cx, cy, 1);
+    else zoomAt(i, cx, cy, 2.5);
+  }
+  function resetZoom(i) {
+    zoomStates[i] = { scale: 1, x: 0, y: 0 };
+    applyZoom(i);
+  }
+  function paint() {
+    track.style.transform = 'translateX(' + (-current * 100 / count) + '%)';
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === count - 1;
+    prevBtn.setAttribute('aria-disabled', String(current === 0));
+    nextBtn.setAttribute('aria-disabled', String(current === count - 1));
+    var dots = dotsWrap.querySelectorAll('.dot');
+    var thumbs = thumbsWrap.querySelectorAll('.thumb');
+    for (var i = 0; i < count; i++) {
+      var active = i === current;
+      dots[i].setAttribute('aria-current', active ? 'true' : 'false');
+      dots[i].setAttribute('tabindex', active ? '0' : '-1');
+      thumbs[i].setAttribute('aria-current', active ? 'true' : 'false');
+      thumbs[i].setAttribute('tabindex', active ? '0' : '-1');
+    }
+    updateZoomButton();
+  }
+  function go(i) {
+    var n = Math.max(0, Math.min(count - 1, i));
+    if (n !== current) { current = n; resetZoom(current); paint(); }
+  }
+  function next() { go(current + 1); }
+  function prev() { go(current - 1); }
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    else if (e.key === 'Escape') { e.preventDefault(); resetZoom(current); }
+  });
+  zoomBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var rect = slides[current].getBoundingClientRect();
+    toggleZoomAt(current, rect.left + rect.width / 2, rect.top + rect.height / 2);
+  });
+  screen.addEventListener('wheel', function(e) {
+    if (!e.ctrlKey && !e.metaKey) return;
+    e.preventDefault();
+    var st = zoomStates[current];
+    var dir = e.deltaY > 0 ? -1 : 1;
+    var factor = dir > 0 ? 1.15 : 0.87;
+    zoomAt(current, e.clientX, e.clientY, st.scale * factor);
+  }, { passive: false });
+  var lastTap = { time: 0, x: 0, y: 0 };
+  screen.addEventListener('pointerdown', function(e) {
+    if (e.target.closest('#zoom-toggle')) return;
+    var st = zoomStates[current];
+    screen.setPointerCapture(e.pointerId);
+    if (st.scale > 1) {
+      panning = true;
+      panStart.x = e.clientX;
+      panStart.y = e.clientY;
+      panStart.tx = st.x;
+      panStart.ty = st.y;
+      mediaEls[current].classList.add('is-dragging');
+      return;
+    }
+    dragging = true;
+    startX = e.clientX;
+    track.classList.add('dragging');
+  });
+  screen.addEventListener('pointermove', function(e) {
+    if (panning) {
+      var st = zoomStates[current];
+      st.x = panStart.tx + (e.clientX - panStart.x);
+      st.y = panStart.ty + (e.clientY - panStart.y);
+      clampState(current);
+      applyZoom(current);
+      return;
+    }
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    var base = -(current * 100 / count);
+    track.style.transform = 'translateX(' + (base + (dx / screen.offsetWidth) * (100 / count)) + '%)';
+  });
+  function endPointer(e) {
+    var now = Date.now();
+    if (panning) {
+      panning = false;
+      mediaEls[current].classList.remove('is-dragging');
+      clampState(current);
+      applyZoom(current);
+      var d = Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y);
+      if (now - lastTap.time < 300 && d < 30) {
+        lastTap.time = 0;
+        toggleZoomAt(current, e.clientX, e.clientY);
+      } else { lastTap = { time: now, x: e.clientX, y: e.clientY }; }
+      return;
+    }
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove('dragging');
+    var dx = e.clientX - startX;
+    var dy = e.clientY - startY;
+    var dist = Math.hypot(dx, dy);
+    var isDouble = now - lastTap.time < 300 && Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y) < 30 && dist < 10;
+    if (isDouble) { lastTap.time = 0; toggleZoomAt(current, e.clientX, e.clientY); return; }
+    if (dist < 10) { lastTap = { time: now, x: e.clientX, y: e.clientY }; }
+    if (dx < -40) next();
+    else if (dx > 40) prev();
+    else paint();
+  }
+  screen.addEventListener('pointerup', endPointer);
+  screen.addEventListener('pointercancel', function() {
+    panning = false;
+    dragging = false;
+    track.classList.remove('dragging');
+    if (mediaEls[current]) mediaEls[current].classList.remove('is-dragging');
+    paint();
+    applyZoom(current);
+  });
+  buildControls();
+  paint();
+})();
+</script>
 <script>
 (function() {
   var els = document.querySelectorAll('.scroll-reveal');

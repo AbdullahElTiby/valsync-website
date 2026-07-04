@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "title": "VALSYNC — Tactical Companion for Valorant",
+    "description": "A privacy-first Valorant companion. Track stats, check your store, coordinate your party, and review matches. No ads. No tracking."
+  },
+  "nav": {
+    "download": "Download"
+  },
+  "hero": {
+    "badge": "VALORANT COMPANION",
+    "heading": "Tactical Companion for Valorant",
+    "desc": "Track stats, check your store, coordinate your party, and review matches \u2014 all in one privacy-first app.",
+    "cta": "Download on Play Store",
+    "panel": "Live Signals",
+    "signal_rr": "RR Change",
+    "signal_streak": "Win Streak",
+    "signal_party": "Party",
+    "signal_party_val": "3 online",
+    "trust_ads": "No ads",
+    "trust_track": "No tracking",
+    "trust_data": "Data stays on your device"
+  },
+  "features": {
+    "heading": "Everything you need in one place",
+    "desc": "No alt-tabbing. No ad-laden websites. Every tool, one app.",
+    "i1_title": "Live Stats & Rank",
+    "i1_desc": "RR, MMR, ACS, K/D, headshot %. Your competitive career on one screen.",
+    "i2_title": "Daily Store & Night Market",
+    "i2_desc": "Check your offers without launching the game. Wishlist alerts when skins appear.",
+    "i3_title": "Party & Draft Companion",
+    "i3_desc": "Coordinate agents with your team. Manage party visibility and matchmaking.",
+    "i4_title": "Social & Chat",
+    "i4_desc": "Riot friends with presence. Direct 1:1 chat via XMPP. No third-party service.",
+    "i5_title": "Tactical Wiki",
+    "i5_desc": "Agents, weapons, maps, lineups, and patch notes — indexed and searchable.",
+    "i6_title": "Match Replay",
+    "i6_desc": "Round-by-round kill timeline. Optional local telemetry capture for deep review."
+  },
+  "screenshots": {
+    "heading": "See it in action",
+    "desc": "Screenshots from the current release. No mockups \u2014 real app.",
+    "c1": "Dashboard \u2014 live stats, rank, RR tracker",
+    "c2": "Match history \u2014 round-by-round detail",
+    "c3": "Daily store \u2014 offers + countdown",
+    "c4": "Loadout \u2014 weapon skin collection",
+    "c5": "Party \u2014 agent plan, join codes",
+    "c6": "Social \u2014 friends, presence, chat"
+  },
+  "steps": {
+    "heading": "Three steps to your readout",
+    "desc": "No account creation. No email. Just your Riot login.",
+    "s1_title": "Download & sign in",
+    "s1_desc": "Install from the Play Store. Log in with your Riot Games account via official OAuth \u2014 we never see your password.",
+    "s2_title": "Grant API access",
+    "s2_desc": "Tap once to authorize. Your tokens are stored on-device with Android Keystore AES encryption and never leave your phone.",
+    "s3_title": "Everything, one tap",
+    "s3_desc": "Stats, store, party, social, wiki, replays. No alt-tabbing. No ads. No one watching."
+  },
+  "compare": {
+    "heading": "Why VALSYNC",
+    "desc": "What you get vs what the ad-supported alternatives quietly trade away.",
+    "col_valsync": "VALSYNC",
+    "col_alt": "Alternatives",
+    "r1_label": "Advertising",
+    "r1_good": "None",
+    "r1_bad": "Banners, interstitials, video",
+    "r2_label": "Tracking & analytics",
+    "r2_good": "Zero SDKs",
+    "r2_bad": "Crash reporters, usage telemetry",
+    "r3_label": "Open source",
+    "r3_good": "Every line visible",
+    "r3_bad": "Closed, obfuscated",
+    "r4_label": "Data storage",
+    "r4_good": "On-device Keystore AES",
+    "r4_bad": "Server-side, cloud, third-party",
+    "r5_label": "Monetization",
+    "r5_good": "None \u2014 not for sale",
+    "r5_bad": "Your data is the product"
+  },
+  "faq": {
+    "heading": "Questions you\u2019re probably asking",
+    "desc": "Answers to common questions. If yours isn\u2019t here, reach out via the Contact link in the footer.",
+    "q1": "Is VALSYNC really free? How do you make money?",
+    "a1": "We don\u2019t. VALSYNC has no revenue model. No ads, no subscriptions, no data sales, no \u201cpremium\u201d tier. It exists because its contributors want a companion app that respects players. If that ever changes, it\u2019ll be open-source and transparent \u2014 not a dark-pattern pivot.",
+    "q2": "Will using this get my Riot account banned?",
+    "a2": "No. VALSYNC uses Riot Games\u2019 official API and operates within their developer terms. It does not inject, modify, or interact with the game client in any way. You\u2019re reading data you\u2019re authorized to access, through the approved API channel.",
+    "q3": "Does Riot or anyone else see my data?",
+    "a3": "Your data travels directly between your device and Riot\u2019s servers. VALSYNC has no intermediate server, no data pipeline, no backend. The only exception is XMPP chat messages, which pass through Riot\u2019s chat infrastructure (the same one the game client uses).",
+    "q4": "What happens if I uninstall?",
+    "a4": "Everything VALSYNC stores \u2014 encrypted tokens, local replays, cached game data \u2014 is removed when you uninstall. There\u2019s nothing left behind on any server because there is no server. You can also revoke access from your Riot account management page at any time.",
+    "q5": "Which regions and devices are supported?",
+    "a5": "All Valorant regions are supported. VALSYNC currently runs on Android 8.0 and above. An iOS version is not currently available \u2014 the app is built natively for Android using Kotlin and Jetpack Compose."
+  },
+  "changelog": {
+    "heading": "What\u2019s new",
+    "desc": "Latest changes in v1.0.3.",
+    "v103": "Agent plan in party screen. Match replay round timeline. Night Market wishlist alerts. Wiki search index for agents, weapons, and maps.",
+    "v102": "Daily Store integration with countdown timers. Friends list with in-game status and map tracking. XMPP direct chat.",
+    "v100": "Initial release. Live stats, rank tracker, match history. On-device token encryption. Zero telemetry, zero ads."
+  },
+  "privacy": {
+    "heading": "No ads. No tracking. No monetization.",
+    "desc": "The single strongest signal VALSYNC sends: nothing is for sale. Your data, your stats, your matches \u2014 they stay on your device.",
+    "i1_title": "Zero advertising SDKs",
+    "i1_desc": "No banners, no interstitials, no video ads, no ad identifiers. Not now, not ever.",
+    "i2_title": "No analytics or tracking",
+    "i2_desc": "No crash reporters, no usage analytics, no telemetry phoning home. We don\u2019t know how you use the app, and we don\u2019t want to.",
+    "i3_title": "Encrypted on-device storage",
+    "i3_desc": "Your Riot tokens are stored in Android Keystore-backed AES encryption. Replay files stay in app-private local storage.",
+    "i4_title": "Open source",
+    "i4_desc": "Every line is visible. The codebase is organized, tested, and documented \u2014 built by people who ship professionally."
+  },
+  "footer": {
+    "disclaimer": "VALSYNC is an independent, unofficial companion app and is not affiliated with, endorsed by, or sponsored by Riot Games. Valorant and all related marks and assets are trademarks of Riot Games, Inc."
+  },
+  "hints": {
+    "phone": "\u2190 \u2192 \u00b7 swipe \u00b7 double-tap to zoom \u00b7 Ctrl+scroll to zoom"
+  }
+}

@@ -164,3 +164,44 @@ a:focus-visible, button:focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 2px;
 }
+
+/* lang switcher */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.lang-switch {
+  display: flex;
+  gap: 2px;
+}
+.lang-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font);
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.lang-btn:hover,
+.lang-btn.active {
+  color: var(--ink);
+  border-color: var(--cyan);
+  background: var(--surface-hi);
+}
+
+/* RTL */
+[dir="rtl"] .site-nav .container { flex-direction: row-reverse; }
+[dir="rtl"] .nav-right { flex-direction: row-reverse; }
+[dir="rtl"] .hero.v3-tactical { direction: rtl; }
+[dir="rtl"] .v3-left { align-items: flex-end; text-align: right; }
+[dir="rtl"] .v3-panel { direction: ltr; text-align: left; }
+[dir="rtl"] .section-header { text-align: right; }
+[dir="rtl"] .privacy { text-align: right; }
+[dir="rtl"] .phone-demo { direction: ltr; }
+[dir="rtl"] .compare-table { direction: rtl; }
+[dir="rtl"] .footer-links { flex-direction: row-reverse; }
