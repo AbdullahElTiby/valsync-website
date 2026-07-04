@@ -4,123 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="VALSYNC — A privacy-first Valorant companion. Track stats, check your store, coordinate your party, and review matches. No ads. No tracking.">
+<meta property="og:title" content="VALSYNC — Tactical Companion for Valorant">
+<meta property="og:description" content="A privacy-first Valorant companion. Track stats, check your store, coordinate your party, and review matches. No ads. No tracking.">
+<meta property="og:image" content="https://valsync.app/img/og-image.png">
+<meta property="og:url" content="https://valsync.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VALSYNC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VALSYNC — Tactical Companion for Valorant">
+<meta name="twitter:description" content="A privacy-first Valorant companion. No ads. No tracking.">
+<meta name="twitter:image" content="https://valsync.app/img/og-image.png">
+<meta name="theme-color" content="#0A141E">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://valsync.app/">
 <meta name="color-scheme" content="dark">
 <title>VALSYNC — Tactical Companion for Valorant</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A141E'/><text x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='%23FF525D'>V</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@75..125,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:           oklch(0.127 0.033 254);
-  --surface:      oklch(0.162 0.031 253);
-  --surface-hi:   oklch(0.208 0.028 253);
-  --primary:      oklch(0.628 0.223 22);
-  --primary-glow: oklch(0.78 0.10 22);
-  --cyan:         oklch(0.779 0.187 171);
-  --gold:         oklch(0.804 0.143 85);
-  --green:        oklch(0.65 0.17 145);
-  --ink:          oklch(0.919 0.012 255);
-  --ink-muted:    oklch(0.65 0.01 255);
-  --border:       oklch(0.30 0.02 255);
-  --radius-sm:    4px;
-  --radius-md:    8px;
-  --radius-lg:    12px;
-  --font:         'Saira', system-ui, sans-serif;
-  --z-sticky:     10;
-}
-
-html {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font);
-  font-size: clamp(16px, 1.1vw, 18px);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-}
-
-/* ponytail: global scanline overlay — consistent with app, 2.5% opacity */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.025) 2px,
-    rgba(0,0,0,0.025) 4px
-  );
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* ---------- layout ---------- */
-.container {
-  width: min(100% - 2rem, 72rem);
-  margin-inline: auto;
-}
-
-/* ---------- nav ---------- */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-sticky);
-  background: oklch(0.127 0.033 254 / 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.site-nav .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 0.75rem;
-}
-.logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  letter-spacing: 0.02em;
-}
-.logo-mark {
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-sm);
-  background: var(--primary);
-  color: var(--ink);
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  font-size: 1.1rem;
-  line-height: 1;
-}
-.nav-cta {
-  background: var(--primary);
-  color: var(--ink);
-  text-decoration: none;
-  padding: 0.45rem 1.1rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: filter 0.2s;
-}
-.nav-cta:hover { filter: brightness(1.15); }
-.nav-cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
-
 /* ---------- hero ---------- */
 .hero {
   padding-block: clamp(4rem, 10vh, 8rem) clamp(3rem, 8vh, 6rem);
@@ -177,9 +81,9 @@ body {
   border-radius: var(--radius-sm);
   font-weight: 700;
   font-size: 1rem;
-  transition: filter 0.2s;
+  transition: filter 0.2s, transform 0.2s;
 }
-.btn-primary:hover { filter: brightness(1.15); }
+.btn-primary:hover { filter: brightness(1.15); transform: translateY(-1px); }
 .btn-primary:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
 
 .play-badge { display: block; height: 54px; transition: filter 0.2s; }
@@ -306,26 +210,63 @@ body {
 .v2-clip-hero .v2-btn     { transition: filter 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
 .v2-clip-hero .v2-btn:hover { filter: brightness(1.2) saturate(1.1); }
 
-/* ---------- site-wide clip-wipe ---------- */
-.section-header h2        { animation: v2-clip-heading 580ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-.section-header p         { animation: v2-clip-desc    520ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
-.feature                  { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-.feature:nth-child(1)     { animation-delay: 140ms; }
-.feature:nth-child(2)     { animation-delay: 200ms; }
-.feature:nth-child(3)     { animation-delay: 260ms; }
-.feature:nth-child(4)     { animation-delay: 320ms; }
-.feature:nth-child(5)     { animation-delay: 380ms; }
-.feature:nth-child(6)     { animation-delay: 440ms; }
-.privacy h2               { animation: v2-clip-heading 580ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-.privacy-lede              { animation: v2-clip-desc    520ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
-.privacy-item              { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-.privacy-item:nth-child(1) { animation-delay: 140ms; }
-.privacy-item:nth-child(2) { animation-delay: 200ms; }
-.privacy-item:nth-child(3) { animation-delay: 260ms; }
-.privacy-item:nth-child(4) { animation-delay: 320ms; }
-.privacy .btn-primary      { animation: v2-btn-reveal   480ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both; }
-.site-footer               { animation: v2-panel-reveal 500ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-/* ---------- end site-wide clip-wipe ---------- */
+/* ---------- scroll-reveal ---------- */
+.scroll-reveal .section-header h2,
+.scroll-reveal .section-header p,
+.scroll-reveal .feature,
+.scroll-reveal .privacy h2,
+.scroll-reveal .privacy-lede,
+.scroll-reveal .privacy-item,
+.scroll-reveal .privacy .btn-primary,
+.scroll-reveal .screenshot-frame,
+.scroll-reveal .step,
+.scroll-reveal .compare-table,
+.scroll-reveal .changelog-entry,
+.scroll-reveal .faq details { opacity: 0; }
+
+.site-footer.scroll-reveal { opacity: 0; }
+
+.scroll-reveal.in-view .section-header h2        { animation: v2-clip-heading 580ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .section-header p         { animation: v2-clip-desc    520ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
+.scroll-reveal.in-view .feature                  { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .feature:nth-child(1)     { animation-delay: 140ms; }
+.scroll-reveal.in-view .feature:nth-child(2)     { animation-delay: 200ms; }
+.scroll-reveal.in-view .feature:nth-child(3)     { animation-delay: 260ms; }
+.scroll-reveal.in-view .feature:nth-child(4)     { animation-delay: 320ms; }
+.scroll-reveal.in-view .feature:nth-child(5)     { animation-delay: 380ms; }
+.scroll-reveal.in-view .feature:nth-child(6)     { animation-delay: 440ms; }
+.scroll-reveal.in-view .privacy h2               { animation: v2-clip-heading 580ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .privacy-lede              { animation: v2-clip-desc    520ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
+.scroll-reveal.in-view .privacy-item              { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .privacy-item:nth-child(1) { animation-delay: 140ms; }
+.scroll-reveal.in-view .privacy-item:nth-child(2) { animation-delay: 200ms; }
+.scroll-reveal.in-view .privacy-item:nth-child(3) { animation-delay: 260ms; }
+.scroll-reveal.in-view .privacy-item:nth-child(4) { animation-delay: 320ms; }
+.scroll-reveal.in-view .privacy .btn-primary      { animation: v2-btn-reveal   480ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both; }
+.scroll-reveal.in-view .screenshot-frame          { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .screenshot-frame:nth-child(1) { animation-delay: 100ms; }
+.scroll-reveal.in-view .screenshot-frame:nth-child(2) { animation-delay: 160ms; }
+.scroll-reveal.in-view .screenshot-frame:nth-child(3) { animation-delay: 220ms; }
+.scroll-reveal.in-view .screenshot-frame:nth-child(4) { animation-delay: 280ms; }
+.scroll-reveal.in-view .screenshot-frame:nth-child(5) { animation-delay: 340ms; }
+.scroll-reveal.in-view .screenshot-frame:nth-child(6) { animation-delay: 400ms; }
+.scroll-reveal.in-view .step                      { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .step:nth-child(1)         { animation-delay: 100ms; }
+.scroll-reveal.in-view .step:nth-child(2)         { animation-delay: 180ms; }
+.scroll-reveal.in-view .step:nth-child(3)         { animation-delay: 260ms; }
+.scroll-reveal.in-view .compare-table             { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .changelog-entry           { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .changelog-entry:nth-child(1) { animation-delay: 100ms; }
+.scroll-reveal.in-view .changelog-entry:nth-child(2) { animation-delay: 180ms; }
+.scroll-reveal.in-view .changelog-entry:nth-child(3) { animation-delay: 260ms; }
+.scroll-reveal.in-view .faq details               { animation: v2-panel-reveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scroll-reveal.in-view .faq details:nth-child(1)  { animation-delay: 100ms; }
+.scroll-reveal.in-view .faq details:nth-child(2)  { animation-delay: 160ms; }
+.scroll-reveal.in-view .faq details:nth-child(3)  { animation-delay: 220ms; }
+.scroll-reveal.in-view .faq details:nth-child(4)  { animation-delay: 280ms; }
+.scroll-reveal.in-view .faq details:nth-child(5)  { animation-delay: 340ms; }
+.site-footer.scroll-reveal.in-view               { animation: v2-panel-reveal 500ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+/* ---------- end scroll-reveal ---------- */
 
 /* ---------- section ---------- */
 .section {
@@ -428,68 +369,173 @@ body {
   font-size: 0.875rem;
 }
 
-/* ---------- footer ---------- */
-.site-footer {
-  margin-top: auto;
-  border-top: 1px solid var(--border);
-  padding-block: 2.5rem;
-  font-size: 0.8rem;
-  color: var(--ink-muted);
+/* ---------- screenshots ---------- */
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
 }
-.site-footer .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 3rem;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-.footer-links a {
-  color: var(--ink-muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--cyan); }
-.footer-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
-.disclaimer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  opacity: 0.65;
-  max-width: 56ch;
-}
-
-/* ---------- utility ---------- */
-.sr-only {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
+.screenshot-frame {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
+  transition: background 0.25s, border-color 0.25s;
+}
+.screenshot-frame:hover { background: var(--surface-hi); border-color: var(--ink-muted); }
+.screenshot-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.35s ease;
+}
+.screenshot-frame:hover img { transform: scale(1.03); }
+.screenshot-label {
+  padding: 0.6rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
 }
 
-/* ---------- reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* ---------- steps ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+.step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+}
+.step:hover { background: var(--surface-hi); border-color: var(--ink-muted); }
+.step-num {
+  width: 2.25rem; height: 2.25rem;
+  border-radius: 50%;
+  background: oklch(0.628 0.223 22 / 0.12);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0 auto 0.75rem;
+}
+.step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+.step p {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
 }
 
-/* ---------- focus ---------- */
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 2px;
+/* ---------- compare ---------- */
+.compare-table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 140px 140px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+.compare-row:first-child {
+  padding-top: 1rem;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.compare-row:last-child { border-bottom: none; }
+.compare-label { color: var(--ink); font-weight: 600; }
+.compare-val { text-align: center; }
+.compare-val--good { color: var(--green); }
+.compare-val--bad { color: var(--ink-muted); opacity: 0.6; }
+
+/* ---------- faq ---------- */
+.faq details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+  transition: background 0.2s;
+}
+.faq details:hover,
+.faq details[open] { background: var(--surface-hi); }
+.faq summary {
+  padding: 0.9rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  float: right;
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+  transition: transform 0.2s;
+}
+.faq details[open] summary::after {
+  content: "\2212";
+  color: var(--primary);
+}
+.faq .faq-answer {
+  padding: 0 1.1rem 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+/* ---------- changelog ---------- */
+.changelog-entry {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.25s, border-left-color 0.25s;
+}
+.changelog-entry:hover { background: var(--surface-hi); border-left-color: var(--primary); }
+.changelog-version {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.changelog-entry p {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VALSYNC",
+  "description": "A privacy-first Valorant companion. Track stats, check your store, coordinate your party, and review matches. No ads. No tracking.",
+  "operatingSystem": "Android",
+  "applicationCategory": "GameApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -531,7 +577,7 @@ a:focus-visible, button:focus-visible {
       </div>
     </header>
 
-  <section class="section container" aria-labelledby="features-heading">
+  <section class="section container scroll-reveal" aria-labelledby="features-heading">
     <div class="section-header">
       <h2 id="features-heading">Everything you need in one place</h2>
       <p>No alt-tabbing. No ad-laden websites. Every tool, one app.</p>
@@ -570,7 +616,152 @@ a:focus-visible, button:focus-visible {
     </div>
   </section>
 
-  <section class="section container" aria-labelledby="privacy-heading">
+  <section class="section container scroll-reveal" aria-labelledby="screenshots-heading">
+    <div class="section-header">
+      <h2 id="screenshots-heading">See it in action</h2>
+      <p>Screenshots from the current release. No mockups — real app.</p>
+    </div>
+    <div class="screenshots">
+      <figure class="screenshot-frame">
+        <img src="img/screenshot-home.jpg" alt="VALSYNC home dashboard showing Platinum rank, RR, and recent match history" loading="lazy">
+        <figcaption class="screenshot-label">Dashboard — live stats, rank, RR tracker</figcaption>
+      </figure>
+      <figure class="screenshot-frame">
+        <img src="img/screenshot-matches.jpg" alt="Match history list with K/D, ACS, map, and RR changes" loading="lazy">
+        <figcaption class="screenshot-label">Match history — round-by-round detail</figcaption>
+      </figure>
+      <figure class="screenshot-frame">
+        <img src="img/screenshot-store.jpg" alt="Daily store with weapon skin offers and countdown timer" loading="lazy">
+        <figcaption class="screenshot-label">Daily store — offers + countdown</figcaption>
+      </figure>
+      <figure class="screenshot-frame">
+        <img src="img/screenshot-loadout.jpg" alt="Weapon armory showing owned and available skins" loading="lazy">
+        <figcaption class="screenshot-label">Loadout — weapon skin collection</figcaption>
+      </figure>
+      <figure class="screenshot-frame">
+        <img src="img/screenshot-party.jpg" alt="Party screen with agent plan and access controls" loading="lazy">
+        <figcaption class="screenshot-label">Party — agent plan, join codes</figcaption>
+      </figure>
+      <figure class="screenshot-frame">
+        <img src="img/screenshot-social.jpg" alt="Friends list showing online status and current match maps" loading="lazy">
+        <figcaption class="screenshot-label">Social — friends, presence, chat</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section container scroll-reveal" aria-labelledby="steps-heading">
+    <div class="section-header">
+      <h2 id="steps-heading">Three steps to your readout</h2>
+      <p>No account creation. No email. Just your Riot login.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Download &amp; sign in</h3>
+        <p>Install from the Play Store. Log in with your Riot Games account via official OAuth — we never see your password.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Grant API access</h3>
+        <p>Tap once to authorize. Your tokens are stored on-device with Android Keystore AES encryption and never leave your phone.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Everything, one tap</h3>
+        <p>Stats, store, party, social, wiki, replays. No alt-tabbing. No ads. No one watching.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container scroll-reveal" aria-labelledby="compare-heading">
+    <div class="section-header">
+      <h2 id="compare-heading">Why VALSYNC</h2>
+      <p>What you get vs what the ad-supported alternatives quietly trade away.</p>
+    </div>
+    <div class="compare-table">
+      <div class="compare-row">
+        <span></span>
+        <span class="compare-val" style="color:var(--primary)">VALSYNC</span>
+        <span class="compare-val">Alternatives</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Advertising</span>
+        <span class="compare-val compare-val--good">None</span>
+        <span class="compare-val compare-val--bad">Banners, interstitials, video</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Tracking &amp; analytics</span>
+        <span class="compare-val compare-val--good">Zero SDKs</span>
+        <span class="compare-val compare-val--bad">Crash reporters, usage telemetry</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Open source</span>
+        <span class="compare-val compare-val--good">Every line visible</span>
+        <span class="compare-val compare-val--bad">Closed, obfuscated</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Data storage</span>
+        <span class="compare-val compare-val--good">On-device Keystore AES</span>
+        <span class="compare-val compare-val--bad">Server-side, cloud, third-party</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Monetization</span>
+        <span class="compare-val compare-val--good">None — not for sale</span>
+        <span class="compare-val compare-val--bad">Your data is the product</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container scroll-reveal" aria-labelledby="faq-heading">
+    <div class="section-header">
+      <h2 id="faq-heading">Questions you're probably asking</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is VALSYNC really free? How do you make money?</summary>
+        <div class="faq-answer">We don't. VALSYNC has no revenue model. No ads, no subscriptions, no data sales, no "premium" tier. It exists because its contributors want a companion app that respects players. If that ever changes, it'll be open-source and transparent — not a dark-pattern pivot.</div>
+      </details>
+      <details>
+        <summary>Will using this get my Riot account banned?</summary>
+        <div class="faq-answer">No. VALSYNC uses Riot Games' official API and operates within their developer terms. It does not inject, modify, or interact with the game client in any way. You're reading data you're authorized to access, through the approved API channel.</div>
+      </details>
+      <details>
+        <summary>Does Riot or anyone else see my data?</summary>
+        <div class="faq-answer">Your data travels directly between your device and Riot's servers. VALSYNC has no intermediate server, no data pipeline, no backend. The only exception is XMPP chat messages, which pass through Riot's chat infrastructure (the same one the game client uses).</div>
+      </details>
+      <details>
+        <summary>What happens if I uninstall?</summary>
+        <div class="faq-answer">Everything VALSYNC stores — encrypted tokens, local replays, cached game data — is removed when you uninstall. There's nothing left behind on any server because there is no server. You can also revoke access from your Riot account management page at any time.</div>
+      </details>
+      <details>
+        <summary>Which regions and devices are supported?</summary>
+        <div class="faq-answer">All Valorant regions are supported. VALSYNC currently runs on Android 8.0 and above. An iOS version is not currently available — the app is built natively for Android using Kotlin and Jetpack Compose.</div>
+      </details>
+    </div>
+  </section>
+
+  <section class="section container scroll-reveal" aria-labelledby="changelog-heading">
+    <div class="section-header">
+      <h2 id="changelog-heading">What's new</h2>
+      <p>Latest changes in v1.0.3.</p>
+    </div>
+    <div class="changelog">
+      <div class="changelog-entry">
+        <div class="changelog-version">v1.0.3 — June 2026</div>
+        <p>Agent plan in party screen. Match replay round timeline. Night Market wishlist alerts. Wiki search index for agents, weapons, and maps.</p>
+      </div>
+      <div class="changelog-entry">
+        <div class="changelog-version">v1.0.2 — May 2026</div>
+        <p>Daily Store integration with countdown timers. Friends list with in-game status and map tracking. XMPP direct chat.</p>
+      </div>
+      <div class="changelog-entry">
+        <div class="changelog-version">v1.0.0 — April 2026</div>
+        <p>Initial release. Live stats, rank tracker, match history. On-device token encryption. Zero telemetry, zero ads.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container scroll-reveal" aria-labelledby="privacy-heading" id="download">
     <div class="privacy">
       <h2 id="privacy-heading">No ads. No tracking. No monetization.</h2>
       <p class="privacy-lede">The single strongest signal VALSYNC sends: nothing is for sale. Your data, your stats, your matches — they stay on your device.</p>
@@ -600,7 +791,7 @@ a:focus-visible, button:focus-visible {
   </section>
 </main>
 
-<footer class="site-footer" aria-label="Footer">
+<footer class="site-footer scroll-reveal" aria-label="Footer">
   <div class="container">
     <div class="footer-links">
       <a href="/">Home</a>
@@ -618,5 +809,21 @@ a:focus-visible, button:focus-visible {
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->
+<script>
+(function() {
+  var els = document.querySelectorAll('.scroll-reveal');
+  if (!els.length) return;
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in-view');
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  for (var i = 0; i < els.length; i++) io.observe(els[i]);
+})();
+</script>
 </body>
 </html>

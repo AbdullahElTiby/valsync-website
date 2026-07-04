@@ -4,122 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="VALSYNC Terms of Use — the terms governing your use of the VALSYNC Valorant companion app.">
+<meta property="og:title" content="Terms of Use — VALSYNC">
+<meta property="og:description" content="Terms of Use for VALSYNC — an independent, unofficial Valorant companion app.">
+<meta property="og:image" content="https://valsync.app/img/og-image.png">
+<meta property="og:url" content="https://valsync.app/terms.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VALSYNC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Terms of Use — VALSYNC">
+<meta name="twitter:description" content="Terms of Use for VALSYNC — an independent, unofficial Valorant companion app.">
+<meta name="twitter:image" content="https://valsync.app/img/og-image.png">
+<meta name="theme-color" content="#0A141E">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://valsync.app/terms.html">
 <meta name="color-scheme" content="dark">
 <title>Terms of Use — VALSYNC</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A141E'/><text x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='%23FF525D'>V</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@75..125,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:           oklch(0.127 0.033 254);
-  --surface:      oklch(0.162 0.031 253);
-  --surface-hi:   oklch(0.208 0.028 253);
-  --primary:      oklch(0.628 0.223 22);
-  --primary-glow: oklch(0.78 0.10 22);
-  --cyan:         oklch(0.779 0.187 171);
-  --gold:         oklch(0.804 0.143 85);
-  --green:        oklch(0.65 0.17 145);
-  --ink:          oklch(0.919 0.012 255);
-  --ink-muted:    oklch(0.65 0.01 255);
-  --border:       oklch(0.30 0.02 255);
-  --radius-sm:    4px;
-  --radius-md:    8px;
-  --radius-lg:    12px;
-  --font:         'Saira', system-ui, sans-serif;
-  --z-sticky:     10;
-}
-
-html {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font);
-  font-size: clamp(16px, 1.1vw, 18px);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.025) 2px,
-    rgba(0,0,0,0.025) 4px
-  );
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.container {
-  width: min(100% - 2rem, 72rem);
-  margin-inline: auto;
-}
-
-/* nav */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-sticky);
-  background: oklch(0.127 0.033 254 / 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.site-nav .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 0.75rem;
-}
-.logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  letter-spacing: 0.02em;
-}
-.logo-mark {
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-sm);
-  background: var(--primary);
-  color: var(--ink);
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  font-size: 1.1rem;
-  line-height: 1;
-}
-.nav-cta {
-  background: var(--primary);
-  color: var(--ink);
-  text-decoration: none;
-  padding: 0.45rem 1.1rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: filter 0.2s;
-}
-.nav-cta:hover { filter: brightness(1.15); }
-.nav-cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
-
-/* legal content */
 .legal {
   padding-block: clamp(2.5rem, 6vh, 5rem);
 }
@@ -154,57 +59,15 @@ body {
   color: var(--cyan);
   font-weight: 500;
 }
-
-/* footer */
-.site-footer {
-  margin-top: auto;
-  border-top: 1px solid var(--border);
-  padding-block: 2.5rem;
-  font-size: 0.8rem;
-  color: var(--ink-muted);
-}
-.site-footer .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 3rem;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-.footer-links a {
-  color: var(--ink-muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--cyan); }
-.footer-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
-.disclaimer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  opacity: 0.65;
-  max-width: 56ch;
-}
-
-/* reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 2px;
-}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Terms of Use — VALSYNC",
+  "description": "Terms of Use for VALSYNC — an independent, unofficial Valorant companion app."
+}
+</script>
 </head>
 <body>
 
@@ -214,7 +77,7 @@ a:focus-visible, button:focus-visible {
       <span class="logo-mark" aria-hidden="true">V</span>
       VALSYNC
     </a>
-    <a href="#download" class="nav-cta">Download</a>
+    <a href="index.html#download" class="nav-cta">Download</a>
   </div>
 </nav>
 
@@ -268,9 +131,11 @@ a:focus-visible, button:focus-visible {
   <div class="container">
     <div class="footer-links">
       <a href="/">Home</a>
+      <a href="index.html#download">Download</a>
       <a href="terms.html">Terms</a>
       <a href="privacy.html">Privacy</a>
       <a href="https://github.com/your-org/valsync" rel="noopener">GitHub</a>
+      <a href="mailto:abdullaheltiby@tutamail.com">Contact</a>
     </div>
     <span>VALSYNC &mdash; v1.0.3</span>
   </div>
