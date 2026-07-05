@@ -8,7 +8,8 @@
   },
   "hero": {
     "badge": "VALORANT COMPANION",
-    "heading": "Tactical Companion for Valorant",
+    "heading": "Tactical Companion",
+    "heading_for": "for ",
     "desc": "Track stats, check your store, coordinate your party, and review matches \u2014 all in one privacy-first app.",
     "cta": "Download on Play Store",
     "panel": "Live Signals",

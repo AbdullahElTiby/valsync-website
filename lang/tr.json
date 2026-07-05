@@ -8,7 +8,8 @@
   },
   "hero": {
     "badge": "VALORANT YARDIMCISI",
-    "heading": "Valorant için Taktiksel Yardımcı",
+    "heading": "Taktiksel Yardımcı",
+    "heading_for": "için ",
     "desc": "İstatistikleri takip et, mağazanı kontrol et, takımını koordine et ve maçları incele — hepsi tek bir gizlilik odaklı uygulamada.",
     "cta": "Play Store'dan İndir",
     "panel": "Canlı Sinyaller",
