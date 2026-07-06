@@ -1,120 +1,127 @@
 {
-  "meta": {
-    "title": "VALSYNC — Taktischer Begleiter für Valorant",
-    "description": "Ein datenschutzorientierter Valorant-Begleiter. Verfolge Statistiken, prüfe deinen Shop, koordiniere dein Team und analysiere Matches. Keine Werbung. Kein Tracking."
-  },
   "nav": {
-    "download": "Herunterladen"
+    "features": "Features",
+    "app": "App",
+    "privacy": "Datenschutz",
+    "download": "Warteliste beitreten"
   },
   "hero": {
-    "badge": "VALORANT BEGLEITER",
-    "heading": "Taktischer Begleiter",
-    "heading_for": "für ",
-    "desc": "Verfolge Statistiken, prüfe deinen Shop, koordiniere dein Team und analysiere Matches — alles in einer datenschutzorientierten App.",
-    "cta": "Im Play Store herunterladen",
-    "panel": "Live-Signale",
-    "signal_rr": "RR Änderung",
-    "signal_streak": "Siegesserie",
-    "signal_party": "Team",
-    "signal_party_val": "3 online",
-    "trust_ads": "Keine Werbung",
-    "trust_track": "Kein Tracking",
-    "trust_data": "Daten bleiben auf deinem Gerät"
+    "badge": "Datenschutzorientierter taktischer Begleiter",
+    "title1": "Deine Valorant-Nacht, ",
+    "title2": "ohne den Lärm.",
+    "lead": "VALSYNC hält Shop-Checks, Party-Status, Loadouts und Match-Reviews in einer ruhigen Übersicht, gemacht für die Minuten vor der Warteschlange.",
+    "cta1": "Warteliste beitreten",
+    "cta2": "Vorschau ansehen",
+    "trust1": "Riot-Anmeldung",
+    "trust2": "Keine Werbeplätze",
+    "trust3": "Match-Abend-Workflow"
+  },
+  "hud": {
+    "label": "Live-Begleiter",
+    "noise": "Lärm",
+    "noise_val": "0 Werbung",
+    "tracking": "Tracking",
+    "tracking_val": "Aus",
+    "sync": "Sync",
+    "sync_val": "Lokal zuerst",
+    "phone_label": "Startseite",
+    "phone_sub": "Die Hauptübersicht von VALSYNC."
   },
   "features": {
-    "heading": "Alles an einem Ort",
-    "desc": "Kein Alt-Tab. Keine werbeverseuchten Webseiten. Alle Werkzeuge in einer App.",
-    "i1_title": "Live-Statistiken & Rang",
-    "i1_desc": "RR, MMR, ACS, K/D, Kopfschuss-%. Deine gesamte Wettkampfkarriere auf einem Bildschirm.",
-    "i2_title": "Täglicher Shop & Nachtmarkt",
-    "i2_desc": "Prüfe deine Angebote ohne das Spiel zu starten. Wunschlisten-Benachrichtigungen, wenn Skins erscheinen.",
-    "i3_title": "Team & Draft-Begleiter",
-    "i3_desc": "Koordiniere Agenten mit deinem Team. Verwalte Team-Sichtbarkeit und Matchmaking.",
-    "i4_title": "Sozial & Chat",
-    "i4_desc": "Riot-Freunde mit Präsenz. Direkter 1:1-Chat via XMPP. Kein Drittanbieter-Dienst.",
-    "i5_title": "Taktisches Wiki",
-    "i5_desc": "Agenten, Waffen, Karten, Aufstellungen und Patch-Notes — indexiert und durchsuchbar.",
-    "i6_title": "Match-Wiederholung",
-    "i6_desc": "Runde-für-Runde Kill-Zeitachse. Optionale lokale Telemetrie-Erfassung für tiefgehende Analysen."
+    "title": "Die Begleit-App konkurriert nicht mehr mit dem Match.",
+    "store": {
+      "title": "Shop ohne Tab-Chaos",
+      "desc": "Verfolge den Shop, den Nachtmarkt und die Skin-Wunschliste von einer ruhigen Oberfläche, die auf den tatsächlichen Checks der Spieler basiert."
+    },
+    "party": {
+      "title": "Party-Status auf einen Blick",
+      "desc": "Sieh, wer online ist, wer mitten im Match steckt und welche Rolle dem Stack fehlt, bevor die Lobby laut wird."
+    },
+    "review": {
+      "title": "Review ohne Stat-Spam",
+      "desc": "Hebe Match-Momente, Karten-Tendenzen und Sammlungskontext hervor, ohne die App in ein werbevolles Datenlager zu verwandeln."
+    }
   },
-  "screenshots": {
-    "heading": "In Aktion sehen",
-    "desc": "Screenshots der aktuellen Version. Keine Mockups — echte App.",
-    "c1": "Dashboard — Live-Statistiken, Rang, RR-Tracker",
-    "c2": "Match-Verlauf — Rundenweises Detail",
-    "c3": "Täglicher Shop — Angebote + Countdown",
-    "c4": "Ausrüstung — Waffenskin-Sammlung",
-    "c5": "Team — Agentenplan, Beitrittscodes",
-    "c6": "Sozial — Freunde, Präsenz, Chat"
-  },
-  "steps": {
-    "heading": "Drei Schritte zu deiner Übersicht",
-    "desc": "Keine Kontoerstellung. Keine E-Mail. Nur dein Riot-Login.",
-    "s1_title": "Herunterladen & anmelden",
-    "s1_desc": "Installiere aus dem Play Store. Melde dich mit deinem Riot Games-Konto über offizielles OAuth an — wir sehen niemals dein Passwort.",
-    "s2_title": "API-Zugriff gewähren",
-    "s2_desc": "Einmal tippen zum Autorisieren. Deine Tokens werden auf dem Gerät mit Android Keystore AES-Verschlüsselung gespeichert und verlassen niemals dein Telefon.",
-    "s3_title": "Alles, ein Tipp",
-    "s3_desc": "Statistiken, Shop, Team, Sozial, Wiki, Wiederholungen. Kein Alt-Tab. Keine Werbung. Niemand schaut zu."
-  },
-  "compare": {
-    "heading": "Warum VALSYNC",
-    "desc": "Was du bekommst, im Vergleich zu dem, was werbefinanzierte Alternativen stillschweigend aufgeben.",
-    "col_valsync": "VALSYNC",
-    "col_alt": "Alternativen",
-    "r1_label": "Werbung",
-    "r1_good": "Keine",
-    "r1_bad": "Banner, Interstitials, Video",
-    "r2_label": "Tracking & Analytik",
-    "r2_good": "Keine SDKs",
-    "r2_bad": "Absturzberichte, Nutzungs-Telemetrie",
-    "r3_label": "Open Source",
-    "r3_good": "Jede Zeile einsehbar",
-    "r3_bad": "Geschlossen, verschleiert",
-    "r4_label": "Datenspeicherung",
-    "r4_good": "Geräte-Keystore AES",
-    "r4_bad": "Server-seitig, Cloud, Drittanbieter",
-    "r5_label": "Monetarisierung",
-    "r5_good": "Keine — unverkäuflich",
-    "r5_bad": "Deine Daten sind das Produkt"
-  },
-  "faq": {
-    "heading": "Fragen, die du dir wahrscheinlich stellst",
-    "desc": "Antworten auf häufige Fragen. Wenn deine nicht dabei ist, kontaktiere uns über den Kontakt-Link in der Fußzeile.",
-    "q1": "Ist VALSYNC wirklich kostenlos? Wie verdient ihr Geld?",
-    "a1": "Gar nicht. VALSYNC hat kein Erlösmodell. Keine Werbung, keine Abos, kein Datenverkauf, keine „Premium“-Stufe. Es existiert, weil seine Mitwirkenden eine Begleit-App wollen, die Spieler respektiert. Falls sich das jemals ändert, wird es quelloffen und transparent sein — keine manipulative Wendung.",
-    "q2": "Kann mein Riot-Konto dadurch gesperrt werden?",
-    "a2": "Nein. VALSYNC nutzt die offizielle API von Riot Games und hält sich an deren Entwicklerbedingungen. Es injiziert, modifiziert oder interagiert in keiner Weise mit dem Spielclient. Du liest Daten, auf die du zugriffsberechtigt bist, über den genehmigten API-Kanal.",
-    "q3": "Sieht Riot oder sonst jemand meine Daten?",
-    "a3": "Deine Daten wandern direkt zwischen deinem Gerät und Riots Servern. VALSYNC hat keinen Zwischenserver, keine Datenpipeline, kein Backend. Die einzige Ausnahme sind XMPP-Chatnachrichten, die über Riots Chat-Infrastruktur laufen (dieselbe, die der Spielclient nutzt).",
-    "q4": "Was passiert, wenn ich deinstalliere?",
-    "a4": "Alles, was VALSYNC speichert — verschlüsselte Tokens, lokale Wiederholungen, zwischengespeicherte Spieldaten — wird bei der Deinstallation entfernt. Es bleibt nichts auf irgendeinem Server zurück, weil es keinen Server gibt. Du kannst den Zugriff auch jederzeit über deine Riot-Kontoverwaltung widerrufen.",
-    "q5": "Welche Regionen und Geräte werden unterstützt?",
-    "a5": "Alle Valorant-Regionen werden unterstützt. VALSYNC läuft derzeit auf Android 8.0 und höher. Eine iOS-Version ist derzeit nicht verfügbar — die App ist nativ für Android mit Kotlin und Jetpack Compose entwickelt."
-  },
-  "changelog": {
-    "heading": "Neuigkeiten",
-    "desc": "Neueste Änderungen in v1.0.3.",
-    "v103": "Agentenplan im Team-Bildschirm. Match-Wiederholung Runden-Zeitachse. Nachtmarkt-Wunschlisten-Benachrichtigungen. Wiki-Suchindex für Agenten, Waffen und Karten.",
-    "v102": "Täglicher Shop-Integration mit Countdown-Timern. Freundesliste mit Spielstatus und Kartenverfolgung. XMPP Direkt-Chat.",
-    "v100": "Erstveröffentlichung. Live-Statistiken, Rang-Tracker, Match-Verlauf. Geräte-basierte Token-Verschlüsselung. Keine Telemetrie, keine Werbung."
+  "demo": {
+    "title": "Die Übersicht folgt dem Rhythmus der Spieler.",
+    "lead": "Starte mit dem Shop, checke den Stack, review das letzte Match, dann fixiere das Loadout. VALSYNC hält diese Schleifen nah, ohne dass Spieler einen weiteren Tracker verwalten müssen.",
+    "signal1": "Shop-Check",
+    "signal1_val": "Skins",
+    "signal2": "Stack-Check",
+    "signal2_val": "Party",
+    "signal3": "Runden-Review",
+    "signal3_val": "Matches",
+    "card_label": "Live-Begleiter",
+    "card_title": "Vier Match-Abend-Checks auf einer Oberfläche.",
+    "card_desc": "Jedes Modul behält eine enge Aufgabe: Shop, Party, Matches oder Loadout. Die Oberfläche bleibt ruhig, bis sich etwas in der nächsten Warteschlange ändert.",
+    "card_s1": "Shop",
+    "card_s1_val": "Wunschliste",
+    "card_s2": "Party",
+    "card_s2_val": "Stack",
+    "card_s3": "Matches",
+    "card_s3_val": "Review"
   },
   "privacy": {
-    "heading": "Keine Werbung. Kein Tracking. Keine Monetarisierung.",
-    "desc": "Das stärkste Signal, das VALSYNC sendet: Nichts steht zum Verkauf. Deine Daten, deine Statistiken, deine Matches — sie bleiben auf deinem Gerät.",
-    "i1_title": "Keine Werbe-SDKs",
-    "i1_desc": "Keine Banner, keine Interstitials, keine Video-Werbung, keine Werbe-IDs. Nicht jetzt, nicht jemals.",
-    "i2_title": "Keine Analytik oder Tracking",
-    "i2_desc": "Keine Absturzberichte, keine Nutzungsanalytik, keine Telemetrie, die nach Hause telefoniert. Wir wissen nicht, wie du die App nutzt, und wir wollen es nicht wissen.",
-    "i3_title": "Verschlüsselte Gerätespeicherung",
-    "i3_desc": "Deine Riot-Tokens werden mit Android Keystore-gestützter AES-Verschlüsselung gespeichert. Wiederholungsdateien bleiben im app-privaten lokalen Speicher.",
-    "i4_title": "Open Source",
-    "i4_desc": "Jede Zeile ist einsehbar. Die Codebasis ist organisiert, getestet und dokumentiert — gebaut von Leuten, die professionell veröffentlichen."
+    "badge": "Datenschutz-Haltung",
+    "title": "Das Monetarisierungs-Versprechen ist in der Oberfläche sichtbar.",
+    "lead": "VALSYNC hält die Produktoberfläche ruhig, weil es nicht versucht, Aufmerksamkeit zu ernten. Jedes Hauptpanel beantwortet eine Spielerfrage und macht dann Platz.",
+    "ads_title": "0 Werbung",
+    "ads_desc": "Keine Banner-Plätze oder Engagement-Fallen, die mit der Vorbereitung konkurrieren.",
+    "track_title": "Kein Tracking",
+    "track_desc": "Telemetrie-Farben erklären den Produktzustand, nicht die Nutzerüberwachung.",
+    "riot_title": "Riot-Übergabe",
+    "riot_desc": "Die Authentifizierungssprache bleibt explizit und unaufgeregt.",
+    "surface_title": "Flache Oberflächen",
+    "surface_desc": "Tiefe kommt von Ton und Rahmen, niemals von Glow-Stacks."
+  },
+  "comparison": {
+    "title": "Eine sauberere Alternative zu Tab-Chaos und Tracker-Lärm.",
+    "lead": "VALSYNC ist kein weiterer Ort zum Durchstöbern von Statistiken. Es ist der kurze Weg von \"Was hat sich geändert?\" zu \"Bereit für die Warteschlange.\"",
+    "before": "Vorher",
+    "store": {
+      "title": "Shop-Check",
+      "desc": "Browser-Aktualisierungsschleifen und bannerlastige Seiten machen einen schnellen Check zur Ablenkung.",
+      "after": "Eine Wunschlisten-Oberfläche"
+    },
+    "party": {
+      "title": "Party-Vorbereitung",
+      "desc": "Chat-Pings sagen dir, wer geantwortet hat. VALSYNC sagt dir, ob der Stack bereit ist.",
+      "after": "Squad-Status im Blick"
+    },
+    "matches": {
+      "title": "Match-Review",
+      "desc": "Nützlicher Match-Kontext bleibt lesbar, anstatt eine Wand aus Sekundärstatistiken zu werden.",
+      "after": "Rundensignale zuerst"
+    },
+    "priv": {
+      "title": "Datenschutz",
+      "desc": "Die Oberfläche ist ruhig, weil das Produkt nicht auf Aufmerksamkeitsfang gebaut ist.",
+      "after": "Kein Werbeinventar"
+    }
+  },
+  "faq": {
+    "title": "Gebaut für Spieler, die Signal wollen, nicht Spektakel.",
+    "q1": "Brauche ich ein Riot-Konto?",
+    "a1": "VALSYNC ist um die Riot-Anmeldeübergabe herum konzipiert, sodass kontospezifische Oberflächen mit dem Spieler verbunden bleiben, dem sie gehören.",
+    "q2": "Wo erscheint Werbung?",
+    "a2": "Nirgendwo. Das Produktversprechen ist eine Begleitoberfläche ohne Banner-Plätze, Engagement-Fallen oder monetarisiertes Tracking.",
+    "q3": "Was kann ich in der App überprüfen?",
+    "a3": "Die Vorschau deckt den Haupt-VALSYNC-Kreislauf ab: Startseite, Shop, Party, Matches, Loadout und Soziales.",
+    "q4": "Wie funktioniert der Shop-Check?",
+    "a4": "VALSYNC zeigt den Shop, den Nachtmarkt und eine Skin-Wunschliste an, damit du auf einen Blick siehst, was verfügbar ist, ohne mehrere Browser-Tabs zu öffnen.",
+    "q5": "Kann ich mein Squad oder meine Party verfolgen?",
+    "a5": "Ja. Das Party-Modul zeigt, wer online ist, wer mitten im Match steckt und welche Rollen dem Stack fehlen, bevor die Lobby voll wird.",
+    "q6": "Sammelt oder verkauft VALSYNC meine Daten?",
+    "a6": "Nein. Das Produktversprechen ist ein Begleiter ohne Banner-Werbung, Tracking-Pixel oder Datenhandel. Telemetrie-Oberflächen erklären den Produktzustand, niemals die Nutzerüberwachung."
+  },
+  "cta": {
+    "badge": "VALSYNC Warteliste",
+    "title": "Schneller vorbereiten. Privat bleiben. Ruhiger einreihen.",
+    "lead": "Tritt der Liste bei für den datenschutzorientierten Valorant-Begleiter, gebaut rund um Shop-Checks, Party-Vorbereitung und ruhige Match-Reviews.",
+    "button": "Warteliste beitreten"
   },
   "footer": {
-    "disclaimer": "VALSYNC ist eine unabhängige, inoffizielle Begleit-App und steht in keiner Verbindung zu Riot Games, wird nicht von Riot Games unterstützt oder gesponsert. Valorant und alle zugehörigen Marken und Assets sind Marken von Riot Games, Inc."
-  },
-  "hints": {
-    "phone": "\u2190 \u2192 \u00b7 wischen \u00b7 Doppeltipp zum Zoomen \u00b7 Strg+Scrollen zum Zoomen"
+    "left": "VALSYNC - taktischer Begleiter für Valorant",
+    "right": "Keine Werbung. Kein Tracking. Kein Lärm."
   }
 }

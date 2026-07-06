@@ -136,6 +136,23 @@
     .topnav nav { display: flex; gap: var(--gap-lg); }
     .topnav nav a { font-size: 14px; color: var(--muted); transition: color 180ms ease; }
     .topnav nav a:hover { color: var(--fg); }
+    .nav-right { display: flex; align-items: center; gap: var(--gap-md); }
+    .lang-switch { display: flex; gap: 2px; }
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-body);
+      padding: 6px 8px;
+      min-width: 32px;
+      min-height: 32px;
+      cursor: pointer;
+      transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+    .lang-btn:hover, .lang-btn.active { color: var(--fg); border-color: var(--cyan); background: var(--surface-hi); }
 
     .btn {
       display: inline-flex;
@@ -411,12 +428,21 @@
   <header class="topnav" data-od-id="topnav">
     <div class="container topnav-inner">
       <a class="logo" href="#top" data-od-id="nav-logo"><img class="logo-mark" src="mr7gmipd-playstore.png" alt="VALSYNC logo"><span>VALSYNC</span></a>
-      <nav aria-label="Primary navigation" data-od-id="primary-nav">
-        <a href="#features" data-od-id="nav-features">Features</a>
-        <a href="#demo" data-od-id="nav-demo">App</a>
-        <a href="#privacy" data-od-id="nav-privacy">Privacy</a>
-      </nav>
-      <a class="btn btn-primary" href="#download" data-od-id="nav-download">Join waitlist</a>
+      <div class="nav-right">
+        <nav aria-label="Primary navigation" data-od-id="primary-nav">
+          <a href="#features" data-od-id="nav-features" data-i18n="nav.features">Features</a>
+          <a href="#demo" data-od-id="nav-demo" data-i18n="nav.app">App</a>
+          <a href="privacy.html" data-od-id="nav-privacy" data-i18n="nav.privacy">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </nav>
+        <div class="lang-switch">
+          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+          <button class="lang-btn" data-lang="ar" aria-label="العربية">AR</button>
+          <button class="lang-btn" data-lang="de" aria-label="Deutsch">DE</button>
+          <button class="lang-btn" data-lang="tr" aria-label="Türkçe">TR</button>
+        </div>
+        <a class="btn btn-primary" href="#download" data-od-id="nav-download" data-i18n="nav.download">Join waitlist</a>
+      </div>
     </div>
   </header>
 
@@ -424,29 +450,29 @@
     <section class="section hero" id="top" data-od-id="hero">
       <div class="container hero-split">
         <div>
-          <p class="eyebrow hero-kicker" data-od-id="hero-eyebrow">Privacy-first tactical companion</p>
-          <h1 data-od-id="hero-title">Your Valorant night, <em>without the noise.</em></h1>
-          <p class="lead" data-od-id="hero-lead">VALSYNC keeps store checks, party status, loadouts, and match review in one calm readout built for the minutes before queue.</p>
+          <p class="eyebrow hero-kicker" data-od-id="hero-eyebrow" data-i18n="hero.badge">Privacy-first tactical companion</p>
+          <h1 data-od-id="hero-title"><span data-i18n="hero.title1">Your Valorant night, </span><em data-i18n="hero.title2">without the noise.</em></h1>
+          <p class="lead" data-od-id="hero-lead" data-i18n="hero.lead">VALSYNC keeps store checks, party status, loadouts, and match review in one calm readout built for the minutes before queue.</p>
           <div class="hero-cta" data-od-id="hero-actions">
-            <a class="btn btn-primary" href="#download" data-od-id="hero-primary-cta">Join waitlist</a>
-            <a class="btn btn-secondary btn-arrow" href="#demo" data-od-id="hero-secondary-cta">Preview the readout</a>
+            <a class="btn btn-primary" href="#download" data-od-id="hero-primary-cta" data-i18n="hero.cta1">Join waitlist</a>
+            <a class="btn btn-secondary btn-arrow" href="#demo" data-od-id="hero-secondary-cta" data-i18n="hero.cta2">Preview the readout</a>
           </div>
           <div class="trust-row" data-od-id="hero-trust-row">
-            <span>Riot sign-in handoff</span>
-            <span>Zero ad slots</span>
-            <span>Match-night workflow</span>
+            <span data-i18n="hero.trust1">Riot sign-in handoff</span>
+            <span data-i18n="hero.trust2">Zero ad slots</span>
+            <span data-i18n="hero.trust3">Match-night workflow</span>
           </div>
         </div>
 
         <aside class="hud-shell" aria-label="VALSYNC tactical HUD preview" data-od-id="hero-hud-preview">
           <div class="hud-grid"></div>
           <div class="hud-content">
-            <div class="hud-top"><span>Live companion</span><span class="num">23:14</span></div>
+            <div class="hud-top"><span data-i18n="hud.label">Live companion</span><span class="num">23:14</span></div>
             <div class="phone" data-od-id="phone-preview">
               <div class="phone-screen">
                 <div class="phone-head">
-                  <div class="phone-title" data-phone-title>Home base</div>
-                  <div class="phone-sub" data-phone-sub>The main VALSYNC readout.</div>
+                  <div class="phone-title" data-phone-title data-i18n="hud.phone_label">Home base</div>
+                  <div class="phone-sub" data-phone-sub data-i18n="hud.phone_sub">The main VALSYNC readout.</div>
                 </div>
                 <div class="screen-panel is-active" data-panel="home">
                   <img class="app-shot" src="assets/screenshot-home.jpg" alt="VALSYNC home screen">
@@ -479,9 +505,9 @@
               </div>
             </div>
             <div class="telemetry-strip" data-od-id="hero-telemetry">
-              <div class="mini-readout"><span class="meta">Noise</span><strong class="num">0 ads</strong></div>
-              <div class="mini-readout"><span class="meta">Tracking</span><strong class="num">Off</strong></div>
-              <div class="mini-readout"><span class="meta">Sync</span><strong class="num">Local-first</strong></div>
+              <div class="mini-readout"><span class="meta" data-i18n="hud.noise">Noise</span><strong class="num" data-i18n="hud.noise_val">0 ads</strong></div>
+              <div class="mini-readout"><span class="meta" data-i18n="hud.tracking">Tracking</span><strong class="num" data-i18n="hud.tracking_val">Off</strong></div>
+              <div class="mini-readout"><span class="meta" data-i18n="hud.sync">Sync</span><strong class="num" data-i18n="hud.sync_val">Local-first</strong></div>
             </div>
           </div>
         </aside>
@@ -491,29 +517,29 @@
     <section class="section reveal" id="features" data-od-id="features">
       <div class="container stack" style="gap: 56px;">
         <div style="max-width: 42ch;">
-          <h2 data-od-id="features-title">The companion app stops competing with the match.</h2>
+          <h2 data-od-id="features-title" data-i18n="features.title">The companion app stops competing with the match.</h2>
         </div>
         <div class="grid-3 stagger" data-od-id="feature-grid">
           <article class="feature card" data-od-id="feature-card-store">
             <div class="feature-mark" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 7h14v12H5z"/><path d="M8 7a4 4 0 0 1 8 0"/></svg>
             </div>
-            <h3>Store without tab chaos</h3>
-            <p>Track the shop, Night Market, and skin watchlist from one quiet surface built around the checks players actually repeat.</p>
+            <h3 data-i18n="features.store.title">Store without tab chaos</h3>
+            <p data-i18n="features.store.desc">Track the shop, Night Market, and skin watchlist from one quiet surface built around the checks players actually repeat.</p>
           </article>
           <article class="feature card" data-od-id="feature-card-party">
             <div class="feature-mark" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M4 19c1-4 7-4 8 0"/><path d="M12 19c1-4 7-4 8 0"/></svg>
             </div>
-            <h3>Party state at a glance</h3>
-            <p>See who is online, who is mid-match, and what role the stack is missing before the lobby gets noisy.</p>
+            <h3 data-i18n="features.party.title">Party state at a glance</h3>
+            <p data-i18n="features.party.desc">See who is online, who is mid-match, and what role the stack is missing before the lobby gets noisy.</p>
           </article>
           <article class="feature card" data-od-id="feature-card-review">
             <div class="feature-mark" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 18V6"/><path d="M4 18h16"/><path d="M8 15l3-4 3 2 4-6"/></svg>
             </div>
-            <h3>Review without stat spam</h3>
-            <p>Surface match moments, map tendencies, and collection context without turning the app into an ad-filled data warehouse.</p>
+            <h3 data-i18n="features.review.title">Review without stat spam</h3>
+            <p data-i18n="features.review.desc">Surface match moments, map tendencies, and collection context without turning the app into an ad-filled data warehouse.</p>
           </article>
         </div>
       </div>
@@ -522,22 +548,22 @@
     <section class="section reveal" id="demo" data-od-id="interactive-readout">
       <div class="container grid-1-2">
         <div class="stack">
-          <h2 data-od-id="demo-title">The readout follows the way players prep.</h2>
-          <p class="lead" data-od-id="demo-lead">Start with the shop, check the stack, review the last match, then lock the loadout. VALSYNC keeps those loops close without making players manage another tracker.</p>
+          <h2 data-od-id="demo-title" data-i18n="demo.title">The readout follows the way players prep.</h2>
+          <p class="lead" data-od-id="demo-lead" data-i18n="demo.lead">Start with the shop, check the stack, review the last match, then lock the loadout. VALSYNC keeps those loops close without making players manage another tracker.</p>
           <div class="signal-list stagger" data-od-id="motion-signal-list">
-            <div class="signal-row"><strong>Shop check</strong><span class="num">skins</span></div>
-            <div class="signal-row"><strong>Stack check</strong><span class="num">party</span></div>
-            <div class="signal-row"><strong>Round review</strong><span class="num">matches</span></div>
+            <div class="signal-row"><strong data-i18n="demo.signal1">Shop check</strong><span class="num" data-i18n="demo.signal1_val">skins</span></div>
+            <div class="signal-row"><strong data-i18n="demo.signal2">Stack check</strong><span class="num" data-i18n="demo.signal2_val">party</span></div>
+            <div class="signal-row"><strong data-i18n="demo.signal3">Round review</strong><span class="num" data-i18n="demo.signal3_val">matches</span></div>
           </div>
         </div>
         <div class="card" data-od-id="demo-control-panel">
-          <p class="meta" style="margin: 0 0 12px;">Live companion</p>
-          <h3>Four match-night checks in one surface.</h3>
-          <p style="color: var(--muted); margin: 10px 0 22px;">Each module keeps a narrow job: store, party, matches, or loadout. The interface stays calm until something changes the next queue.</p>
+          <p class="meta" style="margin: 0 0 12px;" data-i18n="demo.card_label">Live companion</p>
+          <h3 data-i18n="demo.card_title">Four match-night checks in one surface.</h3>
+          <p style="color: var(--muted); margin: 10px 0 22px;" data-i18n="demo.card_desc">Each module keeps a narrow job: store, party, matches, or loadout. The interface stays calm until something changes the next queue.</p>
           <div class="signal-list">
-            <div class="signal-row"><strong>Store</strong><span>watchlist</span></div>
-            <div class="signal-row"><strong>Party</strong><span class="num" style="color: var(--gold);">stack</span></div>
-            <div class="signal-row"><strong>Matches</strong><span class="num" style="color: var(--green);">review</span></div>
+            <div class="signal-row"><strong data-i18n="demo.card_s1">Store</strong><span data-i18n="demo.card_s1_val">watchlist</span></div>
+            <div class="signal-row"><strong data-i18n="demo.card_s2">Party</strong><span class="num" style="color: var(--gold);" data-i18n="demo.card_s2_val">stack</span></div>
+            <div class="signal-row"><strong data-i18n="demo.card_s3">Matches</strong><span class="num" style="color: var(--green);" data-i18n="demo.card_s3_val">review</span></div>
           </div>
         </div>
       </div>
@@ -548,16 +574,16 @@
         <div class="privacy-panel">
           <div class="grid-2">
             <div>
-              <p class="eyebrow">Privacy posture</p>
-              <h2 data-od-id="privacy-title">The no-monetization promise is visible in the interface.</h2>
+              <p class="eyebrow" data-i18n="privacy.badge">Privacy posture</p>
+              <h2 data-od-id="privacy-title" data-i18n="privacy.title">The no-monetization promise is visible in the interface.</h2>
             </div>
-            <p class="lead" data-od-id="privacy-lead">VALSYNC keeps the product surface calm because it is not trying to harvest attention. Every major panel answers a player question, then gets out of the way.</p>
+            <p class="lead" data-od-id="privacy-lead" data-i18n="privacy.lead">VALSYNC keeps the product surface calm because it is not trying to harvest attention. Every major panel answers a player question, then gets out of the way.</p>
           </div>
           <div class="privacy-grid stagger" data-od-id="privacy-grid">
-            <article class="privacy-item" data-od-id="privacy-item-ads"><strong>0 ads</strong><p>No banner slots or engagement traps competing with prep.</p></article>
-            <article class="privacy-item" data-od-id="privacy-item-tracking"><strong>No tracking</strong><p>Telemetry colors explain product state, not user surveillance.</p></article>
-            <article class="privacy-item" data-od-id="privacy-item-riot"><strong>Riot handoff</strong><p>Authentication language stays explicit and low-drama.</p></article>
-            <article class="privacy-item" data-od-id="privacy-item-surface"><strong>Flat surfaces</strong><p>Depth comes from tone and borders, never glow stacks.</p></article>
+            <article class="privacy-item" data-od-id="privacy-item-ads"><strong data-i18n="privacy.ads_title">0 ads</strong><p data-i18n="privacy.ads_desc">No banner slots or engagement traps competing with prep.</p></article>
+            <article class="privacy-item" data-od-id="privacy-item-tracking"><strong data-i18n="privacy.track_title">No tracking</strong><p data-i18n="privacy.track_desc">Telemetry colors explain product state, not user surveillance.</p></article>
+            <article class="privacy-item" data-od-id="privacy-item-riot"><strong data-i18n="privacy.riot_title">Riot handoff</strong><p data-i18n="privacy.riot_desc">Authentication language stays explicit and low-drama.</p></article>
+            <article class="privacy-item" data-od-id="privacy-item-surface"><strong data-i18n="privacy.surface_title">Flat surfaces</strong><p data-i18n="privacy.surface_desc">Depth comes from tone and borders, never glow stacks.</p></article>
           </div>
         </div>
       </div>
@@ -566,37 +592,37 @@
     <section class="section reveal" data-od-id="comparison">
       <div class="container">
         <div class="section-intro">
-          <h2 data-od-id="comparison-title">A cleaner alternative to tab sprawl and tracker noise.</h2>
-          <p data-od-id="comparison-lead">VALSYNC is not another place to browse stats. It is the short path from "what changed?" to "ready to queue."</p>
+          <h2 data-od-id="comparison-title" data-i18n="comparison.title">A cleaner alternative to tab sprawl and tracker noise.</h2>
+          <p data-od-id="comparison-lead" data-i18n="comparison.lead">VALSYNC is not another place to browse stats. It is the short path from "what changed?" to "ready to queue."</p>
         </div>
         <div class="comparison-grid stagger" data-od-id="comparison-grid">
           <article class="comparison-item" data-od-id="comparison-store">
             <div>
-              <h3>Store check</h3>
-              <p>Browser refresh loops and banner-heavy pages turn a quick check into a distraction.</p>
+              <h3 data-i18n="comparison.store.title">Store check</h3>
+              <p data-i18n="comparison.store.desc">Browser refresh loops and banner-heavy pages turn a quick check into a distraction.</p>
             </div>
-            <div><strong class="before">Before</strong><strong class="after">One watchlist surface</strong></div>
+            <div><strong class="before" data-i18n="comparison.before">Before</strong><strong class="after" data-i18n="comparison.store.after">One watchlist surface</strong></div>
           </article>
           <article class="comparison-item" data-od-id="comparison-party">
             <div>
-              <h3>Party prep</h3>
-              <p>Chat pings tell you who replied. VALSYNC tells you whether the stack is ready.</p>
+              <h3 data-i18n="comparison.party.title">Party prep</h3>
+              <p data-i18n="comparison.party.desc">Chat pings tell you who replied. VALSYNC tells you whether the stack is ready.</p>
             </div>
-            <div><strong class="before">Before</strong><strong class="after">Squad state in view</strong></div>
+            <div><strong class="before" data-i18n="comparison.before">Before</strong><strong class="after" data-i18n="comparison.party.after">Squad state in view</strong></div>
           </article>
           <article class="comparison-item" data-od-id="comparison-matches">
             <div>
-              <h3>Match review</h3>
-              <p>Useful match context stays readable instead of becoming a wall of secondary stats.</p>
+              <h3 data-i18n="comparison.matches.title">Match review</h3>
+              <p data-i18n="comparison.matches.desc">Useful match context stays readable instead of becoming a wall of secondary stats.</p>
             </div>
-            <div><strong class="before">Before</strong><strong class="after">Round signals first</strong></div>
+            <div><strong class="before" data-i18n="comparison.before">Before</strong><strong class="after" data-i18n="comparison.matches.after">Round signals first</strong></div>
           </article>
           <article class="comparison-item" data-od-id="comparison-privacy">
             <div>
-              <h3>Privacy</h3>
-              <p>The interface is quiet because the product is not built around attention capture.</p>
+              <h3 data-i18n="comparison.priv.title">Privacy</h3>
+              <p data-i18n="comparison.priv.desc">The interface is quiet because the product is not built around attention capture.</p>
             </div>
-            <div><strong class="before">Before</strong><strong class="after">No ad inventory</strong></div>
+            <div><strong class="before" data-i18n="comparison.before">Before</strong><strong class="after" data-i18n="comparison.priv.after">No ad inventory</strong></div>
           </article>
         </div>
       </div>
@@ -605,33 +631,37 @@
     <section class="section reveal" data-od-id="faq">
       <div class="container grid-2-1">
         <div>
-          <h2 data-od-id="faq-title">Built for players who want signal, not spectacle.</h2>
+          <h2 data-od-id="faq-title" data-i18n="faq.title">Built for players who want signal, not spectacle.</h2>
         </div>
         <div class="faq-list" data-od-id="faq-list">
-          <details open data-od-id="faq-item-riot"><summary>Do I need a Riot account?</summary><p>VALSYNC is designed around Riot sign-in handoff, so account-specific surfaces stay tied to the player who owns them.</p></details>
-          <details data-od-id="faq-item-ads"><summary>Where do ads show up?</summary><p>They do not. The product promise is a companion surface without banner slots, engagement traps, or monetized tracking.</p></details>
-          <details data-od-id="faq-item-screens"><summary>What can I check from the app?</summary><p>The preview covers the main VALSYNC loop: Home, Store, Party, Matches, Loadout, and Social.</p></details>
+          <details open data-od-id="faq-item-riot"><summary data-i18n="faq.q1">Do I need a Riot account?</summary><p data-i18n="faq.a1">VALSYNC is designed around Riot sign-in handoff, so account-specific surfaces stay tied to the player who owns them.</p></details>
+          <details data-od-id="faq-item-ads"><summary data-i18n="faq.q2">Where do ads show up?</summary><p data-i18n="faq.a2">They do not. The product promise is a companion surface without banner slots, engagement traps, or monetized tracking.</p></details>
+          <details data-od-id="faq-item-screens"><summary data-i18n="faq.q3">What can I check from the app?</summary><p data-i18n="faq.a3">The preview covers the main VALSYNC loop: Home, Store, Party, Matches, Loadout, and Social.</p></details>
+          <details data-od-id="faq-item-store"><summary data-i18n="faq.q4">How does the store check work?</summary><p data-i18n="faq.a4">VALSYNC surfaces the shop, Night Market, and a skin watchlist so you can glance at what is available without opening multiple browser tabs.</p></details>
+          <details data-od-id="faq-item-party"><summary data-i18n="faq.q5">Can I track my squad or party?</summary><p data-i18n="faq.a5">Yes. The party module shows who is online, who is mid-match, and what roles the stack is missing before the lobby fills up.</p></details>
+          <details data-od-id="faq-item-privacy"><summary data-i18n="faq.q6">Does VALSYNC collect or sell my data?</summary><p data-i18n="faq.a6">No. The product promise is a companion without banner ads, tracking pixels, or data brokerage. Telemetry surfaces explain product state, never user surveillance.</p></details>
         </div>
       </div>
     </section>
 
     <section class="section reveal" id="download" data-od-id="cta-strip" style="text-align: center;">
       <div class="container" style="max-width: 660px;">
-        <p class="eyebrow">VALSYNC waitlist</p>
-        <h2 data-od-id="cta-title">Prepare faster. Stay private. Queue calmer.</h2>
-        <p class="lead" style="margin: 16px auto 32px;" data-od-id="cta-lead">Join the list for the privacy-first Valorant companion built around store checks, party prep, and quiet match review.</p>
-        <a class="btn btn-primary" href="mailto:contact@valsync.app?subject=VALSYNC%20waitlist" data-od-id="cta-button">Join waitlist</a>
+        <p class="eyebrow" data-i18n="cta.badge">VALSYNC waitlist</p>
+        <h2 data-od-id="cta-title" data-i18n="cta.title">Prepare faster. Stay private. Queue calmer.</h2>
+        <p class="lead" style="margin: 16px auto 32px;" data-od-id="cta-lead" data-i18n="cta.lead">Join the list for the privacy-first Valorant companion built around store checks, party prep, and quiet match review.</p>
+        <a class="btn btn-primary" href="mailto:contact@valsync.app?subject=VALSYNC%20waitlist" data-od-id="cta-button" data-i18n="cta.button">Join waitlist</a>
       </div>
     </section>
   </main>
 
   <footer class="pagefoot" data-od-id="footer">
     <div class="container row-between">
-      <span>VALSYNC - tactical companion for Valorant</span>
-      <span class="meta">No ads. No tracking. No noise.</span>
+      <span data-i18n="footer.left">VALSYNC - tactical companion for Valorant</span>
+      <span class="meta" data-i18n="footer.right">No ads. No tracking. No noise.</span>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script>
     (function () {
       var copy = {

@@ -1,85 +1,225 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="VALSYNC Terms of Use — the terms governing your use of the VALSYNC Valorant companion app.">
-<meta property="og:title" content="Terms of Use — VALSYNC">
-<meta property="og:description" content="Terms of Use for VALSYNC — an independent, unofficial Valorant companion app.">
-<meta property="og:image" content="https://valsync.app/img/og-image.png">
-<meta property="og:url" content="https://valsync.app/terms.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="VALSYNC">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Terms of Use — VALSYNC">
-<meta name="twitter:description" content="Terms of Use for VALSYNC — an independent, unofficial Valorant companion app.">
-<meta name="twitter:image" content="https://valsync.app/img/og-image.png">
-<meta name="theme-color" content="#0A141E">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://valsync.app/terms.html">
-<meta name="color-scheme" content="dark">
-<title>Terms of Use — VALSYNC</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A141E'/><text x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='%23FF525D'>V</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<style>
-.legal {
-  padding-block: clamp(2.5rem, 6vh, 5rem);
-}
-.legal h1 {
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 0.5rem;
-}
-.legal .last-updated {
-  font-size: 0.8rem;
-  color: var(--ink-muted);
-  margin-bottom: 2.5rem;
-}
-.legal h2 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--primary-glow);
-  margin: 2.5rem 0 0.75rem;
-}
-.legal p, .legal li {
-  max-width: 58ch;
-  color: var(--ink-muted);
-  margin-bottom: 0.75rem;
-}
-.legal ul {
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-.legal li { margin-bottom: 0.35rem; }
-.legal a {
-  color: var(--cyan);
-  font-weight: 500;
-}
-</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Terms of Use — VALSYNC",
-  "description": "Terms of Use for VALSYNC — an independent, unofficial Valorant companion app."
-}
-</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="VALSYNC Terms of Use — the terms governing your use of the VALSYNC Valorant companion app.">
+  <meta property="og:title" content="Terms of Use — VALSYNC">
+  <meta property="og:description" content="Terms of Use for VALSYNC — an independent, unofficial Valorant companion app.">
+  <meta property="og:image" content="https://valsync.app/img/og-image.png">
+  <meta property="og:url" content="https://valsync.app/terms.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VALSYNC">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terms of Use — VALSYNC">
+  <meta name="twitter:description" content="Terms of Use for VALSYNC — an independent, unofficial Valorant companion app.">
+  <meta name="twitter:image" content="https://valsync.app/img/og-image.png">
+  <meta name="theme-color" content="#0A141E">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://valsync.app/terms.html">
+  <meta name="color-scheme" content="dark">
+  <title>Terms of Use — VALSYNC</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      oklch(0.127 0.033 254);
+      --surface: oklch(0.162 0.031 253);
+      --fg:      oklch(0.919 0.012 255);
+      --muted:   oklch(0.65 0.01 255);
+      --border:  oklch(0.30 0.02 255);
+      --accent:  oklch(0.628 0.223 22);
+
+      --surface-hi: oklch(0.208 0.028 253);
+      --cyan: oklch(0.779 0.187 171);
+      --gold: oklch(0.804 0.143 85);
+      --scan: oklch(0 0 0 / 0.025);
+
+      --font-display: 'Saira', system-ui, sans-serif;
+      --font-body: 'Saira', system-ui, sans-serif;
+      --font-mono: 'Saira', ui-monospace, Menlo, monospace;
+
+      --fs-h1: clamp(44px, 7vw, 86px);
+      --fs-h2: clamp(30px, 4vw, 52px);
+      --fs-body: 16px;
+      --fs-meta: 13px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --gap-xl: 56px;
+      --gap-2xl: 96px;
+      --container: 1180px;
+      --gutter: clamp(20px, 4vw, 40px);
+      --radius: 8px;
+      --radius-lg: 12px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 74% 12%, color-mix(in oklch, var(--cyan) 9%, transparent), transparent 28rem),
+        linear-gradient(180deg, var(--bg), color-mix(in oklch, var(--bg) 90%, black));
+      color: var(--fg);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--scan) 2px, var(--scan) 4px);
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    p { text-wrap: pretty; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+    .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); }
+
+    .h1, h1 { font-family: var(--font-display); font-size: var(--fs-h1); line-height: 0.98; letter-spacing: -0.025em; margin: 0; font-weight: 800; }
+    .h2, h2 { font-family: var(--font-display); font-size: var(--fs-h2); line-height: 1.08; letter-spacing: -0.015em; margin: 0; font-weight: 800; }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--muted); }
+
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: color-mix(in oklch, var(--bg) 86%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; letter-spacing: 0.02em; }
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid color-mix(in oklch, var(--fg) 18%, transparent);
+      object-fit: cover;
+      background: var(--accent);
+    }
+    .topnav nav { display: flex; gap: var(--gap-lg); }
+    .topnav nav a { font-size: 14px; color: var(--muted); transition: color 180ms ease; }
+    .topnav nav a:hover { color: var(--fg); }
+    .nav-right { display: flex; align-items: center; gap: var(--gap-md); }
+    .lang-switch { display: flex; gap: 2px; }
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-body);
+      padding: 6px 8px;
+      min-width: 32px;
+      min-height: 32px;
+      cursor: pointer;
+      transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+    .lang-btn:hover, .lang-btn.active { color: var(--fg); border-color: var(--cyan); background: var(--surface-hi); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 20px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0;
+      transition: transform 160ms var(--ease-out), background 180ms ease, border-color 180ms ease, filter 180ms ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--accent); color: var(--fg); border-color: var(--accent); }
+    .btn-primary:hover { filter: brightness(1.14); }
+
+    .legal { padding-block: clamp(3rem, 7vh, 5rem); }
+    .legal h1 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); margin-bottom: 0.5rem; }
+    .legal .last-updated { font-size: 0.8rem; color: var(--muted); margin-bottom: 2.5rem; }
+    .legal h2 { font-size: 1.15rem; font-weight: 700; color: var(--cyan); margin: 2.5rem 0 0.75rem; }
+    .legal p, .legal li { max-width: 64ch; color: var(--muted); margin-bottom: 0.75rem; }
+    .legal ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .legal li { margin-bottom: 0.35rem; }
+    .legal a { color: var(--cyan); font-weight: 500; }
+    .legal a:hover { text-decoration: underline; }
+
+    .pagefoot { padding-block: var(--gap-xl); color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+    .pagefoot .row-between { flex-wrap: wrap; }
+
+    @media (max-width: 920px) {
+      .topnav nav { display: flex; gap: 12px; }
+      .topnav nav a { font-size: 12px; }
+    }
+    @media (max-width: 560px) {
+      .topnav-inner { gap: 12px; }
+      .topnav .btn { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms of Use — VALSYNC",
+    "description": "Terms of Use for VALSYNC — an independent, unofficial Valorant companion app."
+  }
+  </script>
 </head>
 <body>
 
-<nav class="site-nav" aria-label="Main">
-  <div class="container">
-    <a href="/" class="logo" aria-label="VALSYNC home">
-      <span class="logo-mark" aria-hidden="true">V</span>
-      VALSYNC
-    </a>
-    <a href="index.html#download" class="nav-cta">Download</a>
+<header class="topnav">
+  <div class="container topnav-inner">
+    <a class="logo" href="index.html"><img class="logo-mark" src="mr7gmipd-playstore.png" alt="VALSYNC logo"><span>VALSYNC</span></a>
+    <div class="nav-right">
+      <nav aria-label="Primary navigation">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#demo">App</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="ar" aria-label="العربية">AR</button>
+        <button class="lang-btn" data-lang="de" aria-label="Deutsch">DE</button>
+        <button class="lang-btn" data-lang="tr" aria-label="Türkçe">TR</button>
+      </div>
+      <a class="btn btn-primary" href="index.html#download">Join waitlist</a>
+    </div>
   </div>
-</nav>
+</header>
 
 <main>
   <section class="legal container">
@@ -127,20 +267,14 @@
   </section>
 </main>
 
-<footer class="site-footer" aria-label="Footer">
-  <div class="container">
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="index.html#download">Download</a>
-      <a href="terms.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://github.com/your-org/valsync" rel="noopener">GitHub</a>
-      <a href="mailto:abdullaheltiby@tutamail.com">Contact</a>
-    </div>
-    <span>VALSYNC &mdash; v1.0.3</span>
+<footer class="pagefoot">
+  <div class="container row-between">
+    <span>VALSYNC - tactical companion for Valorant</span>
+    <span class="meta">No ads. No tracking. No noise.</span>
   </div>
-  <p class="disclaimer container">VALSYNC is an independent, unofficial companion app and is not affiliated with, endorsed by, or sponsored by Riot Games. Valorant and all related marks and assets are trademarks of Riot Games, Inc.</p>
 </footer>
+
+<script src="js/i18n.js"></script>
 
 </body>
 </html>

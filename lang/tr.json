@@ -1,120 +1,127 @@
 {
-  "meta": {
-    "title": "VALSYNC — Valorant için Taktiksel Yardımcı",
-    "description": "Gizlilik odaklı bir Valorant yardımcısı. İstatistikleri takip et, mağazanı kontrol et, takımını koordine et ve maçları incele. Reklamsız. Takipsiz."
-  },
   "nav": {
-    "download": "İndir"
+    "features": "Özellikler",
+    "app": "Uygulama",
+    "privacy": "Gizlilik",
+    "download": "Bekleme listesine katıl"
   },
   "hero": {
-    "badge": "VALORANT YARDIMCISI",
-    "heading": "Taktiksel Yardımcı",
-    "heading_for": "için ",
-    "desc": "İstatistikleri takip et, mağazanı kontrol et, takımını koordine et ve maçları incele — hepsi tek bir gizlilik odaklı uygulamada.",
-    "cta": "Play Store'dan İndir",
-    "panel": "Canlı Sinyaller",
-    "signal_rr": "RR Değişimi",
-    "signal_streak": "Galibiyet Serisi",
-    "signal_party": "Takım",
-    "signal_party_val": "3 çevrimiçi",
-    "trust_ads": "Reklamsız",
-    "trust_track": "Takipsiz",
-    "trust_data": "Verilerin cihazında kalır"
+    "badge": "Gizlilik odaklı taktiksel yardımcı",
+    "title1": "Valorant gecen, ",
+    "title2": "gürültüsüz.",
+    "lead": "VALSYNC mağaza kontrollerini, takım durumunu, teçhizatları ve maç incelemelerini, sıra öncesi dakikalar için tasarlanmış sakin bir okumada bir arada tutar.",
+    "cta1": "Bekleme listesine katıl",
+    "cta2": "Okumayı önizle",
+    "trust1": "Riot oturum devri",
+    "trust2": "Sıfır reklam alanı",
+    "trust3": "Maç gecesi iş akışı"
+  },
+  "hud": {
+    "label": "Canlı yardımcı",
+    "noise": "Gürültü",
+    "noise_val": "0 reklam",
+    "tracking": "Takip",
+    "tracking_val": "Kapalı",
+    "sync": "Senkron",
+    "sync_val": "Yerel öncelikli",
+    "phone_label": "Ana üs",
+    "phone_sub": "Ana VALSYNC okuması."
   },
   "features": {
-    "heading": "İhtiyacın olan her şey tek yerde",
-    "desc": "Alt-Tab yok. Reklam dolu siteler yok. Her araç, tek uygulama.",
-    "i1_title": "Canlı İstatistikler & Rütbe",
-    "i1_desc": "RR, MMR, ACS, K/D, kafa vuruşu %. Rekabetçi kariyerin tek ekranda.",
-    "i2_title": "Günlük Mağaza & Gece Pazarı",
-    "i2_desc": "Oyunu başlatmadan tekliflerini kontrol et. Skin'ler göründüğünde istek listesi uyarıları.",
-    "i3_title": "Takım & Draft Yardımcısı",
-    "i3_desc": "Takımınla ajanları koordine et. Parti görünürlüğünü ve eşleştirmeyi yönet.",
-    "i4_title": "Sosyal & Sohbet",
-    "i4_desc": "Durum bilgili Riot arkadaşlar. XMPP ile doğrudan 1:1 sohbet. Üçüncü taraf hizmeti yok.",
-    "i5_title": "Taktik Wiki",
-    "i5_desc": "Ajanlar, silahlar, haritalar, dizilişler ve yama notları — indeksli ve aranabilir.",
-    "i6_title": "Maç Tekrarı",
-    "i6_desc": "Tur bazında öldürme zaman çizelgesi. Derinlemesine inceleme için isteğe bağlı yerel telemetri kaydı."
+    "title": "Yardımcı uygulama maçla rekabet etmeyi bırakır.",
+    "store": {
+      "title": "Sekme kaosu olmadan mağaza",
+      "desc": "Oyuncuların gerçekten tekrarladığı kontroller etrafında inşa edilmiş sakin bir yüzeyden mağazayı, Gece Pazarı'nı ve cilt izleme listesini takip et."
+    },
+    "party": {
+      "title": "Tek bakışta takım durumu",
+      "desc": "Kimin çevrimiçi olduğunu, kimin maç ortasında olduğunu ve lobi gürültülü hale gelmeden önce grubun hangi rolü kaçırdığını gör."
+    },
+    "review": {
+      "title": "İstatistik spamı olmadan inceleme",
+      "desc": "Uygulamayı reklam dolu bir veri deposuna dönüştürmeden maç anlarını, harita eğilimlerini ve koleksiyon bağlamını yüzeye çıkar."
+    }
   },
-  "screenshots": {
-    "heading": "Uygulamada gör",
-    "desc": "Güncel sürümden ekran görüntüleri. Mockup değil — gerçek uygulama.",
-    "c1": "Gösterge Paneli — canlı istatistikler, rütbe, RR takipçisi",
-    "c2": "Maç Geçmişi — tur bazında detay",
-    "c3": "Günlük Mağaza — teklifler + geri sayım",
-    "c4": "Teçhizat — silah skin koleksiyonu",
-    "c5": "Takım — ajan planı, katılım kodları",
-    "c6": "Sosyal — arkadaşlar, durum, sohbet"
-  },
-  "steps": {
-    "heading": "Görüntülemene üç adım",
-    "desc": "Hesap oluşturma yok. E-posta yok. Sadece Riot girişin.",
-    "s1_title": "İndir & giriş yap",
-    "s1_desc": "Play Store'dan yükle. Resmi OAuth ile Riot Games hesabına giriş yap — şifreni asla görmeyiz.",
-    "s2_title": "API erişimi ver",
-    "s2_desc": "Yetkilendirmek için bir kez dokun. Token'ların Android Keystore AES şifrelemesi ile cihazında saklanır ve telefonundan asla çıkmaz.",
-    "s3_title": "Her şey, tek dokunuş",
-    "s3_desc": "İstatistikler, mağaza, takım, sosyal, wiki, tekrarlar. Alt-Tab yok. Reklam yok. Kimse izlemiyor."
-  },
-  "compare": {
-    "heading": "Neden VALSYNC",
-    "desc": "Reklam destekli alternatiflerin sessizce feda ettiği şeylere karşı sen ne kazanıyorsun.",
-    "col_valsync": "VALSYNC",
-    "col_alt": "Alternatifler",
-    "r1_label": "Reklam",
-    "r1_good": "Yok",
-    "r1_bad": "Banner, geçiş reklamları, video",
-    "r2_label": "Takip & analitik",
-    "r2_good": "SDK yok",
-    "r2_bad": "Çökme raporları, kullanım telemetrisi",
-    "r3_label": "Açık kaynak",
-    "r3_good": "Her satır görünür",
-    "r3_bad": "Kapalı, gizlenmiş",
-    "r4_label": "Veri depolama",
-    "r4_good": "Cihaz Keystore AES",
-    "r4_bad": "Sunucu tarafı, bulut, üçüncü taraf",
-    "r5_label": "Para kazanma",
-    "r5_good": "Yok — satılık değil",
-    "r5_bad": "Verileriniz üründür"
-  },
-  "faq": {
-    "heading": "Muhtemelen sordu\u011fun sorular",
-    "desc": "Sık sorulan soruların cevapları. Seninki burada yoksa, alt bilgideki İletişim bağlantısından ulaş.",
-    "q1": "VALSYNC gerçekten ücretsiz mi? Nasıl para kazanıyorsunuz?",
-    "a1": "Kazanmıyoruz. VALSYNC'in gelir modeli yok. Reklam yok, abonelik yok, veri satışı yok, \"premium\" seviye yok. Var çünkü katkıda bulunanlar, oyunculara saygı duyan bir yardımcı uygulama istiyor. Bu bir gün değişirse, açık kaynaklı ve şeffaf olacak — karanlık bir manevra değil.",
-    "q2": "Bunu kullanmak Riot hesabımın banlanmasına neden olur mu?",
-    "a2": "Hayır. VALSYNC, Riot Games'in resmi API'sini kullanır ve geliştirici şartlarına uygun çalışır. Oyun istemcisine hiçbir şekilde enjekte etmez, değiştirmez veya etkileşime girmez. Yetkili olduğun verileri, onaylı API kanalı üzerinden okuyorsun.",
-    "q3": "Riot veya başkası verilerimi görür mü?",
-    "a3": "Verilerin doğrudan cihazın ile Riot sunucuları arasında gider. VALSYNC'in ara sunucusu, veri hattı veya arka ucu yoktur. Tek istisna, oyun istemcisinin kullandığı aynı altyapı olan Riot'un sohbet altyapısından geçen XMPP sohbet mesajlarıdır.",
-    "q4": "Kaldırırsam ne olur?",
-    "a4": "VALSYNC'in sakladığı her şey — şifrelenmiş token'lar, yerel tekrarlar, önbelleğe alınmış oyun verileri — kaldırdığında silinir. Hiçbir sunucuda hiçbir şey kalmaz çünkü sunucu yok. Ayrıca Riot hesap yönetimi sayfandan erişimi istediğin zaman iptal edebilirsin.",
-    "q5": "Hangi bölgeler ve cihazlar destekleniyor?",
-    "a5": "Tüm Valorant bölgeleri desteklenir. VALSYNC şu anda Android 8.0 ve üzerinde çalışır. iOS sürümü şu anda mevcut değil — uygulama Kotlin ve Jetpack Compose kullanılarak Android için yerel olarak geliştirilmiştir."
-  },
-  "changelog": {
-    "heading": "Yenilikler",
-    "desc": "v1.0.3'teki son değişiklikler.",
-    "v103": "Takım ekranında ajan planı. Maç tekrarı tur zaman çizelgesi. Gece Pazarı istek listesi uyarıları. Ajanlar, silahlar ve haritalar için wiki arama dizini.",
-    "v102": "Geri sayım sayaçlı Günlük Mağaza entegrasyonu. Oyun içi durum ve harita takipli arkadaş listesi. XMPP doğrudan sohbet.",
-    "v100": "İlk sürüm. Canlı istatistikler, rütbe takipçisi, maç geçmişi. Cihaz üzerinde token şifreleme. Sıfır telemetri, sıfır reklam."
+  "demo": {
+    "title": "Okuma, oyuncuların hazırlanma şeklini takip eder.",
+    "lead": "Mağazayla başla, grubu kontrol et, son maçı incele, ardından teçhizatı kilitle. VALSYNC bu döngüleri, oyuncuları başka bir takipçi yönetmeye zorlamadan yakın tutar.",
+    "signal1": "Mağaza kontrolü",
+    "signal1_val": "ciltler",
+    "signal2": "Grup kontrolü",
+    "signal2_val": "takım",
+    "signal3": "Tur incelemesi",
+    "signal3_val": "maçlar",
+    "card_label": "Canlı yardımcı",
+    "card_title": "Tek yüzeyde dört maç gecesi kontrolü.",
+    "card_desc": "Her modül dar bir iş tutar: mağaza, takım, maçlar veya teçhizat. Bir sonraki sırada bir şey değişene kadar arayüz sakin kalır.",
+    "card_s1": "Mağaza",
+    "card_s1_val": "izleme listesi",
+    "card_s2": "Takım",
+    "card_s2_val": "grup",
+    "card_s3": "Maçlar",
+    "card_s3_val": "inceleme"
   },
   "privacy": {
-    "heading": "Reklamsız. Takipsiz. Para kazanma yok.",
-    "desc": "VALSYNC'in gönderdiği en güçlü sinyal: hiçbir şey satılık değil. Verilerin, istatistiklerin, maçların — cihazında kalır.",
-    "i1_title": "Sıfır reklam SDK'sı",
-    "i1_desc": "Banner yok, geçiş reklamı yok, video reklam yok, reklam kimlikleri yok. Şimdi yok, asla olmayacak.",
-    "i2_title": "Analitik veya takip yok",
-    "i2_desc": "Çökme raporlayıcı yok, kullanım analitiği yok, eve telefon eden telemetri yok. Uygulamayı nasıl kullandığını bilmiyoruz ve bilmek istemiyoruz.",
-    "i3_title": "Şifrelenmiş cihaz depolama",
-    "i3_desc": "Riot token'ların Android Keystore destekli AES şifreleme ile saklanır. Tekrar dosyaları uygulamaya özel yerel depoda kalır.",
-    "i4_title": "Açık kaynak",
-    "i4_desc": "Her satır görünür. Kod tabanı düzenli, test edilmiş ve belgelenmiş — profesyonel olarak yayın yapan kişiler tarafından geliştirildi."
+    "badge": "Gizlilik duruşu",
+    "title": "Para kazanmama sözü arayüzde görünür.",
+    "lead": "VALSYNC ürün yüzeyini sakin tutar çünkü dikkat toplamaya çalışmaz. Her ana panel bir oyuncu sorusunu yanıtlar, sonra yoldan çekilir.",
+    "ads_title": "0 reklam",
+    "ads_desc": "Hazırlıkla rekabet eden banner alanları veya etkileşim tuzakları yok.",
+    "track_title": "Takip yok",
+    "track_desc": "Telemetri renkleri kullanıcı gözetimini değil, ürün durumunu açıklar.",
+    "riot_title": "Riot devri",
+    "riot_desc": "Kimlik doğrulama dili açık ve düşük dramalı kalır.",
+    "surface_title": "Düz yüzeyler",
+    "surface_desc": "Derinlik ton ve kenarlardan gelir, asla ışıltı yığınlarından değil."
+  },
+  "comparison": {
+    "title": "Sekme karmaşasına ve takipçi gürültüsüne daha temiz bir alternatif.",
+    "lead": "VALSYNC istatistiklere göz atmak için başka bir yer değil. \"Ne değişti?\"den \"sıraya hazır\"a giden kısa yol.",
+    "before": "Önce",
+    "store": {
+      "title": "Mağaza kontrolü",
+      "desc": "Tarayıcı yenileme döngüleri ve banner dolu sayfalar hızlı bir kontrolü dikkat dağınıklığına dönüştürür.",
+      "after": "Tek izleme listesi yüzeyi"
+    },
+    "party": {
+      "title": "Takım hazırlığı",
+      "desc": "Sohbet pingleri sana kimin yanıtladığını söyler. VALSYNC sana grubun hazır olup olmadığını söyler.",
+      "after": "Görüşte grup durumu"
+    },
+    "matches": {
+      "title": "Maç incelemesi",
+      "desc": "Faydalı maç bağlamı, ikincil istatistiklerin duvarı haline gelmek yerine okunabilir kalır.",
+      "after": "Önce tur sinyalleri"
+    },
+    "priv": {
+      "title": "Gizlilik",
+      "desc": "Arayüz sakindir çünkü ürün dikkat yakalama etrafında inşa edilmemiştir.",
+      "after": "Reklam envanteri yok"
+    }
+  },
+  "faq": {
+    "title": "Gösteri değil, sinyal isteyen oyuncular için inşa edildi.",
+    "q1": "Riot hesabına ihtiyacım var mı?",
+    "a1": "VALSYNC, Riot oturum devri etrafında tasarlanmıştır, böylece hesaba özel yüzeyler onlara sahip olan oyuncuya bağlı kalır.",
+    "q2": "Reklamlar nerede görünür?",
+    "a2": "Görünmezler. Ürün vaadi, banner alanları, etkileşim tuzakları veya para kazanılan takip olmadan bir yardımcı yüzeydir.",
+    "q3": "Uygulamadan neleri kontrol edebilirim?",
+    "a3": "Önizleme ana VALSYNC döngüsünü kapsar: Ana Sayfa, Mağaza, Takım, Maçlar, Teçhizat ve Sosyal.",
+    "q4": "Mağaza kontrolü nasıl çalışır?",
+    "a4": "VALSYNC, birden fazla tarayıcı sekmesi açmadan nelerin mevcut olduğuna göz atabilmen için mağazayı, Gece Pazarı'nı ve cilt izleme listesini yüzeye çıkarır.",
+    "q5": "Takımımı veya grubumu takip edebilir miyim?",
+    "a5": "Evet. Takım modülü, lobi dolmadan önce kimin çevrimiçi olduğunu, kimin maç ortasında olduğunu ve grubun hangi rolleri kaçırdığını gösterir.",
+    "q6": "VALSYNC verilerimi toplar veya satar mı?",
+    "a6": "Hayır. Ürün vaadi, banner reklamlar, izleme pikselleri veya veri aracılığı olmadan bir yardımcıdır. Telemetri yüzeyleri asla kullanıcı gözetimini değil, ürün durumunu açıklar."
+  },
+  "cta": {
+    "badge": "VALSYNC bekleme listesi",
+    "title": "Daha hızlı hazırlan. Gizli kal. Daha sakin sıraya gir.",
+    "lead": "Mağaza kontrolleri, takım hazırlığı ve sakin maç incelemesi etrafında inşa edilmiş gizlilik odaklı Valorant yardımcısı için listeye katıl.",
+    "button": "Bekleme listesine katıl"
   },
   "footer": {
-    "disclaimer": "VALSYNC bağımsız, resmi olmayan bir yardımcı uygulamadır ve Riot Games ile bağlantılı değildir, Riot Games tarafından onaylanmamış veya sponsor edilmemiştir. Valorant ve ilgili tüm marka ve varlıklar Riot Games, Inc.'in ticari markalarıdır."
-  },
-  "hints": {
-    "phone": "\u2190 \u2192 \u00b7 kayd\u0131r \u00b7 yak\u0131nla\u015ft\u0131rmak i\u00e7in \u00e7ift dokun \u00b7 Ctrl+kayd\u0131rma ile yak\u0131nla\u015ft\u0131r"
+    "left": "VALSYNC - Valorant için taktiksel yardımcı",
+    "right": "Reklam yok. Takip yok. Gürültü yok."
   }
 }
