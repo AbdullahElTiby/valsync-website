@@ -402,6 +402,7 @@
     .timeline.in-view .timeline-row:nth-child(3) { transition-delay: 420ms; }
     .timeline.in-view .timeline-row:nth-child(4) { transition-delay: 500ms; }
     .timeline.in-view .timeline-row:nth-child(5) { transition-delay: 580ms; }
+    .timeline.in-view .timeline-row:nth-child(6) { transition-delay: 660ms; }
     .timeline-row::before {
       content: "";
       position: absolute;
@@ -780,11 +781,10 @@
             </ul>
           </li>
 
-          <li class="timeline-row is-latest" data-od-id="release-1-0-5">
+          <li class="timeline-row" data-od-id="release-1-0-5">
             <div class="timeline-meta">
               <span class="version-pill">v1.0.5</span>
               <span class="timeline-date">2026-07-05</span>
-              <span class="latest-tag" data-i18n="releases.latest">Latest</span>
             </div>
             <h3 class="timeline-title">Clutch and multi-kill readouts</h3>
             <ul class="timeline-body">
@@ -792,6 +792,22 @@
               <li>First-blood detection by real game-time ordering; rounded HS%</li>
               <li>Tap a player row to expand extended stats (ACS, KDA, K-D, HS chips)</li>
               <li>Language switch cold-restart fix via AlarmManager and PendingIntent</li>
+            </ul>
+          </li>
+
+          <li class="timeline-row is-latest" data-od-id="release-1-0-6">
+            <div class="timeline-meta">
+              <span class="version-pill">v1.0.6</span>
+              <span class="timeline-date">2026-07-06</span>
+              <span class="latest-tag" data-i18n="releases.latest">Latest</span>
+            </div>
+            <h3 class="timeline-title">Live match panel in Party</h3>
+            <ul class="timeline-body">
+              <li>Party hosts a live match panel with dodge dialog, enemy intel, and telemetry probe</li>
+              <li>Lineups rebuilt with loading states; mock fallback data removed</li>
+              <li>Login: VALSYNC logo asset replaces the diamond brand mark</li>
+              <li>Riot API client parallelizes live-match player builds (async/awaitAll)</li>
+              <li>Settings: real BuildConfig.VERSION_NAME instead of hardcoded value</li>
             </ul>
           </li>
         </ol>
