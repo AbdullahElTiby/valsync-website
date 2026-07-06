@@ -123,5 +123,38 @@
   "footer": {
     "left": "VALSYNC - tactical companion for Valorant",
     "right": "No ads. No tracking. No noise."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: June 2026",
+      "h1": "1. Our Commitment",
+      "h2": "2. Information We Do Not Collect",
+      "h3": "3. Riot Games Authentication",
+      "h4": "4. Game Data",
+      "h5": "5. Optional Features",
+      "h6": "6. Open Source",
+      "h7": "7. Third-Party Services",
+      "h8": "8. Children's Privacy",
+      "h9": "9. Data Security",
+      "h10": "10. Your Rights",
+      "h11": "11. Policy Changes",
+      "h12": "12. Contact"
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "updated": "Last updated: June 2026",
+      "h1": "1. Acceptance of Terms",
+      "h2": "2. Description of Service",
+      "h3": "3. Riot Games Relationship",
+      "h4": "4. User Responsibilities",
+      "h5": "5. Privacy & Data",
+      "h6": "6. Intellectual Property",
+      "h7": "7. Disclaimer of Warranties",
+      "h8": "8. Limitation of Liability",
+      "h9": "9. Modifications",
+      "h10": "10. Termination",
+      "h11": "11. Contact"
+    }
   }
 }

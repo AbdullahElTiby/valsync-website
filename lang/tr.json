@@ -123,5 +123,38 @@
   "footer": {
     "left": "VALSYNC - Valorant için taktiksel yardımcı",
     "right": "Reklam yok. Takip yok. Gürültü yok."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "updated": "Son güncelleme: Haziran 2026",
+      "h1": "1. Taahhüdümüz",
+      "h2": "2. Toplamadığımız Bilgiler",
+      "h3": "3. Riot Games Kimlik Doğrulama",
+      "h4": "4. Oyun Verileri",
+      "h5": "5. İsteğe Bağlı Özellikler",
+      "h6": "6. Açık Kaynak",
+      "h7": "7. Üçüncü Taraf Hizmetleri",
+      "h8": "8. Çocukların Gizliliği",
+      "h9": "9. Veri Güvenliği",
+      "h10": "10. Haklarınız",
+      "h11": "11. Politika Değişiklikleri",
+      "h12": "12. İletişim"
+    },
+    "terms": {
+      "title": "Kullanım Koşulları",
+      "updated": "Son güncelleme: Haziran 2026",
+      "h1": "1. Koşulların Kabulü",
+      "h2": "2. Hizmetin Tanımı",
+      "h3": "3. Riot Games İlişkisi",
+      "h4": "4. Kullanıcı Sorumlulukları",
+      "h5": "5. Gizlilik ve Veriler",
+      "h6": "6. Fikri Mülkiyet",
+      "h7": "7. Garantilerin Reddi",
+      "h8": "8. Sorumluluğun Sınırlandırılması",
+      "h9": "9. Değişiklikler",
+      "h10": "10. Fesih",
+      "h11": "11. İletişim"
+    }
   }
 }
