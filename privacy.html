@@ -169,13 +169,13 @@
     .legal a { color: var(--cyan); font-weight: 500; }
     .legal a:hover { text-decoration: underline; }
 
-    .ai-explain { padding-block: 2rem 1rem; border-top: 1px solid var(--border); margin-top: 3rem; }
-    .ai-explain h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--cyan); margin: 0 0 0.5rem; }
-    .ai-explain p { color: var(--muted); max-width: 64ch; margin-bottom: 1rem; }
-    .ai-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 0.75rem; }
-    .ai-btn { display: inline-flex; align-items: center; padding: 10px 16px; border: 1px solid var(--border); border-radius: 4px; background: var(--surface-hi); color: var(--fg); font-size: 14px; font-weight: 600; transition: transform 160ms var(--ease-out), border-color 180ms ease, background 180ms ease; }
+    .ai-explain { padding-block: 1.25rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+    .ai-explain-label { display: block; font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.65rem; }
+    .ai-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0.5rem; }
+    .ai-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-hi); transition: transform 160ms var(--ease-out), border-color 180ms ease, background 180ms ease; }
     .ai-btn:hover { transform: translateY(-1px); border-color: var(--cyan); background: color-mix(in oklch, var(--cyan) 12%, var(--surface-hi)); }
-    .ai-note { font-size: 12px; color: var(--muted); margin: 0; }
+    .ai-btn img { width: 24px; height: 24px; display: block; }
+    .ai-note { font-size: 11px; color: var(--muted); margin: 0; }
 
     .pagefoot { padding-block: var(--gap-xl); color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
     .pagefoot .row-between { flex-wrap: wrap; }
@@ -231,6 +231,22 @@
 </header>
 
 <main>
+
+  <section class="ai-explain container" aria-label="AI explainer">
+    <span class="ai-explain-label" data-i18n="legal.ai.title">Want this in plain language?</span>
+    <div class="ai-row">
+      <a class="ai-btn" data-ai="chatgpt" target="_blank" rel="noopener" aria-label="ChatGPT" title="ChatGPT"><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=64" alt="" width="24" height="24" loading="lazy"></a>
+      <a class="ai-btn" data-ai="claude" target="_blank" rel="noopener" aria-label="Claude" title="Claude"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" alt="" width="24" height="24" loading="lazy"></a>
+      <a class="ai-btn" data-ai="gemini" target="_blank" rel="noopener" aria-label="Gemini" title="Gemini"><img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64" alt="" width="24" height="24" loading="lazy"></a>
+      <a class="ai-btn" data-ai="grok" target="_blank" rel="noopener" aria-label="Grok" title="Grok"><img src="https://www.google.com/s2/favicons?domain=grok.com&sz=64" alt="" width="24" height="24" loading="lazy"></a>
+      <a class="ai-btn" data-ai="mistral" target="_blank" rel="noopener" aria-label="Mistral" title="Mistral"><img src="https://www.google.com/s2/favicons?domain=chat.mistral.ai&sz=64" alt="" width="24" height="24" loading="lazy"></a>
+      <a class="ai-btn" data-ai="perplexity" target="_blank" rel="noopener" aria-label="Perplexity" title="Perplexity"><img src="https://www.google.com/s2/favicons?domain=www.perplexity.ai&sz=64" alt="" width="24" height="24" loading="lazy"></a>
+      <a class="ai-btn" data-ai="deepseek" target="_blank" rel="noopener" aria-label="DeepSeek" title="DeepSeek"><img src="https://www.google.com/s2/favicons?domain=chat.deepseek.com&sz=64" alt="" width="24" height="24" loading="lazy"></a>
+      <a class="ai-btn" data-ai="qwen" target="_blank" rel="noopener" aria-label="Qwen" title="Qwen"><img src="https://www.google.com/s2/favicons?domain=chat.qwen.ai&sz=64" alt="" width="24" height="24" loading="lazy"></a>
+    </div>
+    <p class="ai-note" data-i18n="legal.ai.note">If the chat doesn't pick up the prompt, paste it from your clipboard.</p>
+  </section>
+
   <section class="legal container">
     <h1 data-i18n="legal.privacy.title">Privacy Policy</h1>
     <p class="last-updated" data-i18n="legal.privacy.updated">Last updated: June 2026</p>
@@ -285,22 +301,6 @@
 
     <h2 data-i18n="legal.privacy.h12">12. Contact</h2>
       <p data-i18n-html="legal.privacy.p13">For privacy questions, email <a href="mailto:abdullaheltiby@tutamail.com">abdullaheltiby@tutamail.com</a> or open an issue on the <a href="https://github.com/your-org/valsync">VALSYNC GitHub repository</a>.</p>
-  </section>
-
-  <section class="ai-explain container" aria-label="AI explainer">
-    <h2 data-i18n="legal.ai.title">Want this in plain language?</h2>
-    <p data-i18n="legal.ai.lead">Tap any AI assistant — we'll copy the page text and open the chat ready for you.</p>
-    <div class="ai-row">
-      <a class="ai-btn" data-ai="chatgpt" target="_blank" rel="noopener">ChatGPT</a>
-      <a class="ai-btn" data-ai="claude" target="_blank" rel="noopener">Claude</a>
-      <a class="ai-btn" data-ai="gemini" target="_blank" rel="noopener">Gemini</a>
-      <a class="ai-btn" data-ai="grok" target="_blank" rel="noopener">Grok</a>
-      <a class="ai-btn" data-ai="mistral" target="_blank" rel="noopener">Mistral</a>
-      <a class="ai-btn" data-ai="perplexity" target="_blank" rel="noopener">Perplexity</a>
-      <a class="ai-btn" data-ai="deepseek" target="_blank" rel="noopener">DeepSeek</a>
-      <a class="ai-btn" data-ai="qwen" target="_blank" rel="noopener">Qwen</a>
-    </div>
-    <p class="ai-note" data-i18n="legal.ai.note">If the chat doesn't pick up the prompt automatically, paste it from your clipboard.</p>
   </section>
 </main>
 

@@ -103,18 +103,23 @@
     };
 
     function refresh() {
-      var text = legal.innerText.trim();
-      var prompt = "Please explain VALSYNC's " + docLabel + " below in simple, plain language. "
-        + "Highlight the most important points a user should know. "
-        + "Answer in the same language as the text below.\n\n---\n" + text + "\n---";
-      var enc = encodeURIComponent(prompt);
+      // ponytail: short URL-pointer prompt keeps href well under HTTP header
+      // limits (avoids ChatGPT 431). Full legal text goes to clipboard as
+      // fallback for assistants without web fetch.
+      var pageUrl = location.href.split('#')[0];
+      var shortPrompt = "Please read VALSYNC's " + docLabel + " at " + pageUrl
+        + " and explain it in simple, plain language. Highlight the most "
+        + "important points a user should know. Answer in the user's language.";
+      var clipboardText = "VALSYNC " + docLabel + "\nSource: " + pageUrl
+        + "\n\n" + legal.innerText.trim();
+      var enc = encodeURIComponent(shortPrompt);
       var btns = row.querySelectorAll('.ai-btn');
       for (var i = 0; i < btns.length; i++) {
         var k = btns[i].getAttribute('data-ai');
         var b = bases[k];
         if (!b) continue;
         btns[i].href = b + (b.indexOf('?') >= 0 ? '&' : '?') + 'q=' + enc;
-        btns[i]._p = prompt;
+        btns[i]._p = clipboardText;
       }
     }
 
