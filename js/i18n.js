@@ -2,6 +2,7 @@
   var RTL = ['ar'];
   var DEFAULT = 'en';
   var LANG_ATTR = 'data-i18n';
+  var HTML_ATTR = 'data-i18n-html';
   var STORAGE_KEY = 'valsync-lang';
 
   function getLang() {
@@ -28,26 +29,30 @@
     document.documentElement.lang = lang;
     document.documentElement.dir = RTL.indexOf(lang) >= 0 ? 'rtl' : 'ltr';
     markActive(lang);
-    var els = document.querySelectorAll('[' + LANG_ATTR + ']');
-    for (var i = 0; i < els.length; i++) {
-      var key = els[i].getAttribute(LANG_ATTR);
-      if (!key) continue;
-      var keys = key.split('.');
-      var val = data;
-      var found = true;
-      for (var j = 0; j < keys.length; j++) {
-        if (val == null) { found = false; break; }
-        val = val[keys[j]];
-      }
-      if (found && typeof val === 'string') {
-        els[i].textContent = val;
+    function applyAttr(attr, useHtml) {
+      var els = document.querySelectorAll('[' + attr + ']');
+      for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute(attr);
+        if (!key) continue;
+        var keys = key.split('.');
+        var val = data;
+        var found = true;
+        for (var j = 0; j < keys.length; j++) {
+          if (val == null) { found = false; break; }
+          val = val[keys[j]];
+        }
+        if (found && typeof val === 'string') {
+          if (useHtml) els[i].innerHTML = val; else els[i].textContent = val;
+        }
       }
     }
+    applyAttr(LANG_ATTR, false);
+    applyAttr(HTML_ATTR, true);
     try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
   }
 
   function loadAndApply(lang) {
-    fetch('lang/' + lang + '.json?v=2')
+    fetch('lang/' + lang + '.json?v=3')
       .then(function(r) { return r.json(); })
       .then(function(data) { translate(lang, data); })
       .catch(function() {

@@ -147,7 +147,34 @@
       "h9": "9. Veri Güvenliği",
       "h10": "10. Haklarınız",
       "h11": "11. Politika Değişiklikleri",
-      "h12": "12. İletişim"
+      "h12": "12. İletişim",
+      "p1": "VALSYNC tek bir ilke üzerine kuruludur: verileriniz sizindir. Biz onları toplamıyoruz, istemiyoruz ve uygulamayı öyle tasarladık ki, siz açıkça başlatmadıkça cihazınızdan hiçbir şey ayrılmaz (örneğin bir arkadaşınıza sohbet mesajı göndermek).",
+      "p2": "VALSYNC aşağıdaki verilerden hiçbirini toplamaz, saklamaz veya iletmez:",
+      "ul1": {
+        "li1": "<strong>Kişisel tanımlayıcılar:</strong> E-posta adresleri, telefon numaraları veya gerçek isimler toplanmaz.",
+        "li2": "<strong>Kullanım analitiği:</strong> Çökme raporlayıcıları, oturum izleme, özellik kullanım telemetrisi yok. Uygulamayı nasıl kullandığınız hakkında hiçbir fikrimiz yok ve olmasını da istemiyoruz.",
+        "li3": "<strong>Cihaz bilgileri:</strong> Cihaz parmak izleri, reklam kimlikleri (AAID/GAID) veya donanım tanımlayıcıları yok.",
+        "li4": "<strong>Konum verileri:</strong> GPS, yaklaşık konum veya IP tabanlı coğrafi konum yok.",
+        "li5": "<strong>Reklam verileri:</strong> Reklam SDK'ları, izleme pikselleri, yeniden hedefleme tanımlayıcıları yok. VALSYNC'te reklam yok ve asla olmayacak."
+      },
+      "p3": "VALSYNC'in çalışması için Riot Games hesabınızla oturum açmanız gerekir. Riot kimlik bilgileriniz doğrudan Riot'ın resmi OAuth akışı tarafından işlenir — şifrenizi asla görmeyiz. Ortaya çıkan kimlik doğrulama jetonları, Android Keystore destekli AES-256 şifrelemesi kullanılarak yalnızca cihazınızda saklanır. Bu jetonlar cihazınızdan asla ayrılmaz ve VALSYNC sunucularına asla iletilmez (bizim sunucumuz yok).",
+      "p4": "Uygulamada gösterilen tüm oyun verileri (istatistikler, mağaza içeriği, maç geçmişi, arkadaş listeleri) Riot Games'in resmi API'sinden gerçek zamanlı olarak alınır. Bu veriler doğrudan Riot sunucularından cihazınıza aktarılır. VALSYNC bu verileri herhangi bir aracı sunucuda önbelleğe almaz, saklamaz veya işlemez.",
+      "p5": "Bazı özellikler sizin açıkça kontrol ettiğiniz veri paylaşımını gerektirir:",
+      "ul2": {
+        "li1": "<strong>Takım Sohbeti ve Doğrudan Mesajlar:</strong> Bir sohbet mesajı gönderdiğinizde, alıcıya Riot'ın XMPP altyapısı aracılığıyla iletilir. VALSYNC bu mesajları saklamaz veya günlüğe kaydetmez.",
+        "li2": "<strong>Maç Tekrar Telemetrisi:</strong> Maç incelemesi için yerel telemetri yakalamayı etkinleştirirseniz, tekrar verileri cihazınızdaki uygulamaya özel yerel depolamada saklanır. Hiçbir yere yüklenmez."
+      },
+      "p6": "VALSYNC kodunun her satırı herkese açıktır. Gizli veri toplama rutinleri, üçüncü taraf analitik kütüphaneleri veya gizlenmiş izleme kodu yoktur. Kod tabanına <a href=\"https://github.com/your-org/valsync\">GitHub</a>'dan ulaşılabilir.",
+      "p7": "VALSYNC aşağıdaki hizmetlerle entegre olur:",
+      "ul3": {
+        "li1": "<strong>Riot Games API:</strong> Temel işlevsellik için gereklidir. <a href=\"https://www.riotgames.com/en/privacy-notice\">Riot Games Gizlilik Bildirimi</a> kapsamında yönetilir."
+      },
+      "p8": "Başka üçüncü taraf hizmet kullanmıyoruz. Analitik, çökme raporlaması, reklam ağı, günlük kaydı olan CDN veya ödeme işlemcisi yok.",
+      "p9": "VALSYNC 13 yaşın altındaki çocuklara yönelik değildir. Herhangi bir kişiden kişisel veri toplamadığımız için, çocuklardan bilerek bilgi toplamamıza olanak tanıyan bir mekanizmamız yoktur. Uygulamanın işlevselliği, Riot'ın yaş gereksinimlerine uyum gerektiren bir Riot Games hesabı gerektirir.",
+      "p10": "VALSYNC neredeyse hiç veri saklamadığı için (yalnızca yerel olarak şifrelenmiş Riot jetonlarınız), saldırı yüzeyi minimumdur. Yerel depolamadaki Riot kimlik doğrulama jetonları Android Keystore kullanılarak şifrelenir. Uygulama yalnızca Riot'ın resmi API uç noktalarıyla HTTPS üzerinden iletişim kurar.",
+      "p11": "Hiçbir kişisel veri toplamadığımız için erişilecek, düzeltilecek, silinecek veya dışa aktarılacak bir şey yoktur. Uygulamayı kaldırırsanız, yerel olarak saklanan tüm veriler (şifrelenmiş jetonlar, kaydedilmiş tekrarlar, önbelleğe alınmış oyun verileri) kaldırılır. VALSYNC'in Riot hesabınıza erişimini istediğiniz zaman <a href=\"https://account.riotgames.com/\">Riot hesap yönetimi</a> üzerinden iptal edebilirsiniz.",
+      "p12": "Bu politika değişirse, güncellenmiş sürümü burada yayınlayacağız ve değişikliği uygulamada belirteceğiz. Sıfır toplama mimarimiz göz önüne alındığında, değişikliklerin minimal ve nadir olması beklenir.",
+      "p13": "Gizlilik soruları için <a href=\"mailto:abdullaheltiby@tutamail.com\">abdullaheltiby@tutamail.com</a> adresine e-posta gönderin veya <a href=\"https://github.com/your-org/valsync\">VALSYNC GitHub deposu</a> üzerinden bir sorun açın."
     },
     "terms": {
       "title": "Kullanım Koşulları",
@@ -162,7 +189,24 @@
       "h8": "8. Sorumluluğun Sınırlandırılması",
       "h9": "9. Değişiklikler",
       "h10": "10. Fesih",
-      "h11": "11. İletişim"
+      "h11": "11. İletişim",
+      "p1": "VALSYNC uygulamasını (\"Uygulama\") indirerek, yükleyerek veya kullanarak bu Kullanım Koşullarına bağlı kalmayı kabul etmiş olursunuz. Bu koşulları kabul etmiyorsanız, Uygulamayı kullanmayın.",
+      "p2": "VALSYNC, Riot Games'in Valorant'ı için bağımsız, resmi olmayan bir yardımcı uygulamadır. Uygulama, Riot Games'in resmi API'si aracılığıyla oyunla ilgili verilere ve sosyal özelliklere, Riot'ın geliştirici politikalarına uygun olarak erişim sağlar.",
+      "p3": "VALSYNC, Riot Games, Inc. ile bağlı, onaylı veya sponsorlu değildir. Valorant ve ilgili tüm markalar, logolar ve varlıklar Riot Games, Inc.'in ticari markalarıdır. Uygulama, Riot'ın API koşulları ve topluluk geliştirici yönergeleri kapsamında çalışır.",
+      "p4": "Şunlardan sorumlusunuz:",
+      "ul1": {
+        "li1": "Riot Games hesap kimlik bilgilerinizin gizliliğini korumak",
+        "li2": "Uygulamayı Riot Games Hizmet Koşullarına uygun olarak kullanmak",
+        "li3": "Cihazınızın Uygulamayı çalıştırmak için minimum gereksinimleri karşıladığından emin olmak",
+        "li4": "Uygulamayı hile, sömürme veya Riot Games politikalarını ihlal eden herhangi bir faaliyet için kullanmamak"
+      },
+      "p5": "VALSYNC kişisel verileri üçüncü taraflara toplamaz, saklamaz veya iletmez. Riot kimlik doğrulama jetonlarınız, Android Keystore destekli AES şifrelemesi kullanılarak cihazınızda yerel olarak saklanır. Ayrıntılar için <a href=\"privacy.html\">Gizlilik Politikamıza</a> bakın.",
+      "p6": "VALSYNC uygulama kodu açık kaynaklıdır. VALSYNC adı ve logosu VALSYNC projesine aittir. Valorant ve ilgili varlıklar dahil tüm Riot Games ticari markaları Riot Games, Inc.'in mülkiyetinde kalır.",
+      "p7": "Uygulama herhangi bir garanti olmaksızın \"OLDUĞU GİBİ\" ve \"MEVCUT OLDUĞU ŞEKİLDE\" sağlanır. Kesintisiz erişim, hatasız çalışma veya gösterilen verilerin doğruluğunu garanti etmeyiz. Oyun verileri Riot Games API'sinin kullanılabilirliğine bağlıdır.",
+      "p8": "Yasanın izin verdiği azami ölçüde, VALSYNC ve katkıda bulunanlar, Uygulamayı kullanmanızdan veya kullanamamanızdan kaynaklanan veri kaybı, oyun hesabı sorunları veya dolaylı zararlar dahil ancak bunlarla sınırlı olmamak üzere herhangi bir zarardan sorumlu tutulamaz.",
+      "p9": "Bu Koşulları istediğimiz zaman güncelleme hakkını saklı tutarız. Önemli değişiklikler Uygulama veya web sitemiz aracılığıyla iletilecektir. Değişikliklerden sonra kullanımın devam etmesi kabul oluşturur.",
+      "p10": "Bu Koşulları veya Riot Games politikalarını ihlal etmeniz durumunda Uygulamaya erişiminizi istediğimiz zaman askıya alabilir veya sonlandırabiliriz. Uygulamayı cihazınızdan kaldırarak istediğiniz zaman kullanmayı bırakabilirsiniz.",
+      "p11": "Bu Koşullar hakkında sorularınız için <a href=\"mailto:abdullaheltiby@tutamail.com\">abdullaheltiby@tutamail.com</a> adresinden veya <a href=\"https://github.com/your-org/valsync\">VALSYNC GitHub deposu</a> aracılığıyla bizimle iletişime geçin."
     }
   }
 }
