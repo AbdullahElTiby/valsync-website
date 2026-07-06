@@ -133,6 +133,11 @@
     "right": "Reklam yok. Takip yok. Gürültü yok."
   },
   "legal": {
+    "ai": {
+      "title": "Bunu basit bir dille mi istersiniz?",
+      "lead": "Herhangi bir yapay zekâ asistanına dokunun — sayfa metnini kopyalayıp sohbeti sizin için hazır açalım.",
+      "note": "Sohbet metni otomatik almazsa, panodan yapıştırın."
+    },
     "privacy": {
       "title": "Gizlilik Politikası",
       "updated": "Son güncelleme: Haziran 2026",

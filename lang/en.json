@@ -133,6 +133,11 @@
     "right": "No ads. No tracking. No noise."
   },
   "legal": {
+    "ai": {
+      "title": "Want this in plain language?",
+      "lead": "Tap any AI assistant — we'll copy the page text and open the chat ready for you.",
+      "note": "If the chat doesn't pick up the prompt automatically, paste it from your clipboard."
+    },
     "privacy": {
       "title": "Privacy Policy",
       "updated": "Last updated: June 2026",

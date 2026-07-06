@@ -169,6 +169,14 @@
     .legal a { color: var(--cyan); font-weight: 500; }
     .legal a:hover { text-decoration: underline; }
 
+    .ai-explain { padding-block: 2rem 1rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+    .ai-explain h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--cyan); margin: 0 0 0.5rem; }
+    .ai-explain p { color: var(--muted); max-width: 64ch; margin-bottom: 1rem; }
+    .ai-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 0.75rem; }
+    .ai-btn { display: inline-flex; align-items: center; padding: 10px 16px; border: 1px solid var(--border); border-radius: 4px; background: var(--surface-hi); color: var(--fg); font-size: 14px; font-weight: 600; transition: transform 160ms var(--ease-out), border-color 180ms ease, background 180ms ease; }
+    .ai-btn:hover { transform: translateY(-1px); border-color: var(--cyan); background: color-mix(in oklch, var(--cyan) 12%, var(--surface-hi)); }
+    .ai-note { font-size: 12px; color: var(--muted); margin: 0; }
+
     .pagefoot { padding-block: var(--gap-xl); color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
     .pagefoot .row-between { flex-wrap: wrap; }
 
@@ -276,7 +284,23 @@
     <p data-i18n="legal.privacy.p12">If this policy ever changes, we will publish the updated version here and note the change in the App. Given our zero-collection architecture, changes are expected to be minimal and rare.</p>
 
     <h2 data-i18n="legal.privacy.h12">12. Contact</h2>
-    <p data-i18n-html="legal.privacy.p13">For privacy questions, email <a href="mailto:abdullaheltiby@tutamail.com">abdullaheltiby@tutamail.com</a> or open an issue on the <a href="https://github.com/your-org/valsync">VALSYNC GitHub repository</a>.</p>
+      <p data-i18n-html="legal.privacy.p13">For privacy questions, email <a href="mailto:abdullaheltiby@tutamail.com">abdullaheltiby@tutamail.com</a> or open an issue on the <a href="https://github.com/your-org/valsync">VALSYNC GitHub repository</a>.</p>
+  </section>
+
+  <section class="ai-explain container" aria-label="AI explainer">
+    <h2 data-i18n="legal.ai.title">Want this in plain language?</h2>
+    <p data-i18n="legal.ai.lead">Tap any AI assistant — we'll copy the page text and open the chat ready for you.</p>
+    <div class="ai-row">
+      <a class="ai-btn" data-ai="chatgpt" target="_blank" rel="noopener">ChatGPT</a>
+      <a class="ai-btn" data-ai="claude" target="_blank" rel="noopener">Claude</a>
+      <a class="ai-btn" data-ai="gemini" target="_blank" rel="noopener">Gemini</a>
+      <a class="ai-btn" data-ai="grok" target="_blank" rel="noopener">Grok</a>
+      <a class="ai-btn" data-ai="mistral" target="_blank" rel="noopener">Mistral</a>
+      <a class="ai-btn" data-ai="perplexity" target="_blank" rel="noopener">Perplexity</a>
+      <a class="ai-btn" data-ai="deepseek" target="_blank" rel="noopener">DeepSeek</a>
+      <a class="ai-btn" data-ai="qwen" target="_blank" rel="noopener">Qwen</a>
+    </div>
+    <p class="ai-note" data-i18n="legal.ai.note">If the chat doesn't pick up the prompt automatically, paste it from your clipboard.</p>
   </section>
 </main>
 

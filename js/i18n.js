@@ -52,7 +52,7 @@
   }
 
   function loadAndApply(lang) {
-    fetch('lang/' + lang + '.json?v=3')
+    fetch('lang/' + lang + '.json?v=4')
       .then(function(r) { return r.json(); })
       .then(function(data) { translate(lang, data); })
       .catch(function() {
@@ -78,5 +78,58 @@
       });
     }
     markActive(lang);
+  }
+
+  // ponytail: AI explainer reads .legal text at runtime, builds a prompt,
+  // and sets ?q=<encoded> hrefs on each .ai-btn. Clipboard copy on click
+  // covers services that don't honor ?q=. URL length is fine for ~4KB text.
+  function initAiExplain() {
+    var legal = document.querySelector('main .legal');
+    var row = document.querySelector('.ai-row');
+    if (!legal || !row) return;
+
+    var isTerms = !!legal.querySelector('[data-i18n="legal.terms.title"]');
+    var docLabel = isTerms ? 'Terms of Use' : 'Privacy Policy';
+
+    var bases = {
+      chatgpt: 'https://chatgpt.com/',
+      claude: 'https://claude.ai/new',
+      gemini: 'https://gemini.google.com/app',
+      grok: 'https://grok.com/',
+      mistral: 'https://chat.mistral.ai/chat',
+      perplexity: 'https://www.perplexity.ai/search',
+      deepseek: 'https://chat.deepseek.com/',
+      qwen: 'https://chat.qwen.ai/'
+    };
+
+    function refresh() {
+      var text = legal.innerText.trim();
+      var prompt = "Please explain VALSYNC's " + docLabel + " below in simple, plain language. "
+        + "Highlight the most important points a user should know. "
+        + "Answer in the same language as the text below.\n\n---\n" + text + "\n---";
+      var enc = encodeURIComponent(prompt);
+      var btns = row.querySelectorAll('.ai-btn');
+      for (var i = 0; i < btns.length; i++) {
+        var k = btns[i].getAttribute('data-ai');
+        var b = bases[k];
+        if (!b) continue;
+        btns[i].href = b + (b.indexOf('?') >= 0 ? '&' : '?') + 'q=' + enc;
+        btns[i]._p = prompt;
+      }
+    }
+
+    row.addEventListener('click', function(e) {
+      var t = e.target.closest && e.target.closest('.ai-btn');
+      if (t && t._p) { try { navigator.clipboard.writeText(t._p); } catch(_) {} }
+    });
+
+    refresh();
+    setTimeout(refresh, 600); // re-grab after i18n applies translated text
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAiExplain);
+  } else {
+    initAiExplain();
   }
 })();
