@@ -136,7 +136,8 @@
     "ai": {
       "title": "Bunu basit bir dille mi istersiniz?",
       "lead": "Herhangi bir yapay zekâ asistanına dokunun — sayfa metnini kopyalayıp sohbeti sizin için hazır açalım.",
-      "note": "Sohbet metni otomatik almazsa, panodan yapıştırın."
+      "note": "Sohbet metni otomatik almazsa, panodan yapıştırın.",
+      "prompt": "{url} adresindeki VALSYNC {doc} metnini okuyup basit ve anlaşılır bir dille açıkla. Bir kullanıcının bilmesi gereken en önemli noktaları öne çıkar. Kullanıcının dilinde yanıt ver."
     },
     "privacy": {
       "title": "Gizlilik Politikası",

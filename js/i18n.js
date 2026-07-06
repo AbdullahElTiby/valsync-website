@@ -4,6 +4,8 @@
   var LANG_ATTR = 'data-i18n';
   var HTML_ATTR = 'data-i18n-html';
   var STORAGE_KEY = 'valsync-lang';
+  var i18nData = null;
+  var aiRefresh = null;
 
   function getLang() {
     var p = new URLSearchParams(location.search).get('lang');
@@ -49,10 +51,12 @@
     applyAttr(LANG_ATTR, false);
     applyAttr(HTML_ATTR, true);
     try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+    i18nData = data;
+    if (aiRefresh) aiRefresh();
   }
 
   function loadAndApply(lang) {
-    fetch('lang/' + lang + '.json?v=4')
+      fetch('lang/' + lang + '.json?v=5')
       .then(function(r) { return r.json(); })
       .then(function(data) { translate(lang, data); })
       .catch(function() {
@@ -103,14 +107,15 @@
     };
 
     function refresh() {
-      // ponytail: short URL-pointer prompt keeps href well under HTTP header
-      // limits (avoids ChatGPT 431). Full legal text goes to clipboard as
-      // fallback for assistants without web fetch.
+      // ponytail: prompt template comes from i18nData (current site language);
+      // translate() calls this after switching, so the pre-filled prompt
+      // always matches the user's chosen language.
       var pageUrl = location.href.split('#')[0];
-      var shortPrompt = "Please read VALSYNC's " + docLabel + " at " + pageUrl
-        + " and explain it in simple, plain language. Highlight the most "
-        + "important points a user should know. Answer in the user's language.";
-      var clipboardText = "VALSYNC " + docLabel + "\nSource: " + pageUrl
+      var doc = (i18nData && (isTerms ? i18nData.legal.terms.title : i18nData.legal.privacy.title)) || docLabel;
+      var tmpl = (i18nData && i18nData.legal && i18nData.legal.ai && i18nData.legal.ai.prompt)
+        || "Please read VALSYNC's {doc} at {url} and explain it in simple, plain language. Highlight the most important points a user should know. Answer in the user's language.";
+      var shortPrompt = tmpl.split('{doc}').join(doc).split('{url}').join(pageUrl);
+      var clipboardText = "VALSYNC " + doc + "\nSource: " + pageUrl
         + "\n\n" + legal.innerText.trim();
       var enc = encodeURIComponent(shortPrompt);
       var btns = row.querySelectorAll('.ai-btn');
@@ -128,8 +133,8 @@
       if (t && t._p) { try { navigator.clipboard.writeText(t._p); } catch(_) {} }
     });
 
+    aiRefresh = refresh;
     refresh();
-    setTimeout(refresh, 600); // re-grab after i18n applies translated text
   }
 
   if (document.readyState === 'loading') {

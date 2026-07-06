@@ -136,7 +136,8 @@
     "ai": {
       "title": "In einfacher Sprache gefasst?",
       "lead": "Tippen Sie auf einen KI-Assistenten — wir kopieren den Seitentext und öffnen den Chat bereit für Sie.",
-      "note": "Wenn der Chat den Text nicht automatisch übernimmt, fügen Sie ihn aus der Zwischenablage ein."
+      "note": "Wenn der Chat den Text nicht automatisch übernimmt, fügen Sie ihn aus der Zwischenablage ein.",
+      "prompt": "Bitte lies VALSYNCs {doc} unter {url} und erkläre es in einfacher, verständlicher Sprache. Hebe die wichtigsten Punkte hervor, die ein Nutzer kennen sollte. Antworte in der Sprache des Nutzers."
     },
     "privacy": {
       "title": "Datenschutzerklärung",
