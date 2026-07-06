@@ -128,6 +128,12 @@
     "lead": "VALSYNC'in yayınlanan her sürümü; erken erişim lansmanından en son maç gecesi okumalarına. Doğrudan commit kaydından alındı.",
     "latest": "En yeni"
   },
+  "webapp": {
+    "badge": "Web'e geliyor",
+    "title": "Aynı okuma. Şimdi bir sekmede.",
+    "lead": "VALSYNC tarayıcıya geliyor. Aynı sıfır reklamlı gizlilik, aynı taktiksel yardımcı — her yerden aç, kurulum gerekmez.",
+    "cta": "Bildirim al"
+  },
   "footer": {
     "left": "VALSYNC - Valorant için taktiksel yardımcı",
     "right": "Reklam yok. Takip yok. Gürültü yok."

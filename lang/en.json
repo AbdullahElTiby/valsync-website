@@ -128,6 +128,12 @@
     "lead": "Every shipped version of VALSYNC, from early-access launch to the newest match-night readouts. Pulled straight from the commit log.",
     "latest": "Latest"
   },
+  "webapp": {
+    "badge": "Coming to the web",
+    "title": "Same readout. Now in a tab.",
+    "lead": "VALSYNC is coming to the browser. Same zero-ad privacy, same tactical companion — open it anywhere, no install needed.",
+    "cta": "Get notified"
+  },
   "footer": {
     "left": "VALSYNC - tactical companion for Valorant",
     "right": "No ads. No tracking. No noise."

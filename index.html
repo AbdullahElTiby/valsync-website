@@ -538,6 +538,51 @@
       to { opacity: 1; transform: translateX(0); clip-path: inset(0 0 0 0); }
     }
 
+    .browser-frame {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .browser-chrome {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 12px 16px;
+      background: var(--surface-hi);
+      border-bottom: 1px solid var(--border);
+    }
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+    .browser-dot:nth-child(1) { background: var(--accent); }
+    .browser-dot:nth-child(2) { background: var(--gold); }
+    .browser-dot:nth-child(3) { background: var(--cyan); }
+    .browser-body {
+      aspect-ratio: 16 / 10;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, color-mix(in oklch, var(--surface) 70%, var(--bg)), var(--bg));
+      color: color-mix(in oklch, var(--muted) 56%, transparent);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-top: 1px solid color-mix(in oklch, var(--fg) 4%, transparent);
+    }
+    .browser-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, color-mix(in oklch, var(--cyan) 14%, transparent), transparent 64%);
+      pointer-events: none;
+    }
+
     @media (max-width: 920px) {
       .grid-2, .grid-3, .grid-4, .grid-2-1, .grid-1-2, .hero-split, .privacy-grid { grid-template-columns: 1fr; }
       .topnav nav { display: flex; gap: 12px; }
@@ -919,6 +964,26 @@
             </ul>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section reveal" id="webapp" data-od-id="webapp">
+      <div class="container grid-1-2">
+        <div>
+          <p class="eyebrow" data-i18n="webapp.badge">Coming to the web</p>
+          <h2 data-i18n="webapp.title">Same readout. Now in a tab.</h2>
+          <p class="lead" style="margin-top: 16px;" data-i18n="webapp.lead">VALSYNC is coming to the browser. Same zero-ad privacy, same tactical companion — open it anywhere, no install needed.</p>
+          <a class="btn btn-secondary" href="mailto:contact@valsync.app?subject=VALSYNC%20web%20app%20notify" data-i18n="webapp.cta" style="margin-top: 24px;">Get notified</a>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-chrome">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+          </div>
+          <div class="browser-body">VALSYNC</div>
+          <div class="browser-glow"></div>
+        </div>
       </div>
     </section>
 

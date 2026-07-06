@@ -128,6 +128,12 @@
     "lead": "Jede veröffentlichte Version von VALSYNC, vom Early-Access-Start bis zu den neuesten Match-Night-Readouts. Direkt aus dem Commit-Log.",
     "latest": "Aktuell"
   },
+  "webapp": {
+    "badge": "Kommt ins Web",
+    "title": "Dieselbe Übersicht. Jetzt in einem Tab.",
+    "lead": "VALSYNC kommt in den Browser. Derselbe werbefreie Datenschutz, derselbe taktische Begleiter — überall öffnen, keine Installation nötig.",
+    "cta": "Benachrichtigt werden"
+  },
   "footer": {
     "left": "VALSYNC - taktischer Begleiter für Valorant",
     "right": "Keine Werbung. Kein Tracking. Kein Lärm."
