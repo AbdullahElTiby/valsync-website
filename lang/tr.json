@@ -2,6 +2,7 @@
   "nav": {
     "features": "Özellikler",
     "app": "Uygulama",
+    "updates": "Güncellemeler",
     "privacy": "Gizlilik",
     "download": "Bekleme listesine katıl"
   },
@@ -119,6 +120,12 @@
     "title": "Daha hızlı hazırlan. Gizli kal. Daha sakin sıraya gir.",
     "lead": "Mağaza kontrolleri, takım hazırlığı ve sakin maç incelemesi etrafında inşa edilmiş gizlilik odaklı Valorant yardımcısı için listeye katıl.",
     "button": "Bekleme listesine katıl"
+  },
+  "releases": {
+    "badge": "Sürüm geçmişi",
+    "title": "İlk derlemeden en yeni sinyale.",
+    "lead": "VALSYNC'in yayınlanan her sürümü; erken erişim lansmanından en son maç gecesi okumalarına. Doğrudan commit kaydından alındı.",
+    "latest": "En yeni"
   },
   "footer": {
     "left": "VALSYNC - Valorant için taktiksel yardımcı",

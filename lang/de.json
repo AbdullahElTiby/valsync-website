@@ -2,6 +2,7 @@
   "nav": {
     "features": "Features",
     "app": "App",
+    "updates": "Updates",
     "privacy": "Datenschutz",
     "download": "Warteliste beitreten"
   },
@@ -119,6 +120,12 @@
     "title": "Schneller vorbereiten. Privat bleiben. Ruhiger einreihen.",
     "lead": "Tritt der Liste bei für den datenschutzorientierten Valorant-Begleiter, gebaut rund um Shop-Checks, Party-Vorbereitung und ruhige Match-Reviews.",
     "button": "Warteliste beitreten"
+  },
+  "releases": {
+    "badge": "Versionsverlauf",
+    "title": "Vom ersten Build zum aktuellsten Signal.",
+    "lead": "Jede veröffentlichte Version von VALSYNC, vom Early-Access-Start bis zu den neuesten Match-Night-Readouts. Direkt aus dem Commit-Log.",
+    "latest": "Aktuell"
   },
   "footer": {
     "left": "VALSYNC - taktischer Begleiter für Valorant",

@@ -372,6 +372,105 @@
 
     .faq-list { display: grid; gap: 12px; }
     details { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 18px 20px; }
+
+    .timeline { position: relative; padding-left: 28px; max-width: 760px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 14px;
+      bottom: 14px;
+      width: 1px;
+      background: color-mix(in oklch, var(--cyan) 36%, var(--border));
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 900ms var(--ease-out) 120ms;
+    }
+    .timeline.in-view::before { transform: scaleY(1); }
+    .timeline-row {
+      position: relative;
+      padding: 22px 0 22px 4px;
+      border-top: 1px solid color-mix(in oklch, var(--border) 60%, transparent);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out);
+    }
+    .timeline-row:first-child { border-top: 0; padding-top: 4px; }
+    .timeline.in-view .timeline-row { opacity: 1; transform: translateY(0); }
+    .timeline.in-view .timeline-row:nth-child(1) { transition-delay: 260ms; }
+    .timeline.in-view .timeline-row:nth-child(2) { transition-delay: 340ms; }
+    .timeline.in-view .timeline-row:nth-child(3) { transition-delay: 420ms; }
+    .timeline.in-view .timeline-row:nth-child(4) { transition-delay: 500ms; }
+    .timeline.in-view .timeline-row:nth-child(5) { transition-delay: 580ms; }
+    .timeline-row::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 26px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid color-mix(in oklch, var(--muted) 60%, var(--border));
+      transition: background 240ms ease, border-color 240ms ease, transform 240ms var(--ease-out);
+    }
+    .timeline-row:hover::before { transform: scale(1.18); }
+    .timeline-row.is-latest::before {
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .version-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: var(--surface-hi);
+      border: 1px solid var(--border);
+      color: var(--fg);
+    }
+    .timeline-row.is-latest .version-pill {
+      background: color-mix(in oklch, var(--cyan) 14%, transparent);
+      border-color: color-mix(in oklch, var(--cyan) 55%, var(--border));
+      color: var(--cyan);
+    }
+    .latest-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .timeline-date { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+    .timeline-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.25; margin: 0 0 8px; }
+    .timeline-body { margin: 0; padding: 0; list-style: none; }
+    .timeline-body li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+    .timeline-body li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 9px;
+      height: 1px;
+      background: var(--cyan);
+      opacity: 0.6;
+    }
     summary { cursor: pointer; font-weight: 800; }
     details p { color: var(--muted); margin: 12px 0 0; max-width: 70ch; }
     .pagefoot { padding-block: var(--gap-xl); color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
@@ -460,6 +559,7 @@
         <nav aria-label="Primary navigation" data-od-id="primary-nav">
           <a href="#features" data-od-id="nav-features" data-i18n="nav.features">Features</a>
           <a href="#demo" data-od-id="nav-demo" data-i18n="nav.app">App</a>
+          <a href="#updates" data-od-id="nav-updates" data-i18n="nav.updates">Updates</a>
           <a href="privacy.html" data-od-id="nav-privacy" data-i18n="nav.privacy">Privacy</a>
           <a href="terms.html">Terms</a>
         </nav>
@@ -614,6 +714,87 @@
             <article class="privacy-item" data-od-id="privacy-item-surface"><strong data-i18n="privacy.surface_title">Flat surfaces</strong><p data-i18n="privacy.surface_desc">Depth comes from tone and borders, never glow stacks.</p></article>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="updates" data-od-id="updates">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow" data-i18n="releases.badge">Release history</p>
+          <h2 data-od-id="updates-title" data-i18n="releases.title">From first build to the latest signal.</h2>
+          <p data-od-id="updates-lead" data-i18n="releases.lead">Every shipped version of VALSYNC, from early-access launch to the newest match-night readouts. Pulled straight from the commit log.</p>
+        </div>
+
+        <ol class="timeline stagger" data-od-id="timeline">
+          <li class="timeline-row" data-od-id="release-1-0-0">
+            <div class="timeline-meta">
+              <span class="version-pill">v1.0.0</span>
+              <span class="timeline-date">2026-06-13</span>
+            </div>
+            <h3 class="timeline-title">Initial early-access launch</h3>
+            <ul class="timeline-body">
+              <li>Store, party, matches, wiki, and social surfaces in one companion</li>
+              <li>Riot RSO sign-in handoff</li>
+              <li>Home, store, party, matches, loadout, and social readouts</li>
+            </ul>
+          </li>
+
+          <li class="timeline-row" data-od-id="release-1-0-2">
+            <div class="timeline-meta">
+              <span class="version-pill">v1.0.2</span>
+              <span class="timeline-date">2026-06-23</span>
+            </div>
+            <h3 class="timeline-title">VALSYNC rebrand and privacy hardening</h3>
+            <ul class="timeline-body">
+              <li>Rebrand from ValPaw to VALSYNC; package moved to <code>com.valsync.app</code></li>
+              <li>OAuth PKCE flow with encrypted token storage</li>
+              <li>Redesigned match details and replay with tactical-telemetry HUD</li>
+              <li>Full i18n for English, Arabic, Turkish, and German</li>
+              <li>R8 minification and debug-only cleartext traffic</li>
+            </ul>
+          </li>
+
+          <li class="timeline-row" data-od-id="release-1-0-3">
+            <div class="timeline-meta">
+              <span class="version-pill">v1.0.3</span>
+              <span class="timeline-date">2026-06-27</span>
+            </div>
+            <h3 class="timeline-title">Riot sign-in cleanup</h3>
+            <ul class="timeline-body">
+              <li>Full-screen Riot RSO page, edge-to-edge</li>
+              <li>System back handler and floating close button for cancellation</li>
+              <li>Strip WebView UA marker so "Sign in with Google" works</li>
+            </ul>
+          </li>
+
+          <li class="timeline-row" data-od-id="release-1-0-4">
+            <div class="timeline-meta">
+              <span class="version-pill">v1.0.4</span>
+              <span class="timeline-date">2026-07-04</span>
+            </div>
+            <h3 class="timeline-title">Watchlist alerts and lineup details</h3>
+            <ul class="timeline-body">
+              <li>Skin watchlist alerts for store and Night Market</li>
+              <li>Match trends and advisor, plus lineup details</li>
+              <li>Riot auth WebView moved to a standalone Activity (fixes focus and keystroke bugs)</li>
+            </ul>
+          </li>
+
+          <li class="timeline-row is-latest" data-od-id="release-1-0-5">
+            <div class="timeline-meta">
+              <span class="version-pill">v1.0.5</span>
+              <span class="timeline-date">2026-07-05</span>
+              <span class="latest-tag" data-i18n="releases.latest">Latest</span>
+            </div>
+            <h3 class="timeline-title">Clutch and multi-kill readouts</h3>
+            <ul class="timeline-body">
+              <li>Per-player clutch %, plus double, triple, quadra, and ACE counts</li>
+              <li>First-blood detection by real game-time ordering; rounded HS%</li>
+              <li>Tap a player row to expand extended stats (ACS, KDA, K-D, HS chips)</li>
+              <li>Language switch cold-restart fix via AlarmManager and PendingIntent</li>
+            </ul>
+          </li>
+        </ol>
       </div>
     </section>
 

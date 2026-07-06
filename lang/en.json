@@ -2,6 +2,7 @@
   "nav": {
     "features": "Features",
     "app": "App",
+    "updates": "Updates",
     "privacy": "Privacy",
     "download": "Join waitlist"
   },
@@ -119,6 +120,12 @@
     "title": "Prepare faster. Stay private. Queue calmer.",
     "lead": "Join the list for the privacy-first Valorant companion built around store checks, party prep, and quiet match review.",
     "button": "Join waitlist"
+  },
+  "releases": {
+    "badge": "Release history",
+    "title": "From first build to the latest signal.",
+    "lead": "Every shipped version of VALSYNC, from early-access launch to the newest match-night readouts. Pulled straight from the commit log.",
+    "latest": "Latest"
   },
   "footer": {
     "left": "VALSYNC - tactical companion for Valorant",
