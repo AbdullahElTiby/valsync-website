@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://valsync.app/sitemap.xml
+Sitemap: https://abdullaheltiby.github.io/valsync-website/sitemap.xml

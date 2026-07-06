@@ -8,10 +8,10 @@
     "download": "Join waitlist"
   },
   "hero": {
-    "badge": "Privacy-first tactical companion",
+    "badge": "Privacy-first Valorant companion app",
     "title1": "Your Valorant night, ",
     "title2": "without the noise.",
-    "lead": "VALSYNC keeps store checks, party status, loadouts, and match review in one calm readout built for the minutes before queue.",
+    "lead": "VALSYNC keeps Valorant store checker workflows, Night Market watchlists, party status, loadouts, and match review in one calm readout built for the minutes before queue.",
     "cta1": "Join waitlist",
     "cta2": "Preview the readout",
     "trust1": "Riot sign-in handoff",
@@ -33,20 +33,20 @@
     "title": "The companion app stops competing with the match.",
     "store": {
       "title": "Store without tab chaos",
-      "desc": "Track the shop, Night Market, and skin watchlist from one quiet surface built around the checks players actually repeat."
+      "desc": "Track the Valorant shop, Night Market, and skin watchlist from one quiet store checker built around the checks players actually repeat."
     },
     "party": {
       "title": "Party state at a glance",
-      "desc": "See who is online, who is mid-match, and what role the stack is missing before the lobby gets noisy."
+      "desc": "See party status, who is online, who is mid-match, and what role the stack is missing before the lobby gets noisy."
     },
     "review": {
       "title": "Review without stat spam",
-      "desc": "Surface match moments, map tendencies, and collection context without turning the app into an ad-filled data warehouse."
+      "desc": "Surface Valorant match review, map tendencies, and collection context without turning the app into an ad-filled data warehouse."
     }
   },
   "demo": {
     "title": "The readout follows the way players prep.",
-    "lead": "Start with the shop, check the stack, review the last match, then lock the loadout. VALSYNC keeps those loops close without making players manage another tracker.",
+    "lead": "Start with the Valorant store checker, check the stack, review the last match, then lock the loadout. VALSYNC keeps those loops close without making players manage another tracker.",
     "signal1": "Shop check",
     "signal1_val": "skins",
     "signal2": "Stack check",
@@ -55,7 +55,7 @@
     "signal3_val": "matches",
     "card_label": "Live companion",
     "card_title": "Four match-night checks in one surface.",
-    "card_desc": "Each module keeps a narrow job: store, party, matches, or loadout. The interface stays calm until something changes the next queue.",
+    "card_desc": "Each module keeps a narrow job: Valorant store checks, party status, matches, or loadout. The interface stays calm until something changes the next queue.",
     "card_s1": "Store",
     "card_s1_val": "watchlist",
     "card_s2": "Party",
@@ -106,11 +106,11 @@
     "q1": "Do I need a Riot account?",
     "a1": "VALSYNC is designed around Riot sign-in handoff, so account-specific surfaces stay tied to the player who owns them.",
     "q2": "Where do ads show up?",
-    "a2": "They do not. The product promise is a companion surface without banner slots, engagement traps, or monetized tracking.",
+    "a2": "They do not. The product promise is a Valorant companion app without banner slots, engagement traps, or monetized tracking.",
     "q3": "What can I check from the app?",
     "a3": "The preview covers the main VALSYNC loop: Home, Store, Party, Matches, Loadout, and Social.",
-    "q4": "How does the store check work?",
-    "a4": "VALSYNC surfaces the shop, Night Market, and a skin watchlist so you can glance at what is available without opening multiple browser tabs.",
+    "q4": "How does the store checker work?",
+    "a4": "VALSYNC surfaces the Valorant shop, Night Market, and a skin watchlist so you can glance at what is available without opening multiple browser tabs.",
     "q5": "Can I track my squad or party?",
     "a5": "Yes. The party module shows who is online, who is mid-match, and what roles the stack is missing before the lobby fills up.",
     "q6": "Does VALSYNC collect or sell my data?",
@@ -119,7 +119,7 @@
   "cta": {
     "badge": "VALSYNC waitlist",
     "title": "Prepare faster. Stay private. Queue calmer.",
-    "lead": "Join the list for the privacy-first Valorant companion built around store checks, party prep, and quiet match review.",
+    "lead": "Join the list for the privacy-first Valorant companion app built around store checker workflows, party prep, and quiet match review.",
     "button": "Join waitlist"
   },
   "releases": {
