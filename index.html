@@ -236,6 +236,8 @@
     .btn-ghost:hover { color: var(--cyan); }
     .btn-arrow::after { content: "->"; transition: transform 160ms var(--ease-out); }
     .btn-arrow:hover::after { transform: translateX(3px); }
+    .support-row { display: flex; justify-content: center; margin-top: 18px; min-height: 40px; }
+    .support-row iframe, .support-row img { max-width: 100%; }
 
     .card {
       background: color-mix(in oklch, var(--surface) 92%, transparent);
@@ -1096,6 +1098,10 @@
         <h2 data-od-id="cta-title" data-i18n="cta.title">Prepare faster. Stay private. Queue calmer.</h2>
         <p class="lead" style="margin: 16px auto 32px;" data-od-id="cta-lead" data-i18n="cta.lead">Join the list for the privacy-first Valorant companion app built around store checker workflows, party prep, and quiet match review.</p>
         <a class="btn btn-primary" href="mailto:contact@valsync.app?subject=VALSYNC%20waitlist" data-od-id="cta-button" data-i18n="cta.button">Join waitlist</a>
+        <div class="support-row" data-od-id="liberapay-support">
+          <script src="https://liberapay.com/AbdullahElTiby/widgets/button.js"></script>
+          <noscript><a href="https://liberapay.com/AbdullahElTiby/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
+        </div>
       </div>
     </section>
   </main>
