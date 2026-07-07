@@ -1,6 +1,6 @@
 {
   "nav": {
-    "features": "Features",
+    "features": "Funktionen",
     "app": "App",
     "updates": "Updates",
     "privacy": "Datenschutz",
@@ -8,54 +8,54 @@
     "download": "Warteliste beitreten"
   },
   "hero": {
-    "badge": "Datenschutzorientierter taktischer Begleiter",
+    "badge": "Datenschutzorientierter Valorant-Begleiter",
     "title1": "Deine Valorant-Nacht, ",
-    "title2": "ohne den Lärm.",
-    "lead": "VALSYNC hält Shop-Checks, Party-Status, Loadouts und Match-Reviews in einer ruhigen Übersicht, gemacht für die Minuten vor der Warteschlange.",
+    "title2": "ohne Ablenkung.",
+    "lead": "VALSYNC bündelt Valorant-Shop-Checks, Night-Market-Beobachtung, Party-Status, Loadouts und Match-Reviews in einer ruhigen Ansicht für die Minuten vor der Queue.",
     "cta1": "Warteliste beitreten",
-    "cta2": "Vorschau ansehen",
-    "trust1": "Riot-Anmeldung",
-    "trust2": "Keine Werbeplätze",
-    "trust3": "Match-Abend-Workflow"
+    "cta2": "Ansicht ansehen",
+    "trust1": "Sicherer Riot-Login",
+    "trust2": "Keine Werbeflächen",
+    "trust3": "Vor-dem-Match-Ablauf"
   },
   "hud": {
-    "label": "Live-Begleiter",
-    "noise": "Lärm",
+    "label": "Live-Begleitansicht",
+    "noise": "Ablenkung",
     "noise_val": "0 Werbung",
     "tracking": "Tracking",
     "tracking_val": "Aus",
     "sync": "Sync",
-    "sync_val": "Lokal zuerst",
-    "phone_label": "Startseite",
-    "phone_sub": "Die Hauptübersicht von VALSYNC."
+    "sync_val": "Gerät zuerst",
+    "phone_label": "Zentrale Ansicht",
+    "phone_sub": "Die Hauptansicht von VALSYNC."
   },
   "features": {
-    "title": "Die Begleit-App konkurriert nicht mehr mit dem Match.",
+    "title": "Die Begleit-App, die deine Vorbereitung ordnet statt dein Match zu stören.",
     "store": {
       "title": "Shop ohne Tab-Chaos",
-      "desc": "Verfolge den Shop, den Nachtmarkt und die Skin-Wunschliste von einer ruhigen Oberfläche, die auf den tatsächlichen Checks der Spieler basiert."
+      "desc": "Verfolge den Valorant-Shop, den Night Market und deine Skin-Wunschliste in einer ruhigen Ansicht, die für die Checks gebaut ist, die Spieler wirklich wiederholen."
     },
     "party": {
       "title": "Party-Status auf einen Blick",
-      "desc": "Sieh, wer online ist, wer mitten im Match steckt und welche Rolle dem Stack fehlt, bevor die Lobby laut wird."
+      "desc": "Sieh, wer online ist, wer gerade im Match steckt und welche Rolle im Stack noch fehlt, bevor es in der Lobby unübersichtlich wird."
     },
     "review": {
-      "title": "Review ohne Stat-Spam",
-      "desc": "Hebe Match-Momente, Karten-Tendenzen und Sammlungskontext hervor, ohne die App in ein werbevolles Datenlager zu verwandeln."
+      "title": "Review ohne Statistikflut",
+      "desc": "Zeige Match-Kontext, Kartentendenzen und Sammlungshinweise, ohne die App in ein werbegefülltes Datenlager zu verwandeln."
     }
   },
   "demo": {
-    "title": "Die Übersicht folgt dem Rhythmus der Spieler.",
-    "lead": "Starte mit dem Shop, checke den Stack, review das letzte Match, dann fixiere das Loadout. VALSYNC hält diese Schleifen nah, ohne dass Spieler einen weiteren Tracker verwalten müssen.",
+    "title": "Die Ansicht folgt dem Vorbereitungsrhythmus der Spieler.",
+    "lead": "Starte mit dem Shop, prüfe die Party, sieh dir das letzte Match an und lege dann dein Loadout fest. VALSYNC hält diese Schritte nah beieinander, ohne dir noch einen Tracker aufzuzwingen.",
     "signal1": "Shop-Check",
     "signal1_val": "Skins",
-    "signal2": "Stack-Check",
+    "signal2": "Party-Check",
     "signal2_val": "Party",
-    "signal3": "Runden-Review",
+    "signal3": "Rundenanalyse",
     "signal3_val": "Matches",
-    "card_label": "Live-Begleiter",
-    "card_title": "Vier Match-Abend-Checks auf einer Oberfläche.",
-    "card_desc": "Jedes Modul behält eine enge Aufgabe: Shop, Party, Matches oder Loadout. Die Oberfläche bleibt ruhig, bis sich etwas in der nächsten Warteschlange ändert.",
+    "card_label": "Live-Begleitansicht",
+    "card_title": "Vier Vor-dem-Match-Checks auf einer Oberfläche.",
+    "card_desc": "Jedes Modul hat eine klare Aufgabe: Shop, Party, Matches oder Loadout. Die Oberfläche bleibt ruhig, bis sich etwas ändert, das für die nächste Queue zählt.",
     "card_s1": "Shop",
     "card_s1_val": "Wunschliste",
     "card_s2": "Party",
@@ -64,84 +64,84 @@
     "card_s3_val": "Review"
   },
   "privacy": {
-    "badge": "Datenschutz-Haltung",
-    "title": "Das Monetarisierungs-Versprechen ist in der Oberfläche sichtbar.",
-    "lead": "VALSYNC hält die Produktoberfläche ruhig, weil es nicht versucht, Aufmerksamkeit zu ernten. Jedes Hauptpanel beantwortet eine Spielerfrage und macht dann Platz.",
+    "badge": "Datenschutzanspruch",
+    "title": "Das Versprechen ohne Werbung ist in der Oberfläche spürbar.",
+    "lead": "VALSYNC bleibt ruhig, weil es nicht versucht, Aufmerksamkeit zu sammeln. Jede Hauptansicht beantwortet eine Spielerfrage und tritt danach zurück.",
     "ads_title": "0 Werbung",
-    "ads_desc": "Keine Banner-Plätze oder Engagement-Fallen, die mit der Vorbereitung konkurrieren.",
+    "ads_desc": "Keine Bannerflächen und keine Engagement-Fallen, die deine Vorbereitung stören.",
     "track_title": "Kein Tracking",
-    "track_desc": "Telemetrie-Farben erklären den Produktzustand, nicht die Nutzerüberwachung.",
-    "riot_title": "Riot-Übergabe",
-    "riot_desc": "Die Authentifizierungssprache bleibt explizit und unaufgeregt.",
+    "track_desc": "Telemetrie-Farben erklären den Produktzustand, nicht Nutzerüberwachung.",
+    "riot_title": "Riot-Login",
+    "riot_desc": "Die Sprache rund um Anmeldung bleibt klar, direkt und unaufgeregt.",
     "surface_title": "Flache Oberflächen",
-    "surface_desc": "Tiefe kommt von Ton und Rahmen, niemals von Glow-Stacks."
+    "surface_desc": "Tiefe entsteht durch Ton und Linien, nicht durch stapelweise Glanzeffekte."
   },
   "comparison": {
-    "title": "Eine sauberere Alternative zu Tab-Chaos und Tracker-Lärm.",
-    "lead": "VALSYNC ist kein weiterer Ort zum Durchstöbern von Statistiken. Es ist der kurze Weg von \"Was hat sich geändert?\" zu \"Bereit für die Warteschlange.\"",
+    "title": "Eine sauberere Alternative zu Tab-Chaos und Tracker-Ablenkung.",
+    "lead": "VALSYNC ist nicht noch ein Ort zum Stöbern in Statistiken. Es ist der kurze Weg von \"Was hat sich geändert?\" zu \"Bereit für die Queue.\"",
     "before": "Vorher",
     "store": {
       "title": "Shop-Check",
-      "desc": "Browser-Aktualisierungsschleifen und bannerlastige Seiten machen einen schnellen Check zur Ablenkung.",
-      "after": "Eine Wunschlisten-Oberfläche"
+      "desc": "Ständiges Browser-Aktualisieren und bannerlastige Seiten machen aus einem schnellen Check eine Ablenkung.",
+      "after": "Eine Wunschlisten-Ansicht"
     },
     "party": {
       "title": "Party-Vorbereitung",
-      "desc": "Chat-Pings sagen dir, wer geantwortet hat. VALSYNC sagt dir, ob der Stack bereit ist.",
-      "after": "Squad-Status im Blick"
+      "desc": "Chat-Pings sagen dir, wer geantwortet hat. VALSYNC zeigt dir, ob der Stack bereit ist.",
+      "after": "Teamstatus im Blick"
     },
     "matches": {
       "title": "Match-Review",
-      "desc": "Nützlicher Match-Kontext bleibt lesbar, anstatt eine Wand aus Sekundärstatistiken zu werden.",
+      "desc": "Nützlicher Match-Kontext bleibt lesbar, statt zu einer Wand aus Nebenstatistiken zu werden.",
       "after": "Rundensignale zuerst"
     },
     "priv": {
       "title": "Datenschutz",
-      "desc": "Die Oberfläche ist ruhig, weil das Produkt nicht auf Aufmerksamkeitsfang gebaut ist.",
+      "desc": "Die Oberfläche ist ruhig, weil das Produkt nicht darauf ausgelegt ist, Aufmerksamkeit einzufangen.",
       "after": "Kein Werbeinventar"
     }
   },
   "faq": {
-    "title": "Gebaut für Spieler, die Signal wollen, nicht Spektakel.",
+    "title": "Gebaut für Spieler, die klare Signale wollen statt Show.",
     "q1": "Brauche ich ein Riot-Konto?",
-    "a1": "VALSYNC ist um die Riot-Anmeldeübergabe herum konzipiert, sodass kontospezifische Oberflächen mit dem Spieler verbunden bleiben, dem sie gehören.",
+    "a1": "VALSYNC ist rund um den Riot-Login aufgebaut, damit kontospezifische Ansichten beim Spieler bleiben, dem das Konto gehört.",
     "q2": "Wo erscheint Werbung?",
-    "a2": "Nirgendwo. Das Produktversprechen ist eine Begleitoberfläche ohne Banner-Plätze, Engagement-Fallen oder monetarisiertes Tracking.",
+    "a2": "Nirgendwo. VALSYNC ist ein Valorant-Begleiter ohne Bannerflächen, Engagement-Fallen oder Tracking zur Monetarisierung.",
     "q3": "Was kann ich in der App überprüfen?",
-    "a3": "Die Vorschau deckt den Haupt-VALSYNC-Kreislauf ab: Startseite, Shop, Party, Matches, Loadout und Soziales.",
+    "a3": "Die Vorschau zeigt den zentralen VALSYNC-Ablauf: Home, Shop, Party, Matches, Loadout und Social.",
     "q4": "Wie funktioniert der Shop-Check?",
     "a4": "VALSYNC zeigt den Shop, den Nachtmarkt und eine Skin-Wunschliste an, damit du auf einen Blick siehst, was verfügbar ist, ohne mehrere Browser-Tabs zu öffnen.",
     "q5": "Kann ich mein Squad oder meine Party verfolgen?",
     "a5": "Ja. Das Party-Modul zeigt, wer online ist, wer mitten im Match steckt und welche Rollen dem Stack fehlen, bevor die Lobby voll wird.",
     "q6": "Sammelt oder verkauft VALSYNC meine Daten?",
-    "a6": "Nein. Das Produktversprechen ist ein Begleiter ohne Banner-Werbung, Tracking-Pixel oder Datenhandel. Telemetrie-Oberflächen erklären den Produktzustand, niemals die Nutzerüberwachung."
+    "a6": "Nein. VALSYNC ist ein Begleiter ohne Bannerwerbung, Tracking-Pixel oder Datenhandel. Telemetrieansichten erklären den Produktzustand, nicht Nutzerüberwachung."
   },
   "cta": {
     "badge": "VALSYNC Warteliste",
-    "title": "Schneller vorbereiten. Privat bleiben. Ruhiger einreihen.",
-    "lead": "Tritt der Liste bei für den datenschutzorientierten Valorant-Begleiter, gebaut rund um Shop-Checks, Party-Vorbereitung und ruhige Match-Reviews.",
+    "title": "Schneller vorbereiten. Privat bleiben. Ruhiger queuen.",
+    "lead": "Tritt der Liste für den datenschutzorientierten Valorant-Begleiter bei, gebaut für Shop-Checks, Party-Vorbereitung und ruhige Match-Reviews.",
     "button": "Warteliste beitreten"
   },
   "releases": {
     "badge": "Versionsverlauf",
-    "title": "Vom ersten Build zum aktuellsten Signal.",
-    "lead": "Jede veröffentlichte Version von VALSYNC, vom Early-Access-Start bis zu den neuesten Match-Night-Readouts. Direkt aus dem Commit-Log.",
+    "title": "Vom ersten Build bis zum neuesten Signal.",
+    "lead": "Jede veröffentlichte Version von VALSYNC, vom Early-Access-Start bis zu den neuesten Vor-dem-Match-Ansichten. Direkt aus dem Commit-Log.",
     "latest": "Aktuell"
   },
   "webapp": {
     "badge": "Kommt ins Web",
-    "title": "Dieselbe Übersicht. Jetzt in einem Tab.",
+    "title": "Dieselbe Ansicht. Jetzt im Browser-Tab.",
     "lead": "VALSYNC kommt in den Browser. Derselbe werbefreie Datenschutz, derselbe taktische Begleiter — überall öffnen, keine Installation nötig.",
     "cta": "Benachrichtigt werden"
   },
   "footer": {
     "left": "VALSYNC - taktischer Begleiter für Valorant",
-    "right": "Keine Werbung. Kein Tracking. Kein Lärm."
+    "right": "Keine Werbung. Kein Tracking. Keine Ablenkung."
   },
   "legal": {
     "ai": {
-      "title": "In einfacher Sprache gefasst?",
-      "lead": "Tippen Sie auf einen KI-Assistenten — wir kopieren den Seitentext und öffnen den Chat bereit für Sie.",
+      "title": "In einfacher Sprache?",
+      "lead": "Wähle einen KI-Assistenten — wir kopieren den Seitentext und öffnen den Chat für dich.",
       "note": "Wenn der Chat den Text nicht automatisch übernimmt, fügen Sie ihn aus der Zwischenablage ein.",
       "prompt": "Bitte lies VALSYNCs {doc} unter {url} und erkläre es in einfacher, verständlicher Sprache. Hebe die wichtigsten Punkte hervor, die ein Nutzer kennen sollte. Antworte in der Sprache des Nutzers."
     },

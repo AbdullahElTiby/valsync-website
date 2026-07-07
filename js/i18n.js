@@ -56,7 +56,7 @@
   }
 
   function loadAndApply(lang) {
-      fetch('lang/' + lang + '.json?v=5')
+      fetch('lang/' + lang + '.json?v=6')
       .then(function(r) { return r.json(); })
       .then(function(data) { translate(lang, data); })
       .catch(function() {

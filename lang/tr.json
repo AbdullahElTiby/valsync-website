@@ -8,130 +8,130 @@
     "download": "Bekleme listesine katıl"
   },
   "hero": {
-    "badge": "Gizlilik odaklı taktiksel yardımcı",
+    "badge": "Gizlilik odaklı Valorant yardımcısı",
     "title1": "Valorant gecen, ",
     "title2": "gürültüsüz.",
-    "lead": "VALSYNC mağaza kontrollerini, takım durumunu, teçhizatları ve maç incelemelerini, sıra öncesi dakikalar için tasarlanmış sakin bir okumada bir arada tutar.",
+    "lead": "VALSYNC; Valorant mağaza kontrollerini, Gece Pazarı takibini, parti durumunu, dizilimleri ve maç incelemelerini sıraya girmeden önce ihtiyaç duyduğun sakin bir panelde toplar.",
     "cta1": "Bekleme listesine katıl",
-    "cta2": "Okumayı önizle",
-    "trust1": "Riot oturum devri",
-    "trust2": "Sıfır reklam alanı",
-    "trust3": "Maç gecesi iş akışı"
+    "cta2": "Paneli önizle",
+    "trust1": "Riot ile güvenli giriş",
+    "trust2": "Reklam alanı yok",
+    "trust3": "Maç öncesi akış"
   },
   "hud": {
-    "label": "Canlı yardımcı",
+    "label": "Canlı yardımcı panel",
     "noise": "Gürültü",
     "noise_val": "0 reklam",
     "tracking": "Takip",
     "tracking_val": "Kapalı",
     "sync": "Senkron",
-    "sync_val": "Yerel öncelikli",
-    "phone_label": "Ana üs",
-    "phone_sub": "Ana VALSYNC okuması."
+    "sync_val": "Önce cihaz",
+    "phone_label": "Ana panel",
+    "phone_sub": "VALSYNC'in ana görünümü."
   },
   "features": {
-    "title": "Yardımcı uygulama maçla rekabet etmeyi bırakır.",
+    "title": "Maça odaklanmanı bölen değil, hazırlığını toparlayan yardımcı uygulama.",
     "store": {
-      "title": "Sekme kaosu olmadan mağaza",
-      "desc": "Oyuncuların gerçekten tekrarladığı kontroller etrafında inşa edilmiş sakin bir yüzeyden mağazayı, Gece Pazarı'nı ve cilt izleme listesini takip et."
+      "title": "Sekme karmaşası olmadan mağaza",
+      "desc": "Valorant mağazasını, Gece Pazarı'nı ve skin takip listeni oyuncuların sürekli yaptığı kontroller için tasarlanmış tek, sakin bir ekrandan izle."
     },
     "party": {
-      "title": "Tek bakışta takım durumu",
-      "desc": "Kimin çevrimiçi olduğunu, kimin maç ortasında olduğunu ve lobi gürültülü hale gelmeden önce grubun hangi rolü kaçırdığını gör."
+      "title": "Parti durumu tek bakışta",
+      "desc": "Lobi kalabalıklaşmadan önce kimin çevrimiçi olduğunu, kimin maçta olduğunu ve takımda hangi rolün eksik kaldığını gör."
     },
     "review": {
-      "title": "İstatistik spamı olmadan inceleme",
-      "desc": "Uygulamayı reklam dolu bir veri deposuna dönüştürmeden maç anlarını, harita eğilimlerini ve koleksiyon bağlamını yüzeye çıkar."
+      "title": "İstatistik kalabalığı olmadan inceleme",
+      "desc": "Uygulamayı reklam dolu bir veri deposuna çevirmeden maç özetlerini, harita eğilimlerini ve koleksiyon bağlamını öne çıkar."
     }
   },
   "demo": {
-    "title": "Okuma, oyuncuların hazırlanma şeklini takip eder.",
-    "lead": "Mağazayla başla, grubu kontrol et, son maçı incele, ardından teçhizatı kilitle. VALSYNC bu döngüleri, oyuncuları başka bir takipçi yönetmeye zorlamadan yakın tutar.",
+    "title": "Panel, oyuncuların hazırlık akışına göre çalışır.",
+    "lead": "Önce mağazaya bak, partiyi kontrol et, son maçı gözden geçir, sonra dizilimini kilitle. VALSYNC bu adımları yakında tutar; oyunculara bir takip aracı daha yönetme yükü çıkarmaz.",
     "signal1": "Mağaza kontrolü",
-    "signal1_val": "ciltler",
-    "signal2": "Grup kontrolü",
-    "signal2_val": "takım",
+    "signal1_val": "skinler",
+    "signal2": "Parti kontrolü",
+    "signal2_val": "ekip",
     "signal3": "Tur incelemesi",
     "signal3_val": "maçlar",
-    "card_label": "Canlı yardımcı",
-    "card_title": "Tek yüzeyde dört maç gecesi kontrolü.",
-    "card_desc": "Her modül dar bir iş tutar: mağaza, takım, maçlar veya teçhizat. Bir sonraki sırada bir şey değişene kadar arayüz sakin kalır.",
+    "card_label": "Canlı yardımcı panel",
+    "card_title": "Maç öncesi dört kontrol tek ekranda.",
+    "card_desc": "Her modülün net bir işi vardır: mağaza, parti, maçlar veya dizilim. Sıradaki oyunu etkileyen bir şey değişene kadar arayüz sakin kalır.",
     "card_s1": "Mağaza",
     "card_s1_val": "izleme listesi",
-    "card_s2": "Takım",
-    "card_s2_val": "grup",
+    "card_s2": "Parti",
+    "card_s2_val": "ekip",
     "card_s3": "Maçlar",
     "card_s3_val": "inceleme"
   },
   "privacy": {
-    "badge": "Gizlilik duruşu",
-    "title": "Para kazanmama sözü arayüzde görünür.",
-    "lead": "VALSYNC ürün yüzeyini sakin tutar çünkü dikkat toplamaya çalışmaz. Her ana panel bir oyuncu sorusunu yanıtlar, sonra yoldan çekilir.",
+    "badge": "Gizlilik yaklaşımı",
+    "title": "Reklamsız kalma sözü arayüzde de hissedilir.",
+    "lead": "VALSYNC dikkat toplamaya çalışmadığı için arayüzünü sakin tutar. Her ana panel bir oyuncu sorusunu yanıtlar ve sonra geri çekilir.",
     "ads_title": "0 reklam",
-    "ads_desc": "Hazırlıkla rekabet eden banner alanları veya etkileşim tuzakları yok.",
+    "ads_desc": "Hazırlığını bölen banner alanları veya etkileşim tuzakları yok.",
     "track_title": "Takip yok",
     "track_desc": "Telemetri renkleri kullanıcı gözetimini değil, ürün durumunu açıklar.",
-    "riot_title": "Riot devri",
-    "riot_desc": "Kimlik doğrulama dili açık ve düşük dramalı kalır.",
+    "riot_title": "Riot girişi",
+    "riot_desc": "Kimlik doğrulama dili açık, sade ve abartısız kalır.",
     "surface_title": "Düz yüzeyler",
-    "surface_desc": "Derinlik ton ve kenarlardan gelir, asla ışıltı yığınlarından değil."
+    "surface_desc": "Derinlik renk tonu ve çizgilerden gelir; parıltı kalabalığından değil."
   },
   "comparison": {
-    "title": "Sekme karmaşasına ve takipçi gürültüsüne daha temiz bir alternatif.",
-    "lead": "VALSYNC istatistiklere göz atmak için başka bir yer değil. \"Ne değişti?\"den \"sıraya hazır\"a giden kısa yol.",
+    "title": "Sekme karmaşasına ve takip uygulaması gürültüsüne daha temiz bir alternatif.",
+    "lead": "VALSYNC istatistik kurcalayacağın bir yer daha değil. \"Ne değişti?\" sorusundan \"sıraya hazırım\" noktasına giden kısa yol.",
     "before": "Önce",
     "store": {
       "title": "Mağaza kontrolü",
-      "desc": "Tarayıcı yenileme döngüleri ve banner dolu sayfalar hızlı bir kontrolü dikkat dağınıklığına dönüştürür.",
-      "after": "Tek izleme listesi yüzeyi"
+      "desc": "Sürekli tarayıcı yenilemek ve banner dolu sayfalar, hızlı bir kontrolü dikkat dağıtan bir işe çevirir.",
+      "after": "Tek takip listesi ekranı"
     },
     "party": {
-      "title": "Takım hazırlığı",
-      "desc": "Sohbet pingleri sana kimin yanıtladığını söyler. VALSYNC sana grubun hazır olup olmadığını söyler.",
-      "after": "Görüşte grup durumu"
+      "title": "Parti hazırlığı",
+      "desc": "Sohbet bildirimleri kimin cevap verdiğini söyler. VALSYNC ekibin sıraya hazır olup olmadığını gösterir.",
+      "after": "Ekip durumu ekranda"
     },
     "matches": {
       "title": "Maç incelemesi",
-      "desc": "Faydalı maç bağlamı, ikincil istatistiklerin duvarı haline gelmek yerine okunabilir kalır.",
-      "after": "Önce tur sinyalleri"
+      "desc": "Faydalı maç bağlamı, ikincil istatistik duvarına dönüşmeden okunabilir kalır.",
+      "after": "Öncelik tur sinyallerinde"
     },
     "priv": {
       "title": "Gizlilik",
-      "desc": "Arayüz sakindir çünkü ürün dikkat yakalama etrafında inşa edilmemiştir.",
+      "desc": "Arayüz sakindir çünkü ürün dikkat yakalamak için tasarlanmamıştır.",
       "after": "Reklam envanteri yok"
     }
   },
   "faq": {
-    "title": "Gösteri değil, sinyal isteyen oyuncular için inşa edildi.",
+    "title": "Gösteriş değil, net sinyal isteyen oyuncular için yapıldı.",
     "q1": "Riot hesabına ihtiyacım var mı?",
-    "a1": "VALSYNC, Riot oturum devri etrafında tasarlanmıştır, böylece hesaba özel yüzeyler onlara sahip olan oyuncuya bağlı kalır.",
+    "a1": "VALSYNC, Riot ile giriş akışına göre tasarlanır. Böylece hesaba özel ekranlar sadece o hesabın sahibine bağlı kalır.",
     "q2": "Reklamlar nerede görünür?",
-    "a2": "Görünmezler. Ürün vaadi, banner alanları, etkileşim tuzakları veya para kazanılan takip olmadan bir yardımcı yüzeydir.",
+    "a2": "Hiçbir yerde. Ürün vaadi; banner alanları, etkileşim tuzakları ve para kazanma amaçlı takip olmadan çalışan bir Valorant yardımcısıdır.",
     "q3": "Uygulamadan neleri kontrol edebilirim?",
     "a3": "Önizleme ana VALSYNC döngüsünü kapsar: Ana Sayfa, Mağaza, Takım, Maçlar, Teçhizat ve Sosyal.",
     "q4": "Mağaza kontrolü nasıl çalışır?",
-    "a4": "VALSYNC, birden fazla tarayıcı sekmesi açmadan nelerin mevcut olduğuna göz atabilmen için mağazayı, Gece Pazarı'nı ve cilt izleme listesini yüzeye çıkarır.",
+    "a4": "VALSYNC, birden fazla tarayıcı sekmesi açmadan nelerin geldiğini görebilmen için mağazayı, Gece Pazarı'nı ve skin takip listesini gösterir.",
     "q5": "Takımımı veya grubumu takip edebilir miyim?",
-    "a5": "Evet. Takım modülü, lobi dolmadan önce kimin çevrimiçi olduğunu, kimin maç ortasında olduğunu ve grubun hangi rolleri kaçırdığını gösterir.",
+    "a5": "Evet. Parti modülü, lobi dolmadan önce kimin çevrimiçi olduğunu, kimin maçta olduğunu ve ekibin hangi rollerde eksiği olduğunu gösterir.",
     "q6": "VALSYNC verilerimi toplar veya satar mı?",
-    "a6": "Hayır. Ürün vaadi, banner reklamlar, izleme pikselleri veya veri aracılığı olmadan bir yardımcıdır. Telemetri yüzeyleri asla kullanıcı gözetimini değil, ürün durumunu açıklar."
+    "a6": "Hayır. VALSYNC; banner reklamlar, izleme pikselleri veya veri satışı olmadan çalışan bir yardımcıdır. Telemetri ekranları kullanıcıyı izlemek için değil, ürün durumunu açıklamak için vardır."
   },
   "cta": {
     "badge": "VALSYNC bekleme listesi",
-    "title": "Daha hızlı hazırlan. Gizli kal. Daha sakin sıraya gir.",
-    "lead": "Mağaza kontrolleri, takım hazırlığı ve sakin maç incelemesi etrafında inşa edilmiş gizlilik odaklı Valorant yardımcısı için listeye katıl.",
+    "title": "Daha hızlı hazırlan. Gizli kal. Sıraya daha sakin gir.",
+    "lead": "Mağaza kontrolleri, parti hazırlığı ve sade maç incelemesi için tasarlanan gizlilik odaklı Valorant yardımcısının listesine katıl.",
     "button": "Bekleme listesine katıl"
   },
   "releases": {
     "badge": "Sürüm geçmişi",
-    "title": "İlk derlemeden en yeni sinyale.",
-    "lead": "VALSYNC'in yayınlanan her sürümü; erken erişim lansmanından en son maç gecesi okumalarına. Doğrudan commit kaydından alındı.",
+    "title": "İlk sürümden en güncel sinyale.",
+    "lead": "Erken erişim çıkışından en yeni maç öncesi panellere kadar VALSYNC'in yayınlanan her sürümü. Doğrudan commit geçmişinden alınır.",
     "latest": "En yeni"
   },
   "webapp": {
     "badge": "Web'e geliyor",
-    "title": "Aynı okuma. Şimdi bir sekmede.",
-    "lead": "VALSYNC tarayıcıya geliyor. Aynı sıfır reklamlı gizlilik, aynı taktiksel yardımcı — her yerden aç, kurulum gerekmez.",
+    "title": "Aynı panel. Şimdi tarayıcı sekmesinde.",
+    "lead": "VALSYNC tarayıcıya geliyor. Aynı reklamsız gizlilik, aynı taktiksel yardımcı — istediğin yerden aç, kurulum gerekmez.",
     "cta": "Bildirim al"
   },
   "footer": {
@@ -140,9 +140,9 @@
   },
   "legal": {
     "ai": {
-      "title": "Bunu basit bir dille mi istersiniz?",
+      "title": "Bunu sade dille mi görmek istersiniz?",
       "lead": "Herhangi bir yapay zekâ asistanına dokunun — sayfa metnini kopyalayıp sohbeti sizin için hazır açalım.",
-      "note": "Sohbet metni otomatik almazsa, panodan yapıştırın.",
+      "note": "Sohbet metni otomatik almazsa panodan yapıştırın.",
       "prompt": "{url} adresindeki VALSYNC {doc} metnini okuyup basit ve anlaşılır bir dille açıkla. Bir kullanıcının bilmesi gereken en önemli noktaları öne çıkar. Kullanıcının dilinde yanıt ver."
     },
     "privacy": {
