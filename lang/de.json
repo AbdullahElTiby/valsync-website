@@ -153,7 +153,7 @@
       "h3": "3. Riot Games Authentifizierung",
       "h4": "4. Spieldaten",
       "h5": "5. Optionale Funktionen",
-      "h6": "6. Open Source",
+      "h6": "6. Quellcode",
       "h7": "7. Drittanbieter-Dienste",
       "h8": "8. Datenschutz für Kinder",
       "h9": "9. Datensicherheit",
@@ -176,7 +176,7 @@
         "li1": "<strong>Party-Chat & Direktnachrichten:</strong> Wenn du eine Chat-Nachricht sendest, wird sie über die XMPP-Infrastruktur von Riot an den Empfänger übermittelt. VALSYNC speichert oder protokolliert diese Nachrichten nicht.",
         "li2": "<strong>Match-Replay-Telemetrie:</strong> Wenn du die lokale Telemetrie-Erfassung für die Match-Überprüfung aktivierst, werden Replay-Daten im app-privaten lokalen Speicher deines Geräts gespeichert. Sie werden nirgendwo hochgeladen."
       },
-      "p6": "Jede Zeile des VALSYNC-Codes ist öffentlich einsehbar. Du kannst unsere Datenschutzversprechen durch die Überprüfung des Quellcodes verifizieren. Es gibt keine versteckten Datenerhebungsroutinen, keine Analyse-Bibliotheken von Drittanbietern und keinen verschleierten Tracking-Code. Die Codebasis ist auf <a href=\"https://github.com/your-org/valsync\">GitHub</a> verfügbar.",
+      "p6": "VALSYNC ist nicht Open Source. Der Quellcode ist proprietär und wird nicht öffentlich verbreitet. Der Quellcode ist nicht zur Einsicht verfügbar, wir legen unsere Datenpraktiken jedoch transparent in dieser Richtlinie offen, und die App enthält keine Drittanbieter-Analytics-, Werbe- oder Tracking-SDKs.",
       "p7": "VALSYNC integriert die folgenden Dienste:",
       "ul3": {
         "li1": "<strong>Riot Games API:</strong> Erforderlich für die Kernfunktionalität. Geregelt durch den <a href=\"https://www.riotgames.com/en/privacy-notice\">Datenschutzhinweis von Riot Games</a>."
@@ -186,7 +186,7 @@
       "p10": "Da VALSYNC fast keine Daten speichert (nur deine verschlüsselten Riot-Token lokal), ist die Angriffsfläche minimal. Die Riot-Authentifizierungs-Token im lokalen Speicher werden mit dem Android Keystore verschlüsselt. Die App kommuniziert ausschließlich über HTTPS mit den offiziellen API-Endpunkten von Riot.",
       "p11": "Da wir keine personenbezogenen Daten erheben, gibt es nichts, auf das zugegriffen, korrigiert, gelöscht oder exportiert werden müsste. Wenn du die App deinstallierst, werden alle lokal gespeicherten Daten (verschlüsselte Token, gespeicherte Replays, zwischengespeicherte Spieldaten) entfernt. Du kannst den Zugriff von VALSYNC auf dein Riot-Konto jederzeit über die <a href=\"https://account.riotgames.com/\">Riot-Kontoverwaltung</a> widerrufen.",
       "p12": "Sollte sich diese Richtlinie jemals ändern, veröffentlichen wir die aktualisierte Version hier und weisen in der App auf die Änderung hin. Angesichts unserer Zero-Collection-Architektur werden Änderungen voraussichtlich minimal und selten sein.",
-      "p13": "Bei Datenschutzfragen sende eine E-Mail an <a href=\"mailto:abdullaheltiby@tutamail.com\">abdullaheltiby@tutamail.com</a> oder öffne ein Issue im <a href=\"https://github.com/your-org/valsync\">VALSYNC GitHub-Repository</a>."
+      "p13": "Bei Datenschutzfragen sende eine E-Mail an <a href=\"mailto:abdullaheltiby@tutamail.com\">abdullaheltiby@tutamail.com</a>."
     },
     "terms": {
       "title": "Nutzungsbedingungen",
@@ -213,12 +213,12 @@
         "li4": "Die Nichtnutzung der App für Betrug, Ausnutzung oder jede Aktivität, die gegen die Richtlinien von Riot Games verstößt"
       },
       "p5": "VALSYNC erhebt, speichert oder überträgt keine personenbezogenen Daten an Dritte. Deine Riot-Authentifizierungs-Token werden lokal auf deinem Gerät mit AES-Verschlüsselung gespeichert, die vom Android Keystore unterstützt wird. Details findest du in unserer <a href=\"privacy.html\">Datenschutzerklärung</a>.",
-      "p6": "Der VALSYNC-Anwendungscode ist Open Source. Name und Logo von VALSYNC sind Eigentum des VALSYNC-Projekts. Alle Marken von Riot Games, einschließlich Valorant und zugehöriger Assets, verbleiben im Eigentum von Riot Games, Inc.",
+      "p6": "Die VALSYNC-Anwendung, einschließlich Quellcode, Name und Logo, ist proprietär. VALSYNC ist nicht Open Source, und alle Rechte vorbehalten beim VALSYNC-Projekt. Der Quellcode darf ohne ausdrückliche schriftliche Genehmigung weder kopiert, geändert, verbreitet noch zur Erstellung abgeleiteter Werke verwendet werden. Alle Marken von Riot Games, einschließlich Valorant und zugehöriger Assets, verbleiben im Eigentum von Riot Games, Inc.",
       "p7": "Die App wird \"WIE BESEHEN\" und \"WIE VERFÜGBAR\" ohne jegliche Gewährleistung bereitgestellt. Wir garantieren keinen unterbrechungsfreien Zugriff, fehlerfreien Betrieb oder die Genauigkeit der angezeigten Daten. Spieldaten hängen von der Verfügbarkeit der API von Riot Games ab.",
       "p8": "Soweit gesetzlich zulässig, haften VALSYNC und seine Mitwirkenden nicht für Schäden, die aus der Nutzung oder der Unmöglichkeit der Nutzung der App entstehen, einschließlich Datenverlust, Probleme mit Spielkonten oder indirekte Schäden.",
       "p9": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren. Wesentliche Änderungen werden über die App oder unsere Website mitgeteilt. Die weitere Nutzung nach Änderungen stellt eine Annahme dar.",
       "p10": "Wir können deinen Zugriff auf die App jederzeit aussetzen oder beenden, wenn du diese Bedingungen oder die Richtlinien von Riot Games verletzt. Du kannst die Nutzung der App jederzeit durch Deinstallation von deinem Gerät beenden.",
-      "p11": "Bei Fragen zu diesen Bedingungen kontaktiere uns unter <a href=\"mailto:abdullaheltiby@tutamail.com\">abdullaheltiby@tutamail.com</a> oder über das <a href=\"https://github.com/your-org/valsync\">VALSYNC GitHub-Repository</a>."
+      "p11": "Bei Fragen zu diesen Bedingungen kontaktiere uns unter <a href=\"mailto:abdullaheltiby@tutamail.com\">abdullaheltiby@tutamail.com</a>."
     }
   }
 }
