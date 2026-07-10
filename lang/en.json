@@ -143,6 +143,7 @@
       "title": "Want this in plain language?",
       "lead": "Tap any AI assistant — we'll copy the page text and open the chat ready for you.",
       "note": "If the chat doesn't pick up the prompt automatically, paste it from your clipboard.",
+      "toast": "Prompt copied — paste it into {provider}.",
       "prompt": "Please read VALSYNC's {doc} at {url} and explain it in simple, plain language. Highlight the most important points a user should know. Answer in the user's language."
     },
     "privacy": {

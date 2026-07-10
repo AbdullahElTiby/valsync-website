@@ -143,6 +143,7 @@
       "title": "Bunu sade dille mi görmek istersiniz?",
       "lead": "Herhangi bir yapay zekâ asistanına dokunun — sayfa metnini kopyalayıp sohbeti sizin için hazır açalım.",
       "note": "Sohbet metni otomatik almazsa panodan yapıştırın.",
+      "toast": "Metin kopyalandı — {provider} içine yapıştırın.",
       "prompt": "{url} adresindeki VALSYNC {doc} metnini okuyup basit ve anlaşılır bir dille açıkla. Bir kullanıcının bilmesi gereken en önemli noktaları öne çıkar. Kullanıcının dilinde yanıt ver."
     },
     "privacy": {

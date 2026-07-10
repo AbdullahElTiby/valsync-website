@@ -56,7 +56,7 @@
   }
 
   function loadAndApply(lang) {
-      fetch('lang/' + lang + '.json?v=6')
+      fetch('lang/' + lang + '.json?v=7')
       .then(function(r) { return r.json(); })
       .then(function(data) { translate(lang, data); })
       .catch(function() {
@@ -128,9 +128,42 @@
       }
     }
 
-    row.addEventListener('click', function(e) {
+    // ponytail: gemini/deepseek/qwen ignore ?q= prefill, so the user must
+    // paste manually. A toast flags that for those providers only.
+    var noPrefill = { gemini: 1, deepseek: 1, qwen: 1 };
+    var toastEl, toastTimer;
+    function showToast(msg) {
+      if (!toastEl) {
+        var st = document.createElement('style');
+        st.textContent = ''
+          + '.ai-toast{position:fixed;left:50%;bottom:1.5rem;z-index:9999;transform:translate(-50%,12px);'
+          + 'max-width:90vw;padding:.7rem 1rem;border-radius:8px;background:var(--surface-hi);'
+          + 'border:1px solid var(--cyan);color:var(--ink);font:inherit;font-size:13px;'
+          + 'box-shadow:0 8px 30px rgba(0,0,0,.45);opacity:0;pointer-events:none;'
+          + 'transition:opacity 180ms ease,transform 180ms ease}'
+          + '.ai-toast.show{opacity:1;transform:translate(-50%,0)}'
+          + '@media(prefers-reduced-motion:reduce){.ai-toast{transition:none}}';
+        document.head.appendChild(st);
+        toastEl = document.createElement('div');
+        toastEl.className = 'ai-toast';
+        toastEl.setAttribute('role', 'status');
+        document.body.appendChild(toastEl);
+      }
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2800);
+    }
+
+    row.addEventListener('click', function (e) {
       var t = e.target.closest && e.target.closest('.ai-btn');
-      if (t && t._p) { try { navigator.clipboard.writeText(t._p); } catch(_) {} }
+      if (!t || !t._p) return;
+      try { navigator.clipboard.writeText(t._p); } catch (_) {}
+      if (!noPrefill[t.getAttribute('data-ai')]) return;
+      var name = t.getAttribute('aria-label') || t.title || t.getAttribute('data-ai');
+      var tmpl = (i18nData && i18nData.legal && i18nData.legal.ai && i18nData.legal.ai.toast)
+        || 'Prompt copied — paste it into {provider}.';
+      showToast(tmpl.split('{provider}').join(name));
     });
 
     aiRefresh = refresh;
