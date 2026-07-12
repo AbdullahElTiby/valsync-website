@@ -60,7 +60,7 @@ export default function Hero() {
                   >
                     <img
                       className="app-shot"
-                      src={`/assets/screenshot-${panel}.jpg`}
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}/assets/screenshot-${panel}.jpg`}
                       alt={`VALSYNC ${panel} screen`}
                     />
                     <div className="shot-caption">

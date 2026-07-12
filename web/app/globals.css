@@ -3,6 +3,13 @@
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--fg);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--fg);
+  --color-muted: var(--surface-hi);
+  --color-muted-foreground: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--fg);
   --font-sans: var(--font-saira), system-ui, sans-serif;
   --font-mono: var(--font-saira), ui-monospace, Menlo, monospace;
 }

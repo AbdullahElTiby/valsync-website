@@ -25,12 +25,14 @@ export default function MobileBottomNav() {
     setActive(idx);
   }, []);
 
+  const B = process.env.NEXT_PUBLIC_BASE_PATH;
+
   return (
     <nav className="mobnav" aria-label="Mobile navigation">
       {tabs.map((tab, i) => {
         const Icon = tab.icon;
         const isActive = active === i;
-        const href = tab.external ? tab.href : `${prefix}${tab.href}`;
+        const href = tab.external ? `${B}${tab.href}` : `${prefix}${tab.href}`;
         return (
           <a
             key={tab.key}

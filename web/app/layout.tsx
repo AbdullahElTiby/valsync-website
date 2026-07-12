@@ -17,6 +17,7 @@ const saira = Saira({
 });
 
 const SITE_URL = "https://abdullaheltiby.github.io/valsync-website/";
+const B = process.env.NEXT_PUBLIC_BASE_PATH;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
       "Store checker, Night Market watchlist, party status, and match review for Valorant players. No ads. No tracking.",
     images: ["/img/screenshot-home.jpg"],
   },
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: `${B}/favicon.ico` },
 };
 
 export const viewport: Viewport = {
