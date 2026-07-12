@@ -952,72 +952,284 @@ details p { color: var(--muted); margin: 12px 0 0; max-width: 70ch; }
   .mobile-page .hint { font-size: 0.7rem; }
 }
 
-.page-loader {
+/* AuthSyncLoader — matches Android app com.valsync.app.ui.login.AuthSyncLoader
+   Colors mirror defaultTacticalDark from Color.kt */
+.auth-loader {
+  --al-bg:        #0A141E;
+  --al-primary:   #FF525D;
+  --al-cyan:      #00EAB8;
+  --al-outline:   #5B403F;
+  --al-surface:   #212B35;
+  --al-text:      #D9E3F2;
+  --al-text-2:    #E4BDBC;
   position: fixed;
   inset: 0;
   z-index: 9999;
-  display: grid;
-  place-items: center;
-  background: #F2EFEA;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 420ms var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  background: rgba(10, 20, 30, 0.95);
   font-family: var(--font-display);
-}
-.page-loader.is-visible {
+  color: var(--al-text);
   opacity: 1;
+  transition: opacity 420ms var(--ease-out);
   pointer-events: auto;
 }
-.page-loader-mark {
+.auth-loader.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.auth-loader-scan {
   position: relative;
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 4px;
-}
-.page-loader-text {
-  font-weight: 800;
-  font-size: clamp(34px, 5vw, 52px);
-  letter-spacing: 0.04em;
-  color: #BA1A1A;
-  line-height: 1;
-  animation: page-loader-rise 700ms var(--ease-out) both;
-}
-.page-loader-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: var(--accent);
-  margin-top: 0.35em;
-  animation: page-loader-pulse 1100ms ease-in-out infinite;
-}
-.page-loader-bar {
-  position: absolute;
-  bottom: 14vh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(120px, 22vw, 220px);
-  height: 2px;
-  background: rgba(186, 26, 26, 0.15);
-  overflow: hidden;
-  border-radius: 2px;
-}
-.page-loader-bar-fill {
-  display: block;
   width: 100%;
-  height: 100%;
-  background: #BA1A1A;
-  transform-origin: left center;
-  animation: page-loader-fill 1200ms var(--ease-out) forwards;
+  max-width: 360px;
+  height: 70px;
+  margin-bottom: 14px;
 }
-@keyframes page-loader-rise {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+.auth-loader-axis {
+  position: absolute;
+  top: calc(50% - 0.5px);
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: var(--al-outline);
+  opacity: 0.38;
 }
-@keyframes page-loader-pulse {
-  0%, 100% { opacity: 0.35; transform: scale(0.85); }
-  50%      { opacity: 1;    transform: scale(1.1); }
+.auth-loader-beam {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: 70px;
+  height: 2px;
+  margin-left: 12%;
+  background: var(--al-cyan);
+  opacity: 0.6;
+  border-radius: 1px;
+  animation: al-beam 1850ms linear infinite;
 }
-@keyframes page-loader-fill {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+@keyframes al-beam {
+  0%   { left: 0; }
+  100% { left: calc(100% - 70px); }
+}
+.auth-loader-marker {
+  position: absolute;
+  top: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  background: var(--al-surface);
+}
+.auth-loader-marker-0 { left: 12%; background: var(--al-cyan); opacity: 0.62; }
+.auth-loader-marker-1 { left: 31%; animation: al-marker-1 1850ms linear infinite; }
+.auth-loader-marker-2 { left: 50%; animation: al-marker-2 1850ms linear infinite; }
+.auth-loader-marker-3 { left: 69%; animation: al-marker-3 1850ms linear infinite; }
+.auth-loader-marker-4 { left: 88%; animation: al-marker-4 1850ms linear infinite; }
+@keyframes al-marker-1 {
+  0%, 20%      { background: var(--al-surface); }
+  20.01%, 100% { background: var(--al-cyan); opacity: 0.62; }
+}
+@keyframes al-marker-2 {
+  0%, 40%      { background: var(--al-surface); }
+  40.01%, 100% { background: var(--al-cyan); opacity: 0.62; }
+}
+@keyframes al-marker-3 {
+  0%, 60%      { background: var(--al-surface); }
+  60.01%, 100% { background: var(--al-cyan); opacity: 0.62; }
+}
+@keyframes al-marker-4 {
+  0%, 80%      { background: var(--al-surface); }
+  80.01%, 100% { background: var(--al-cyan); opacity: 0.62; }
+}
+
+.auth-loader-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 18px;
+  border: 1px solid rgba(255, 82, 93, 0.44);
+  border-radius: 12px;
+  background: rgba(33, 43, 53, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.auth-loader-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.auth-loader-logo {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 4px;
+  background: rgba(10, 20, 30, 0.76);
+  border: 1px solid rgba(255, 82, 93, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.auth-loader-logo img {
+  width: 34px;
+  height: 34px;
+  display: block;
+  animation: al-logo-pulse 1200ms ease-in-out infinite alternate;
+}
+@keyframes al-logo-pulse {
+  0%   { transform: scale(0.96); }
+  100% { transform: scale(0.99); }
+}
+.auth-loader-titles { flex: 1 1 auto; min-width: 0; }
+.auth-loader-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--al-primary);
+  line-height: 1.2;
+}
+.auth-loader-subtitle {
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--al-text-2);
+  line-height: 1.2;
+}
+
+.auth-loader-steps {
+  display: flex;
+  gap: 6px;
+  margin-top: 18px;
+}
+.auth-loader-step {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+.auth-loader-step-bar {
+  height: 6px;
+  border-radius: 2px;
+  background: var(--al-outline);
+  opacity: 0.32;
+}
+.auth-loader-step-label {
+  margin-top: 7px;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: var(--al-text-2);
+  opacity: 0.62;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.auth-loader-step-bar-0 { animation: al-bar-0 1850ms linear infinite; }
+.auth-loader-step-bar-1 { animation: al-bar-1 1850ms linear infinite; }
+.auth-loader-step-bar-2 { animation: al-bar-2 1850ms linear infinite; }
+.auth-loader-step-bar-3 { animation: al-bar-3 1850ms linear infinite; }
+.auth-loader-step-bar-4 { animation: al-bar-4 1850ms linear infinite; }
+@keyframes al-bar-0 {
+  0%, 20%      { background: var(--al-cyan);    opacity: 0.50; }
+  10%          {                               opacity: 0.74; }
+  20.01%, 100% { background: var(--al-primary); opacity: 0.82; }
+}
+@keyframes al-bar-1 {
+  0%, 20%      { background: var(--al-outline); opacity: 0.32; }
+  20.01%, 40%  { background: var(--al-cyan);    opacity: 0.50; }
+  30%          {                               opacity: 0.74; }
+  40.01%, 100% { background: var(--al-primary); opacity: 0.82; }
+}
+@keyframes al-bar-2 {
+  0%, 40%      { background: var(--al-outline); opacity: 0.32; }
+  40.01%, 60%  { background: var(--al-cyan);    opacity: 0.50; }
+  50%          {                               opacity: 0.74; }
+  60.01%, 100% { background: var(--al-primary); opacity: 0.82; }
+}
+@keyframes al-bar-3 {
+  0%, 60%      { background: var(--al-outline); opacity: 0.32; }
+  60.01%, 80%  { background: var(--al-cyan);    opacity: 0.50; }
+  70%          {                               opacity: 0.74; }
+  80.01%, 100% { background: var(--al-primary); opacity: 0.82; }
+}
+@keyframes al-bar-4 {
+  0%, 80%      { background: var(--al-outline); opacity: 0.32; }
+  80.01%, 99%  { background: var(--al-cyan);    opacity: 0.50; }
+  90%          {                               opacity: 0.74; }
+  99.01%, 100% { background: var(--al-primary); opacity: 0.82; }
+}
+.auth-loader-step-label-0 { animation: al-label-0 1850ms linear infinite; }
+.auth-loader-step-label-1 { animation: al-label-1 1850ms linear infinite; }
+.auth-loader-step-label-2 { animation: al-label-2 1850ms linear infinite; }
+.auth-loader-step-label-3 { animation: al-label-3 1850ms linear infinite; }
+.auth-loader-step-label-4 { animation: al-label-4 1850ms linear infinite; }
+@keyframes al-label-0 {
+  0%, 100% { color: var(--al-text);   opacity: 1; }
+}
+@keyframes al-label-1 {
+  0%, 20%      { color: var(--al-text-2); opacity: 0.62; }
+  20.01%, 100% { color: var(--al-text);   opacity: 1; }
+}
+@keyframes al-label-2 {
+  0%, 40%      { color: var(--al-text-2); opacity: 0.62; }
+  40.01%, 100% { color: var(--al-text);   opacity: 1; }
+}
+@keyframes al-label-3 {
+  0%, 60%      { color: var(--al-text-2); opacity: 0.62; }
+  60.01%, 100% { color: var(--al-text);   opacity: 1; }
+}
+@keyframes al-label-4 {
+  0%, 80%      { color: var(--al-text-2); opacity: 0.62; }
+  80.01%, 100% { color: var(--al-text);   opacity: 1; }
+}
+
+.auth-loader-status {
+  margin-top: 20px;
+  padding: 13px 14px;
+  border: 1px solid rgba(93, 64, 63, 0.34);
+  border-radius: 8px;
+  background: rgba(10, 20, 30, 0.58);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--al-text);
+}
+
+.auth-loader-dots {
+  display: flex;
+  gap: 7px;
+  margin-top: 18px;
+}
+.auth-loader-dot {
+  height: 4px;
+  width: 10px;
+  border-radius: 2px;
+  background: var(--al-outline);
+  opacity: 0.42;
+}
+.auth-loader-dot-0 { animation: al-dot-0 1850ms linear infinite; }
+.auth-loader-dot-1 { animation: al-dot-1 1850ms linear infinite; }
+.auth-loader-dot-2 { animation: al-dot-2 1850ms linear infinite; }
+@keyframes al-dot-0 {
+  0%, 20%      { width: 24px; background: var(--al-primary); opacity: 0.76; }
+  20.01%, 60%  { width: 10px; background: var(--al-outline); opacity: 0.42; }
+  60.01%, 80%  { width: 24px; background: var(--al-primary); opacity: 0.76; }
+  80.01%, 100% { width: 10px; background: var(--al-outline); opacity: 0.42; }
+}
+@keyframes al-dot-1 {
+  0%, 20%      { width: 10px; background: var(--al-outline); opacity: 0.42; }
+  20.01%, 40%  { width: 24px; background: var(--al-primary); opacity: 0.76; }
+  40.01%, 80%  { width: 10px; background: var(--al-outline); opacity: 0.42; }
+  80.01%, 100% { width: 24px; background: var(--al-primary); opacity: 0.76; }
+}
+@keyframes al-dot-2 {
+  0%, 40%      { width: 10px; background: var(--al-outline); opacity: 0.42; }
+  40.01%, 60%  { width: 24px; background: var(--al-primary); opacity: 0.76; }
+  60.01%, 100% { width: 10px; background: var(--al-outline); opacity: 0.42; }
 }

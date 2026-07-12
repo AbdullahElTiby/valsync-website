@@ -103,19 +103,64 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={saira.variable} data-scroll-behavior="smooth">
       <body>
-        <div id="page-loader" className="page-loader is-visible" aria-hidden="false">
-          <div className="page-loader-mark">
-            <span className="page-loader-text">VALSYNC</span>
-            <span className="page-loader-dot" />
+        <div id="auth-loader" className="auth-loader" role="status" aria-live="polite" aria-label="Loading VALSYNC">
+          <div className="auth-loader-scan">
+            <div className="auth-loader-axis" />
+            <div className="auth-loader-beam" />
+            <div className="auth-loader-marker auth-loader-marker-0" />
+            <div className="auth-loader-marker auth-loader-marker-1" />
+            <div className="auth-loader-marker auth-loader-marker-2" />
+            <div className="auth-loader-marker auth-loader-marker-3" />
+            <div className="auth-loader-marker auth-loader-marker-4" />
           </div>
-          <div className="page-loader-bar">
-            <span className="page-loader-bar-fill" />
+
+          <div className="auth-loader-card">
+            <div className="auth-loader-head">
+              <div className="auth-loader-logo">
+                <img src="loader-logo.png" alt="" width="34" height="34" />
+              </div>
+              <div className="auth-loader-titles">
+                <div className="auth-loader-title">VALSYNC LINK</div>
+                <div className="auth-loader-subtitle">SECURE SESSION HANDOFF</div>
+              </div>
+            </div>
+
+            <div className="auth-loader-steps">
+              <div className="auth-loader-step">
+                <div className="auth-loader-step-bar auth-loader-step-bar-0" />
+                <div className="auth-loader-step-label auth-loader-step-label-0">RSO</div>
+              </div>
+              <div className="auth-loader-step">
+                <div className="auth-loader-step-bar auth-loader-step-bar-1" />
+                <div className="auth-loader-step-label auth-loader-step-label-1">PAS</div>
+              </div>
+              <div className="auth-loader-step">
+                <div className="auth-loader-step-bar auth-loader-step-bar-2" />
+                <div className="auth-loader-step-label auth-loader-step-label-2">PUUID</div>
+              </div>
+              <div className="auth-loader-step">
+                <div className="auth-loader-step-bar auth-loader-step-bar-3" />
+                <div className="auth-loader-step-label auth-loader-step-label-3">GLZ</div>
+              </div>
+              <div className="auth-loader-step">
+                <div className="auth-loader-step-bar auth-loader-step-bar-4" />
+                <div className="auth-loader-step-label auth-loader-step-label-4">CACHE</div>
+              </div>
+            </div>
+
+            <div className="auth-loader-status">PREPARING SESSION</div>
+          </div>
+
+          <div className="auth-loader-dots">
+            <div className="auth-loader-dot auth-loader-dot-0" />
+            <div className="auth-loader-dot auth-loader-dot-1" />
+            <div className="auth-loader-dot auth-loader-dot-2" />
           </div>
         </div>
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "setTimeout(function(){var l=document.getElementById('page-loader');if(l){l.classList.remove('is-visible');l.setAttribute('aria-hidden','true');setTimeout(function(){if(l&&l.parentNode)l.parentNode.removeChild(l);},500);}},1400);",
+              "setTimeout(function(){var l=document.getElementById('auth-loader');if(l){l.classList.add('is-leaving');setTimeout(function(){if(l&&l.parentNode)l.parentNode.removeChild(l);},420);}},9250);",
           }}
         />
         <I18nProvider>
