@@ -1,2 +1,2 @@
-:HL["/valsync-website/_next/static/chunks/155jjt2z9oa06.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"bl0fh_3BPX3urGvBjNLOF"}
+:HL["/valsync-website/_next/static/chunks/3dq9hl6duavd1.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"bv42hE6t4uIxfKtydMeRa"}
