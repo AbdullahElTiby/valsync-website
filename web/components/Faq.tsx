@@ -1,10 +1,10 @@
 "use client";
 import {
-  EyeOff,
-  LayoutGrid,
-  Lock,
+  LayoutDashboard,
   LogIn,
-  ShoppingBag,
+  MegaphoneOff,
+  ShieldCheck,
+  Store,
   Users,
   type LucideIcon,
 } from "lucide-react";
@@ -14,11 +14,11 @@ import { BouncyAccordion } from "./ui/be-ui-bouncy-accordion";
 
 const FAQ_ITEMS: { id: string; icon: LucideIcon }[] = [
   { id: "1", icon: LogIn },
-  { id: "2", icon: EyeOff },
-  { id: "3", icon: LayoutGrid },
-  { id: "4", icon: ShoppingBag },
+  { id: "2", icon: MegaphoneOff },
+  { id: "3", icon: LayoutDashboard },
+  { id: "4", icon: Store },
   { id: "5", icon: Users },
-  { id: "6", icon: Lock },
+  { id: "6", icon: ShieldCheck },
 ];
 
 export default function Faq() {

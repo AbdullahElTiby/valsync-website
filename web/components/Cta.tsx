@@ -18,12 +18,10 @@ export default function Cta() {
           {t("cta.button")}
         </a>
         <div className="support-row">
+          <a href="https://liberapay.com/AbdullahElTiby/donate">
+            <img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg" />
+          </a>
           <Script src="https://liberapay.com/AbdullahElTiby/widgets/button.js" strategy="afterInteractive" />
-          <noscript>
-            <a href="https://liberapay.com/AbdullahElTiby/donate">
-              <img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg" />
-            </a>
-          </noscript>
         </div>
       </div>
     </Reveal>
