@@ -160,7 +160,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "setTimeout(function(){var l=document.getElementById('auth-loader');if(l){l.classList.add('is-leaving');setTimeout(function(){if(l&&l.parentNode)l.parentNode.removeChild(l);},420);}},3700);",
+              "(function(){var l=document.getElementById('auth-loader');if(!l)return;var start=performance.now();var minMs=700;var done=false;var dismiss=function(){if(done)return;done=true;var wait=Math.max(0,minMs-(performance.now()-start));setTimeout(function(){l.classList.add('is-leaving');setTimeout(function(){if(l&&l.parentNode)l.parentNode.removeChild(l);},420);},wait);};if(document.readyState==='complete')dismiss();else window.addEventListener('load',dismiss,{once:true});})();",
           }}
         />
         <I18nProvider>
