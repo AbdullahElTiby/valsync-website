@@ -103,6 +103,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={saira.variable} data-scroll-behavior="smooth">
       <body>
+        <div id="page-loader" className="page-loader is-visible" aria-hidden="false">
+          <div className="page-loader-mark">
+            <span className="page-loader-text">VALSYNC</span>
+            <span className="page-loader-dot" />
+          </div>
+          <div className="page-loader-bar">
+            <span className="page-loader-bar-fill" />
+          </div>
+        </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "setTimeout(function(){var l=document.getElementById('page-loader');if(l){l.classList.remove('is-visible');l.setAttribute('aria-hidden','true');setTimeout(function(){if(l&&l.parentNode)l.parentNode.removeChild(l);},500);}},1400);",
+          }}
+        />
         <I18nProvider>
           <GlowProvider>
             <Nav />
