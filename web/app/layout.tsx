@@ -16,7 +16,7 @@ const saira = Saira({
   display: "swap",
 });
 
-const SITE_URL = "https://abdullaheltiby.github.io/valsync-website/";
+const SITE_URL = "https://valsync.github.io/valsync-website/";
 const B = process.env.NEXT_PUBLIC_BASE_PATH;
 
 export const metadata: Metadata = {
